@@ -17,12 +17,12 @@ const OnboardingRoute = ({component: Component, ...rest}) => (
         isAuthenticated() ? (
         <Component {...props} />
          ) : (
-          <Redirect to={{ pathname: '/', state: { from: props.location } }} />
+          <Redirect to={{ pathname: '/home', state: { from: props.location } }} />
       )
     } 
   />
 );
-
+ console.log(localStorage.getItem('isAuth'))
 
 function App() {
   return (
@@ -32,8 +32,8 @@ function App() {
 
 <BrowserRouter>
       <Switch>
-      <OnboardingRoute path='/modal' component={Teste} />
-      <Route exact path="/" component= {PageIndex} />
+      <OnboardingRoute  exact path='/' component={Teste} />
+      <Route path="/home" component= {PageIndex} />
       <Route path="/modal"  component = {Modalteste} />
       <Route path="/login" component={PageLogin} />
       <Route path="/cadastro" component={PagedeCadastro} />

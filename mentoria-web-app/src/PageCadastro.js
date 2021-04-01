@@ -3,7 +3,7 @@ const PagedeCadastro = () => {
         <>
         <button>< a href='http://localhost:3000/login'>  Login  </a> </button>
     
-        <button > <a href='http://localhost:3000/'> Home</a> </button>
+        <button > <a href='http://localhost:3000/home'> Home</a> </button>
         </>
     )
 }

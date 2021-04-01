@@ -5,6 +5,7 @@ function Bomdia(props) {
    <div>
        'Primeiro passo!''
        <button onClick={(props.onClick)}> Chamar Slides 2  </button>
+      
    </div>
     );
 

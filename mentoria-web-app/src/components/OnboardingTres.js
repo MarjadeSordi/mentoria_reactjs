@@ -1,4 +1,4 @@
-const  Adeus= () => {
+const OnboardingTres= () => {
 
  
     return( 
@@ -14,7 +14,7 @@ const  Adeus= () => {
 }
 
 
-export default Adeus;
+export default OnboardingTres;
    
 
 

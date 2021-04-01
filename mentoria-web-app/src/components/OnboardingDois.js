@@ -1,4 +1,4 @@
-function BoaNoite(props) {
+function OnboardingDois(props) {
     return (
        <div>Segundo Passo!
         <button onClick={(props.onClick)} >  terceiro passo    </button>   
@@ -6,4 +6,4 @@ function BoaNoite(props) {
         );
 }
 
-export default BoaNoite;
+export default OnboardingDois;

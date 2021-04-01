@@ -1,4 +1,4 @@
-function Bomdia(props) {
+function OnboardingUm(props) {
     
     return( 
 
@@ -11,4 +11,4 @@ function Bomdia(props) {
 
 }
 
-export default Bomdia;
+export default OnboardingUm;

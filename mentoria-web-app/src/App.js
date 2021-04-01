@@ -4,9 +4,8 @@ import PageIndex from './PageIndex';
 import PageLogin from './PageLogin';
 import PagedeCadastro from './PageCadastro';
 import PagedeAjuda from './PagedeAjuda';
-import Modalteste from './Modalteste';
 import { isAuthenticated } from './auth';
-import Teste from './components/Teste';
+import OnboardingFunction from './components/Onboarding';
 
 
 
@@ -22,7 +21,7 @@ const OnboardingRoute = ({component: Component, ...rest}) => (
     } 
   />
 );
- console.log(localStorage.getItem('isAuth'))
+
 
 function App() {
   return (
@@ -32,9 +31,8 @@ function App() {
 
 <BrowserRouter>
       <Switch>
-      <OnboardingRoute  exact path='/' component={Teste} />
+      <OnboardingRoute  exact path='/' component={OnboardingFunction} />
       <Route path="/home" component= {PageIndex} />
-      <Route path="/modal"  component = {Modalteste} />
       <Route path="/login" component={PageLogin} />
       <Route path="/cadastro" component={PagedeCadastro} />
       <Route path="/ajuda" component={PagedeAjuda} />

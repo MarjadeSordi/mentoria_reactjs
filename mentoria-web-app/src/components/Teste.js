@@ -1,32 +1,25 @@
 import React, { useState } from 'react';
 import Bomdia from '../components/Componenteum';
 import BoaNoite from '../components/Componentedois';
+import Adeus from './Componentetres';
 
 
 
-function Teste() {
+const Teste = () => {
 
 const Onboarding = () => {
-
+}
     
-    const mostradiv = '2' 
-
-    if (mostradiv === '1'){
-       return( <Bomdia />)
-    } else if (mostradiv === '2') {
-       return( <BoaNoite /> ) 
-    } else { return ("Próximo passo")
-
-    }}
-
-
-    const [slide, setSlide] = useState('');
+    const [slide, setSlide] = useState('1');
 
        
     if (slide ==='1') {
-        return(<Bomdia />)
+        return(<Bomdia onClick={() => setSlide('2')} />)
     } else if (slide ==='2') {
-        return(<BoaNoite /> )
+        return(<BoaNoite onClick={() => setSlide('3')} /> )
+    }
+    else if (slide ==='3'){
+        return(<Adeus />)
     }
 
     return (
@@ -34,8 +27,8 @@ const Onboarding = () => {
             {Onboarding()}
              
              <p>  </p>
-             <button onClick={() => setSlide('1')}> Chamar Slides 1  </button>
-             <button onClick={() => setSlide('2')}> Chamar Slides 2  </button>
+            
+          
 
         </div>
     );

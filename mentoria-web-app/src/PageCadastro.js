@@ -1,6 +1,10 @@
 const PagedeCadastro = () => {
     return (
-        <button> Cadastro </button>
+        <>
+        <button>< a href='http://localhost:3000/login'>  Login  </a> </button>
+    
+        <button > <a href='http://localhost:3000/'> Home</a> </button>
+        </>
     )
 }
 

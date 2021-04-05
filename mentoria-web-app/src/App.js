@@ -4,8 +4,12 @@ import PageIndex from './PageIndex';
 import PageLogin from './PageLogin';
 import PagedeCadastro from './PageCadastro';
 import PagedeAjuda from './PagedeAjuda';
+import PageNotFound from './PageNotFound';
 import { isAuthenticated } from './auth';
 import OnboardingFunction from './components/Onboarding';
+import {Provider} from 'react-redux';
+import store from './store';
+
 
 
 
@@ -32,13 +36,15 @@ function App() {
 <BrowserRouter>
       <Switch>
       <OnboardingRoute  exact path='/' component={OnboardingFunction} />
-      <Route path="/home" component= {PageIndex} />
-      <Route path="/login" component={PageLogin} />
-      <Route path="/cadastro" component={PagedeCadastro} />
-      <Route path="/ajuda" component={PagedeAjuda} />
-
-    
+      <Provider store={store}>
+      <Route exact path="/home" component= {PageIndex} />
+      <Route exact path="/login" component={PageLogin} />
+      <Route exact path="/cadastro" component={PagedeCadastro} />
+      <Route exact path="/ajuda" component={PagedeAjuda} />
       
+      </Provider>
+    
+      <Route component={PageNotFound}/>
       </Switch>
       </BrowserRouter>
     

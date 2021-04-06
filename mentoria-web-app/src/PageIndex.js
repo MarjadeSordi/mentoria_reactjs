@@ -1,7 +1,14 @@
+import Logo from "./components/Logo";
+import Typografia from "./components/Typografia";
+
 const PageIndex =  () => {
     return(
+        <>
+
+        <Logo />
+        <Typografia />
         
-    <button> Link </button>)
+</>)
 }
 
 export default PageIndex;

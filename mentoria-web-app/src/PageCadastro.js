@@ -1,9 +1,16 @@
+import InputForm from '../src/components/Input';
+import { Link } from 'react-router-dom';
+
+
 const PagedeCadastro = () => {
     return (
         <>
-        <button>< a href='http://localhost:3000/login'>  Login  </a> </button>
+
+        <InputForm />
+
+        <Link to ='/login'> <button> Login   </button> </Link>
     
-        <button > <a href='http://localhost:3000/home'> Home</a> </button>
+        <Link to ='/home'> <button >  Home </button> </Link>
         </>
     )
 }

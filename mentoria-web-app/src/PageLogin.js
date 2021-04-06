@@ -1,4 +1,5 @@
 import Login from "./components/Login";
+import { Link } from 'react-router-dom';
 
 const PageLogin = () =>{
     return(
@@ -8,9 +9,10 @@ const PageLogin = () =>{
        <p>'Digite seu login'</p>
         
 
-        <button>< a href='http://localhost:3000/cadastro'>  Cadastro  </a> </button>
+       
+       <Link to ='/cadastro'> <button> Cadastro  </button> </Link>
     
-        <button > <a href='http://localhost:3000/home'> Home</a> </button>
+       <Link to ='/home'>  <button > Home </button> </Link>
        </>
     )
 }

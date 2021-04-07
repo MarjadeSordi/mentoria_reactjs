@@ -1,16 +1,32 @@
-import styled from 'styled-components';
-import { ThemeProvider } from 'styled-components';
+import styled, { createGlobalStyle, ThemeProvider, css} from 'styled-components';
+import warning from '../src/assets/icons/warning.svg';
 
 
-const coresGlobais = {
+
+export const GlobalStyle = createGlobalStyle `
+html {
+    margin: 0px;
+    height: 100%;
+}
+  
+body {
+    font-family: Open Sans;
+  
+}
+
+`;
+
+export const coresGlobais = {  
     primary: '#1B5DFF',
     secondary: '#47D163',
     mediumShade: '#828282',
     lightestShade: 'F9F9F9',
     tertiary: '#6225CC',
-    fullShade: '090808',
-    lightShade: 'E0E0E0'
-};
+    fullShade: '#090808',
+    lightShade: '#E0E0E0'
+
+}
+
 
 export const ButtonApp = styled.button `
 height: 48px;
@@ -19,13 +35,10 @@ left: 255px;
 top: 374px;
 border-radius: 5px;
 
-position: absolute;
 left: 39.23%;
 right: 8%;
 bottom: 20.53%;
-
-/* MediumShade */
-
+cursor: pointer;
 
 font-family: Roboto;
 
@@ -133,6 +146,7 @@ font-style: normal;
 font-weight: normal;
 font-size: 18px;
 line-height: 25px;
+
 /* identical to box height */
 
 display: flex;
@@ -162,4 +176,82 @@ align-items: center;
 /* Gray 1 */
 
 color: #333333;
+`
+
+export const StyleFormShared = css `
+    background-color:${coresGlobais.lightShade};
+    background-image: url (${warning}) no repeat;
+    width: 340px;
+    height: 48px;
+    border-radius: 5px;
+ 
+    margin-bottom: 5px;
+    
+  ;` 
+
+export const StyledFormDiv = styled.div `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    padding: 20px;
+    
+` 
+
+export const StyledForm = styled.form `
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 700px;
+    padding: 40px;
+`
+
+export const StyledInput = styled.input`
+    display: block;   
+    border:none;
+    ${StyleFormShared}
+`
+
+export const StyledInputforError = styled.input `
+    display: block;
+    border: ${props => `${props.borderColor}`};
+    ${StyleFormShared}
+
+`
+
+export const StyledInputforCheck = styled.input `
+    display: block;
+    border: ${props => `${props.borderColor}`};
+    ${StyleFormShared}
+
+`
+
+export const StyledError = styled.div `
+    color: #EB5757;
+    font-size: 14px;
+    margin: 0px;
+
+`
+export const MsgInputError = styled.span `
+    color: #EB5757;
+    font-size: 12px;
+`
+
+export const MsgInputCheck = styled.span `
+    color: ${coresGlobais.secondary};
+    font-size: 12px;
+
+`
+
+export const ImagemError = styled.img `
+    width: 15px;
+    position: absolute;
+    margin: 100px 300px;
+`
+
+export const ImagemCheck = styled.img `
+    width: 15px;
+    position: absolute;
+    margin: 170px 300px;
 `

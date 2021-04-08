@@ -1,7 +1,7 @@
 import InputForm from '../src/components/Input';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-
+import correct from '../src/assets/icons/correct.svg';
 
 const PagedeCadastro = () => {
     const [value, setValue ] = useState('');
@@ -16,23 +16,26 @@ const PagedeCadastro = () => {
 
 
    const ValidarInput = () => {
-       if(value) {
-           setError(false)
-       } else {
-           setError('Não é permitido campos vazios')
+       if(value ==='') {
+           setError('Não pode deixar campos em branco')       
        }
+       
+       else if (value){
+           setCheck('Pode prosseguuir')
+       }
+    
+     
     }
 
-    const ChecarInput = () => {
-        setCheck('Pode prosseguir')
-    }
+
+   
     return (
         <>
 
         <InputForm name="input1" onChange={handleInput} />
-        <InputForm name="input2" onChange={handleInput} />
-        <InputForm name="input3" onChange={handleInput} value={value} validateInput={ValidarInput} checkInput={ChecarInput} error={error} />
-        <InputForm name="input4" onChange={handleInput} />
+        <InputForm name="input2" onChange={handleInput} value={value} validateInput={ValidarInput} check={check} img={correct}/>
+        <InputForm name="input3" onChange={handleInput} value={value} validateInput={ValidarInput}  error={error}  />
+        <InputForm name="input4" onChange={handleInput}  />
 
         <Link to ='/login'> <button> Login   </button> </Link>
     

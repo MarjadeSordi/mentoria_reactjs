@@ -1,11 +1,11 @@
-import { StyledInput, StyledInputforCheck, StyledInputforError, TextoBold, MsgInputError, MsgInputCheck, 
+import { StyledInput, MsgInputError, MsgInputCheck, 
     ImagemCheck, ImagemError} from '../style';
+import Vector from '../assets/icons/Vector.svg';
 
-
-
-const InputForm = ({ name, type = "text", value, onChange, validateInput, checkInput, error = false, ...props }) => {
+const InputForm = ({ name, type = "text", value, onChange, validateInput, checkInput, error = false, check=false ,img, ...props }) => {
     
-return(
+return( 
+    <>
         <StyledInput 
             type={type} 
             name ={name} 
@@ -13,8 +13,16 @@ return(
             onChange={onChange}
             onBlur={validateInput} 
             error={error}
+            check={check}
             {...props}
         /> 
+
+        {error?
+        <> <MsgInputError> <p> {error} </p></MsgInputError> <ImagemError src={Vector} /> </> : <> <MsgInputCheck> <p> {check}  </p> </MsgInputCheck> <ImagemCheck src={img} />  </> }
+
+         
+
+       </>
     )
 }
 

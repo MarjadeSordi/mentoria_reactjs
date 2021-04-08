@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle, ThemeProvider, css} from 'styled-components';
 import warning from '../src/assets/icons/warning.svg';
-
+import Vector from '../src/assets/icons/Vector.svg';
 
 
 export const GlobalStyle = createGlobalStyle `
@@ -211,49 +211,36 @@ export const StyledInput = styled.input`
     display: block;   
     border:none;
     padding: 0 1rem;
-    border: ${(props) => props.error ? '3px solid #EB5757' : ''};
+    border: none;
+    border: ${(props) => props.error ? '3px solid #EB5757' :  ''};
+    border: ${(props) => props.check ? '3px solid #27AE60' :  ''};
+
     ${StyleFormShared}
 `
 
-export const StyledInputforError = styled.input `
-    display: block;
-    border: ${props => `${props.borderColor}`};
-    ${StyleFormShared}
 
-`
-
-export const StyledInputforCheck = styled.input `
-    display: block;
-    border: ${props => `${props.borderColor}`};
-    ${StyleFormShared}
-
-`
-
-export const StyledError = styled.div `
-    color: #EB5757;
-    font-size: 14px;
-    margin: 0px;
-
-`
-export const MsgInputError = styled.span `
+export const MsgInputError = styled.div `
     color: #EB5757;
     font-size: 12px;
+    font-family: Open Sans;
+    margin-top: 0px;
 `
 
-export const MsgInputCheck = styled.span `
-    color: ${coresGlobais.secondary};
+export const MsgInputCheck = styled.div `
+    color: #27AE60;
     font-size: 12px;
-
+    font-family: Open Sans;
+   
 `
 
 export const ImagemError = styled.img `
     width: 15px;
-    position: absolute;
-    margin: 100px 300px;
+    position: fixed;
+    margin: -73px 325px;
 `
 
 export const ImagemCheck = styled.img `
     width: 15px;
-    position: absolute;
-    margin: 170px 300px;
+    position: fixed;
+    margin: -75px 325px;
 `

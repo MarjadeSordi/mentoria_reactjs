@@ -12,7 +12,7 @@ import store from './store';
 import OnboardingComponent from './components/OnboardingComponent';
 import { GlobalOutlined } from '@ant-design/icons';
 import { GlobalStyle } from './styles/style';
-
+import PageDropdown from './PageDropdown';
 
 
 
@@ -43,6 +43,7 @@ function App() {
       <Route exact path="/home" component= {PageIndex} />
       <Route exact path="/login" component={PageLogin} />
       <Route exact path="/cadastro" component={PagedeCadastro} />
+      <Route exact path="/dropdown" component={PageDropdown} />
       <Route exact path="/ajuda" component={PagedeAjuda} />
       
       </Provider>

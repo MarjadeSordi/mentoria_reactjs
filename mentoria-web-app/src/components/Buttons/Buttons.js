@@ -1,8 +1,8 @@
 import React from 'react';
-import { ButtonApp } from '../styles/components/Button';
+import { ButtonApp } from '../../styles/components/Button';
 import {SyncOutlined} from '@ant-design/icons';
 import { useState } from 'react';
-import { TextButton } from '../styles/components/Typograph';
+import { TextButton } from '../../styles/components/Typograph';
 
 
 

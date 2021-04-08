@@ -1,4 +1,4 @@
-import InputForm from '../src/components/Input';
+import InputForm from '../src/components/Input/Input';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import correct from '../src/assets/icons/correct.svg';

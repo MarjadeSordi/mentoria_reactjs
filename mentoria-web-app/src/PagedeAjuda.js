@@ -1,4 +1,5 @@
-import Buttons from './components/Buttons';
+import Buttons from './components/Buttons/Buttons';
+import Dropdown from './components/Input/Dropdown';
 
 
 const PagedeAjuda = (props) => {
@@ -8,6 +9,7 @@ const PagedeAjuda = (props) => {
     <Buttons />
 
 
+    <Dropdown />
 
       </>
   )

@@ -68,3 +68,10 @@ export const ImagemCheck = styled.img `
     position: fixed;
     margin: -75px 325px;
 `
+
+export const SelectLabel = styled.select`
+    ${StyleFormShared}
+    padding: 0 1rem 0 1rem;
+    border: none;
+    font-family: 'Source Sans Pro', sans-serif;
+`

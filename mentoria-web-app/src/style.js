@@ -210,6 +210,8 @@ export const StyledForm = styled.form `
 export const StyledInput = styled.input`
     display: block;   
     border:none;
+    padding: 0 1rem;
+    border: ${(props) => props.error ? '3px solid #EB5757' : ''};
     ${StyleFormShared}
 `
 

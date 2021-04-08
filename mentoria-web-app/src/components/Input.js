@@ -1,5 +1,5 @@
-import { GlobalStyle, StyledForm, StyledFormDiv, StyledInput, StyledInputforCheck, StyledInputforError, TextoBold, MsgInputError, MsgInputCheck, 
-    ImagemCheck, ImagemError} from '../style';
+import {StyledForm, StyledFormDiv, StyledInput, StyledInputforCheck, StyledInputforError, TextoBold, MsgInputError, MsgInputCheck, 
+    ImagemCheck, ImagemError} from '../styles/components/input';
 import {useState} from 'react';
 import correct from '../assets/icons/correct.svg';
 import Vector from '../assets/icons/Vector.svg';
@@ -50,11 +50,11 @@ const InputForm = () => {
 return(
 <>
 
-<GlobalStyle/>
+
 <StyledFormDiv>
 
     <StyledForm onSubmit={handleSubmit}>
-        <TextoBold > Input </TextoBold>
+     
 
         <label htmlFor='name'></label>
         <StyledInput 

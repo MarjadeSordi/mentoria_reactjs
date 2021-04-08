@@ -1,4 +1,4 @@
-import { Title, TitleDois, TitleTres, TitleQuatro, TextoBold, BodyLarge, TextoBody,} from "../style";
+import { Title, TitleDois, TitleTres, TitleQuatro, TextoBold, BodyLarge, TextoBody} from "../styles/components/Typograph";
 
 const Typografia = () =>{
     return(

@@ -1,5 +1,5 @@
 import { StyledInput, MsgInputError, MsgInputCheck, 
-    ImagemCheck, ImagemError} from '../style';
+    ImagemCheck, ImagemError} from '../styles/components/Input';
 import Vector from '../assets/icons/Vector.svg';
 
 const InputForm = ({ name, type = "text", value, onChange, validateInput, checkInput, error = false, check=false ,img, ...props }) => {

@@ -10,6 +10,8 @@ import OnboardingFunction from './components/Onboarding';
 import {Provider} from 'react-redux';
 import store from './store';
 import OnboardingComponent from './components/OnboardingComponent';
+import { GlobalOutlined } from '@ant-design/icons';
+import { GlobalStyle } from './styles/style';
 
 
 
@@ -32,7 +34,7 @@ function App() {
   return (
    <div>
 
-
+<GlobalStyle />
 
 <BrowserRouter>
       <Switch>

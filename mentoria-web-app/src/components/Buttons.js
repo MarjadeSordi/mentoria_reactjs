@@ -1,7 +1,8 @@
 import React from 'react';
-import { ButtonApp } from '../style';
+import { ButtonApp } from '../styles/components/Button';
 import {SyncOutlined} from '@ant-design/icons';
 import { useState } from 'react';
+import { TextButton } from '../styles/components/Typograph';
 
 
 
@@ -23,7 +24,8 @@ const Buttons = () => {
          
          {isButtonLoading &&  <SyncOutlined /> } 
           
-          button1 </ButtonApp>
+          <TextButton> button 1</TextButton>
+          </ButtonApp>
 
           <ButtonApp
           colorbgButton = {'transparent'} 
@@ -33,7 +35,7 @@ const Buttons = () => {
           disabled = {() => setIsButtonLoading(true)}
           >
          {isButtonLoading &&  <SyncOutlined /> } 
-          button 2
+         <TextButton> button 2</TextButton>
 
           </ButtonApp>
 
@@ -45,7 +47,7 @@ const Buttons = () => {
           disabled = {() => setIsButtonLoading(true)}>
               
           {isButtonLoading &&  <SyncOutlined /> } 
-          button 3
+          <TextButton> button 3</TextButton>
           </ButtonApp>
 
           
@@ -55,7 +57,7 @@ const Buttons = () => {
           buttonTop  = {75}
           disabled = {() => setIsButtonLoading(true)}>
           {isButtonLoading &&  <SyncOutlined /> }     
-          button 4 
+          <TextButton> button 4</TextButton>
           
           </ButtonApp>
 

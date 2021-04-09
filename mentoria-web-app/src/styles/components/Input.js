@@ -1,9 +1,9 @@
-import styled, { css} from 'styled-components';
+import styled, { css } from 'styled-components';
 import { coresGlobais } from '../style';
 
 <coresGlobais />
 
-export const StyleFormShared = css `
+export const StyleFormShared = css`
     background-color:${coresGlobais.lightShade};
     width: 340px;
     height: 48px;
@@ -11,9 +11,9 @@ export const StyleFormShared = css `
  
     margin-bottom: 5px;
     
-  ;` 
+  ;`
 
-export const StyledFormDiv = styled.div `
+export const StyledFormDiv = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,9 +21,9 @@ export const StyledFormDiv = styled.div `
     height: 50vh;
     padding: 20px;
     
-` 
+`
 
-export const StyledForm = styled.form `
+export const StyledForm = styled.form`
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -36,37 +36,37 @@ export const StyledInput = styled.input`
     border:none;
     padding: 0 1rem;
     border: none;
-    border: ${(props) => props.error ? '3px solid #EB5757' :  ''};
-    border: ${(props) => props.check ? '3px solid #27AE60' :  ''};
+    border: ${(props) => props.error ? '3px solid #EB5757' : ''};
+    border: ${(props) => props.check ? '3px solid #27AE60' : ''};
 
     ${StyleFormShared}
 `
 
 
-export const MsgInputError = styled.div `
+export const MsgInputError = styled.div`
     color: #EB5757;
     font-size: 12px;
     font-family: Open Sans;
     margin-top: 0px;
 `
 
-export const MsgInputCheck = styled.div `
+export const MsgInputCheck = styled.div`
     color: #27AE60;
     font-size: 12px;
     font-family: Open Sans;
    
 `
 
-export const ImagemError = styled.img `
+export const ImagemError = styled.img`
     width: 15px;
-    position: fixed;
-    margin: -73px 325px;
+    position: absolute;
+    margin: -74px 330px;
 `
 
-export const ImagemCheck = styled.img `
+export const ImagemCheck = styled.img`
     width: 15px;
-    position: fixed;
-    margin: -75px 325px;
+    position: absolute;
+    margin: -74px 330px;
 `
 
 export const SelectLabel = styled.select`

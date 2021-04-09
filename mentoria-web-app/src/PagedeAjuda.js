@@ -4,14 +4,14 @@ import Dropdown from './components/Input/Dropdown';
 
 const PagedeAjuda = (props) => {
 
-  return(
+  return (
     <>
-    <Buttons />
+      <Buttons />
 
 
-    <Dropdown />
 
-      </>
+
+    </>
   )
 }
 

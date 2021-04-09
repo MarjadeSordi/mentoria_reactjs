@@ -13,6 +13,7 @@ import OnboardingComponent from './components/OnboardingComponent';
 import { GlobalStyle } from './styles/style';
 import PageDropdown from './PageDropdown';
 import PageCheckBoxTag from './PageCheckBoxTag';
+import ModalOnboarding from './ModalOnboarding';
 
 
 
@@ -45,6 +46,7 @@ function App() {
             <Route exact path="/cadastro" component={PagedeCadastro} />
             <Route exact path="/dropdown" component={PageDropdown} />
             <Route exact path="/checkboxtag" component={PageCheckBoxTag} />
+            <Route exact path="/teste" component={ModalOnboarding} />
             <Route exact path="/ajuda" component={PagedeAjuda} />
 
           </Provider>

@@ -1,4 +1,4 @@
-import styled  from 'styled-components';
+import styled from 'styled-components';
 
 
 export const Title = styled.h1`
@@ -64,7 +64,7 @@ color: #23232E;
 
 `
 
-export const TextoBold = styled.span `
+export const TextoBold = styled.span`
 width: 102px;
 height: 22px;
 left: 337px;
@@ -85,7 +85,7 @@ letter-spacing: -0.408px;
 
 color: #23232E;`
 
-export const BodyLarge = styled.span `
+export const BodyLarge = styled.span`
 width: 95px;
 height: 25px;
 left: 337px;
@@ -131,4 +131,10 @@ color: #333333;
 export const TextButton = styled.p`
 font-family: 'Source Sans Pro', sans-serif;
 font-weight: 700;
+`
+
+export const CheckFont = styled.p`
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
+  color: #FFFFFF;  
 `

@@ -71,7 +71,7 @@ export const MsgInputCheck = styled.span`
 export const ImagemError = styled.img`
     width: 15px;
     position: absolute;
-    margin: 100px 300px;
+    margin: -100px 300px;
 `
 
 export const ImagemCheck = styled.img`

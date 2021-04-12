@@ -1,7 +1,7 @@
 import {
     StyledInput, MsgInputError, MsgInputCheck,
     ImagemCheck, ImagemError
-} from '../../styles/components/Input';
+} from '../../styles/components/input';
 
 const InputForm = ({ name, type = "text", value, onChange, validateInput, checkInput, error = false, check = false, img, imgError, ...props }) => {
 

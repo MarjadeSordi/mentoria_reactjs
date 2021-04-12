@@ -1,26 +1,26 @@
 import React from 'react';
-import { SelectLabel } from '../../styles/components/Input';
+import { SelectLabel } from '../../styles/components/input';
 
 
 
-const Dropdown = ({listaValor}) => {
+const Dropdown = ({ listaValor }) => {
 
 
-return (
+  return (
 
-<div>
-
-
-<SelectLabel>
-{listaValor.map((valores) =>
-  <option value={valores.value}> {valores.label} </option>
-
-)}
-</SelectLabel>
+    <div>
 
 
-</div>
-    )
+      <SelectLabel>
+        {listaValor.map((valores) =>
+          <option value={valores.value}> {valores.label} </option>
+
+        )}
+      </SelectLabel>
+
+
+    </div>
+  )
 
 }
 

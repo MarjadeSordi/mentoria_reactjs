@@ -65,7 +65,7 @@ const InputForm = () => {
                     <label htmlFor='error'>
                     </label>
 
-                    <StyledInputforError
+                    <StyledInput
                         type='text'
                         name='error'
                         value={state.error}
@@ -78,7 +78,7 @@ const InputForm = () => {
 
 
                     <label htmlFor='check'></label>
-                    <StyledInputforCheck
+                    <StyledInput
                         type='text'
                         name='check'
                         value={state.check}

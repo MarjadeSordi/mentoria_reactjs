@@ -1,8 +1,8 @@
-import styled, { createGlobalStyle, css} from 'styled-components';
+import styled, { createGlobalStyle, css } from 'styled-components';
 
 
 
-export const GlobalStyle = createGlobalStyle `
+export const GlobalStyle = createGlobalStyle`
 html {
     margin: 0px;
     height: 100%;
@@ -15,7 +15,7 @@ body {
 
 `;
 
-export const coresGlobais = {  
+export const coresGlobais = {
     primary: '#1B5DFF',
     secondary: '#47D163',
     mediumShade: '#828282',

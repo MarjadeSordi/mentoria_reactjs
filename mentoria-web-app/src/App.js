@@ -6,7 +6,6 @@ import PagedeCadastro from './PageCadastro';
 import PagedeAjuda from './PagedeAjuda';
 import PageNotFound from './PageNotFound';
 import { isAuthenticated } from './auth';
-import OnboardingFunction from './components/Onboarding';
 import { Provider } from 'react-redux';
 import store from './store';
 import OnboardingComponent from './components/OnboardingComponent';

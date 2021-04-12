@@ -1,5 +1,5 @@
 import { ButtonApp } from "../styles/components/Button";
-import { AlinhamentosButton, ContainerOnbiarding, IconesOnboarding, IconesOnboardingVolta, ImagemonBoarding } from "../styles/components/Onboarding";
+import { AlinhamentosButton, ContainerOnbiarding, IconesOnboarding, IconesOnboardingVolta, ImagemonBoarding, spanDot } from "../styles/components/Onboarding";
 import { TextButton, TextoBody, Title } from "../styles/components/Typograph";
 
 function OnboardingElement(props) {
@@ -13,6 +13,7 @@ function OnboardingElement(props) {
 
 
                     <Title>{props.textTitle}</Title>
+
                     <TextoBody>  {props.textSubtitle} </TextoBody>
 
                     <AlinhamentosButton>
@@ -25,7 +26,9 @@ function OnboardingElement(props) {
                                    <IconesOnboardingVolta src={props.iconvolta} />
                                    {props.textAnterior}
                               </TextButton> </ButtonApp>
-
+                         <spanDot>. </spanDot>
+                         <spanDot>. </spanDot>
+                         <spanDot>. </spanDot>
                          <ButtonApp
                               colorbgButton={'transparent'}
                               buttonColor={'#23232E'}
@@ -33,7 +36,6 @@ function OnboardingElement(props) {
                               onClick={(props.onClick)}>
                               <TextButton> {props.text}
                                    <IconesOnboarding src={props.icon} />
-
                               </TextButton>
                          </ButtonApp>
 

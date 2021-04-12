@@ -36,3 +36,11 @@ export const IconesOnboardingVolta = styled.img`
   padding: -20px;
 
 `
+
+export const spanDot = styled.span`
+    height: 25px;
+    width: 25px;
+    background-color:#E0E0E0;
+    border-radius: 50%;
+    display: inline-block;
+  `

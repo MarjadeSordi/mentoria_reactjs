@@ -34,54 +34,44 @@ export const StyledForm = styled.form`
 export const StyledInput = styled.input`
     display: block;   
     border:none;
+    padding: 0 1rem;
+    border: none;
+    border: ${(props) => props.error ? '3px solid #EB5757' : ''};
+    border: ${(props) => props.check ? '3px solid #27AE60' : ''};
+
     ${StyleFormShared}
 `
 
-export const StyledInputforError = styled.input`
-    display: block;
-    border: ${props => `${props.borderColor}`};
-    ${StyleFormShared}
 
-`
-
-export const StyledInputforCheck = styled.input`
-    display: block;
-    border: ${props => `${props.borderColor}`};
-  
-
-`
-
-export const StyledError = styled.div`
-    color: #EB5757;
-    font-size: 14px;
-    margin: 0px;
-
-`
-export const MsgInputError = styled.span`
+export const MsgInputError = styled.div`
     color: #EB5757;
     font-size: 12px;
+    font-family: Open Sans;
+    margin-top: 0px;
 `
 
-export const MsgInputCheck = styled.span`
-    color: ${coresGlobais.secondary};
+export const MsgInputCheck = styled.div`
+    color: #27AE60;
     font-size: 12px;
-
+    font-family: Open Sans;
+   
 `
 
 export const ImagemError = styled.img`
     width: 15px;
     position: absolute;
-    margin: -100px 300px;
+    margin: -74px 330px;
 `
 
 export const ImagemCheck = styled.img`
     width: 15px;
     position: absolute;
-    margin: 170px 300px;
+    margin: -74px 330px;
 `
 
-export const SelectLabel = styled.select`   
+export const SelectLabel = styled.select`
     ${StyleFormShared}
-    padding: 1rem;
-    border:none;
+    padding: 0 1rem 0 1rem;
+    border: none;
+    font-family: 'Source Sans Pro', sans-serif;
 `

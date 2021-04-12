@@ -6,7 +6,10 @@ function StepCadastroVisual(props) {
   return (
     <div>
       <ButtonApp colorbgButton={'#1B5DFF'} onClick={props.onClick}>
-        <TextButton> {props.textButton} </TextButton>
+        <TextButton>
+          
+          {props.textButton} {props.numero}
+        </TextButton>
       </ButtonApp>
     </div>
   );

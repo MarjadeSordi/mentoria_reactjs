@@ -1,13 +1,11 @@
-import OnboardingFunction from './components/Onboarding';
+import OnboardingComponent from './components/OnboardingComponent';
 
 const ModalOnboarding = () => {
-    return (
-        <div>
-            <OnboardingFunction />
-           alou!
-        </div>
-    )
-}
-
+  return (
+    <div>
+      <OnboardingComponent />
+    </div>
+  );
+};
 
 export default ModalOnboarding;

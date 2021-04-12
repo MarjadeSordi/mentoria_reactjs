@@ -1,5 +1,5 @@
 import Logo from "./components/Logo";
-import Typografia from "./components/Typografia";
+import Typografia from '../src/components/Typografia';
 
 const PageIndex =  () => {
     return(

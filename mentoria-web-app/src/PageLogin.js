@@ -5,16 +5,14 @@ const PageLogin = () => {
   return (
     <>
       <Login />
-      <p>'Digite seu login'</p>
+      <p> Digite o seu login </p>
 
       <Link to="/cadastro">
-        {' '}
-        <button> Cadastro </button>{' '}
+        <button> Cadastro </button>
       </Link>
 
       <Link to="/home">
-        {' '}
-        <button> Home </button>{' '}
+        <button> Home </button>
       </Link>
     </>
   );

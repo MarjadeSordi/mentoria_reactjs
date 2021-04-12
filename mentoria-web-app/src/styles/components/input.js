@@ -80,6 +80,8 @@ export const ImagemCheck = styled.img`
     margin: 170px 300px;
 `
 
-export const SelectLabel = styled.label`   
+export const SelectLabel = styled.select`   
     ${StyleFormShared}
+    padding: 1rem;
+    border:none;
 `

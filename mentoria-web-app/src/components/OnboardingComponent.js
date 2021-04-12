@@ -5,6 +5,7 @@ import amico from '../assets/illustration/amico.svg';
 import pana from '../assets/illustration/pana.svg';
 import caminho from '../assets/icons/caminho.svg';
 import caminhovolta from '../assets/icons/caminhovolta.svg';
+import { SpanBlue, SpanDot } from '../styles/components/Onboarding';
 
 const OnboardingComponent = () => {
   const [slide, setSlide] = useState('1');
@@ -21,6 +22,9 @@ const OnboardingComponent = () => {
         onClickAnterior={() => (window.location = '/home')}
         textAnterior="Home"
         onClick={() => setSlide('2')}
+        SpanUm={<SpanDot colorbg="#1B5DFF" />}
+        SpanDois={<SpanDot colorbg="#bbb" />}
+        SpanTres={<SpanDot colorbg="#bbb" />}
         text="Próximo"
       />
     );
@@ -37,6 +41,9 @@ const OnboardingComponent = () => {
         onClickAnterior={() => setSlide('1')}
         textAnterior="Anterior"
         onClick={() => setSlide('3')}
+        SpanUm={<SpanDot colorbg="#bbb" />}
+        SpanDois={<SpanDot colorbg="#1B5DFF" />}
+        SpanTres={<SpanDot colorbg="#bbb" />}
         text="Próximo"
       />
     );
@@ -54,6 +61,9 @@ const OnboardingComponent = () => {
         onClickAnterior={() => setSlide('2')}
         textAnterior="Anterior"
         onClick={() => (window.location = '/login')}
+        SpanUm={<SpanDot colorbg="#bbb" />}
+        SpanDois={<SpanDot colorbg="#bbb" />}
+        SpanTres={<SpanDot colorbg="#1B5DFF" />}
         text="Login"
       />
     );

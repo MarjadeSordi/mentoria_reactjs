@@ -1,24 +1,56 @@
-{
-  "title": [
-    "Seja muito bem-vindo!",
-    "Um pouco sobre você",
-    "Contato",
-    "Crie sua senha",
-    "Valide seu cadastro!",
-    "Deu de enrolação, bora solucionar suas dúvidas!",
-    "Ops... parece que algo deu errado"
-  ],
+[
+  {
+    "id": 1,
+    "title": "Seja muito bem-vindo!",
+    "description": "Vamos começar nos apresentando? Me conta como você se chama."
+  },
+  {
+    "id": 2,
+    "title": "Um pouco sobre você",
+    "description": "Só algumas informações para ajudar na nossa comunicação: Qual é o seu e-mail coorporativo?"
+  },
+  {
+    "id": 3,
+    "title": "Um pouco sobre você",
+    "description": "Em qual das Startups do Hub 4all você trabalha?"
+  },
+  {
+    "id": 4,
+    "title": "Um pouco sobre você",
+    "description": "E a sua área de atuação, qual é ?"
+  },
+  {
+    "id": 5,
+    "title": "Um pouco sobre você",
+    "description": "Selecione algumas tecnologias e ferramentas que você tem familiaridade."
+  },
+  {
+    "id": 6,
+    "title": "Contato",
+    "description": "Para finalizar: por onde posso me comunicar com você?"
+  },
 
-  "description": [
-    "Vamos começar nos apresentando? Me conta como você se chama.",
-    "Só algumas informações para ajudar na nossa comunicação: Qual é o seu e-mail coorporativo?",
-    "Em qual das Startups do Hub 4all você trabalha?",
-    "E a sua área de atuação, qual é?",
-    "Selecione algumas tecnologias e ferramentas que você tem familiaridade.",
-    "Para finalizar: por onde posso me comunicar com você?",
-    "Garanta que ela tenha mais de 8 caracteres, misturando letras e números.",
-    "Um código de 6 dígitos deve ter caído em sua caixa de e-mail agora mesmo. Valide-o abaixo.",
-    "Seu cadastro foi concluído com sucesso, seja muito bem-vindo.",
-    "Não foi possível realizar seu cadastro. Tente inserir seus dados novamente."
-  ]
-}
+  {
+    "id": 7,
+    "title": "Crie sua senha",
+    "description": "Garanta que ela tenha mais de 8 caracteres, misturando letras e números."
+  },
+
+  {
+    "id": 8,
+    "title": "Valide seu cadastro!",
+    "description": "Um código de 6 dígitos deve ter caído em sua caixa de e-mail agora mesmo. Valide-o abaixo."
+  },
+
+  {
+    "id": 9,
+    "title": "Deu de enrolação, bora solucionar suas dúvidas!",
+    "description": "Seu cadastro foi concluído com sucesso, seja muito bem-vindo."
+  },
+
+  {
+    "id": 10,
+    "title": "Ops... parece que algo deu errado",
+    "description": "Não foi possível realizar seu cadastro. Tente inserir seus dados novamente."
+  }
+]

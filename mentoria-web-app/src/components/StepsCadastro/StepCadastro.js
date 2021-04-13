@@ -10,6 +10,7 @@ const StepCadastro = () => {
         onClick={() => setStep('2')}
         textButton="Próximo"
         numero="1"
+        width="20"
       />
     );
   } else if (step === '2') {
@@ -18,6 +19,7 @@ const StepCadastro = () => {
         onClick={() => setStep('3')}
         textButton="Próximo"
         numero="2"
+        width="40"
       />
     );
   } else if (step === '3') {
@@ -26,6 +28,7 @@ const StepCadastro = () => {
         onClick={() => setStep('4')}
         textButton="Próximo"
         numero="3"
+        width="60"
       />
     );
   } else if (step === '4') {
@@ -34,6 +37,7 @@ const StepCadastro = () => {
         onClick={() => setStep('5')}
         textButton="Próximo"
         numero="4"
+        width="80"
       />
     );
   } else if (step === '5') {
@@ -42,6 +46,7 @@ const StepCadastro = () => {
         onClick={() => setStep('6')}
         textButton="Próximo"
         numero="5"
+        display="none"
       />
     );
   } else if (step === '6') {
@@ -50,6 +55,7 @@ const StepCadastro = () => {
         onClick={() => setStep('7')}
         textButton="Próximo"
         numero="6"
+        width="100"
       />
     );
   } else if (step === '7') {
@@ -58,6 +64,7 @@ const StepCadastro = () => {
         onClick={() => setStep('8')}
         textButton="Próximo"
         numero="7"
+        display="none"
       />
     );
   } else if (step === '8') {
@@ -66,6 +73,7 @@ const StepCadastro = () => {
         onClick={() => setStep('9')}
         textButton="Próximo"
         numero="8"
+        display="none"
       />
     );
   }

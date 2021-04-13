@@ -1,0 +1,24 @@
+{
+  "title": [
+    "Seja muito bem-vindo!",
+    "Um pouco sobre você",
+    "Contato",
+    "Crie sua senha",
+    "Valide seu cadastro!",
+    "Deu de enrolação, bora solucionar suas dúvidas!",
+    "Ops... parece que algo deu errado"
+  ],
+
+  "description": [
+    "Vamos começar nos apresentando? Me conta como você se chama.",
+    "Só algumas informações para ajudar na nossa comunicação: Qual é o seu e-mail coorporativo?",
+    "Em qual das Startups do Hub 4all você trabalha?",
+    "E a sua área de atuação, qual é?",
+    "Selecione algumas tecnologias e ferramentas que você tem familiaridade.",
+    "Para finalizar: por onde posso me comunicar com você?",
+    "Garanta que ela tenha mais de 8 caracteres, misturando letras e números.",
+    "Um código de 6 dígitos deve ter caído em sua caixa de e-mail agora mesmo. Valide-o abaixo.",
+    "Seu cadastro foi concluído com sucesso, seja muito bem-vindo.",
+    "Não foi possível realizar seu cadastro. Tente inserir seus dados novamente."
+  ]
+}

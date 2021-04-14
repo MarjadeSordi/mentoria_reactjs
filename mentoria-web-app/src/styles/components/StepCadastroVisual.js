@@ -18,3 +18,8 @@ export const ProgressBarBlue = styled.div`
   position: absolute;
   margin-top: -4px;
 `;
+
+export const ContainerCadastro = styled.div`
+  height: 100%;
+  width: 100%;
+`;

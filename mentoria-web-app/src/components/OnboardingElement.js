@@ -5,8 +5,6 @@ import {
   IconesOnboarding,
   IconesOnboardingVolta,
   ImagemonBoarding,
-  SpanDot,
-  spanDot,
 } from '../styles/components/Onboarding';
 import { TextButton, TextoBody, Title } from '../styles/components/Typograph';
 

@@ -17,6 +17,7 @@ function StepCadastroVisual(props) {
       <ContainerCadastro>
         <Title> {props.titulo} </Title>
         <TextoBody> {props.descricao} </TextoBody>
+        <label> {props.label}</label>
         <ProgressBar displayBar={props.display} />
         <ProgressBarBlue widthBar={props.width} />
         <p> </p>

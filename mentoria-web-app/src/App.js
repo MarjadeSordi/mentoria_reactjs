@@ -7,6 +7,7 @@ import PageNotFound from './PageNotFound';
 import { isAuthenticated } from './auth';
 import { Provider } from 'react-redux';
 import store from './store';
+import storeNome from './store/cadastroNome';
 import OnboardingComponent from './components/OnboardingComponent';
 import { GlobalStyle } from './styles/style';
 import PageDropdown from './PageDropdown';
@@ -36,7 +37,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <OnboardingRoute exact path="/" component={OnboardingComponent} />
-          <Provider store={store}>
+          <Provider store={storeNome}>
             <Route exact path="/home" component={PageIndex} />
             <Route exact path="/login" component={PageLogin} />
             <Route exact path="/cadastro" component={PagedeCadastro} />

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { coresGlobais } from '../style';
 
 export const ProgressBar = styled.div`
   flex: 1;
@@ -20,6 +19,6 @@ export const ProgressBarBlue = styled.div`
 `;
 
 export const ContainerCadastro = styled.div`
-  height: 100%;
   width: 100%;
+  height: 100%;
 `;

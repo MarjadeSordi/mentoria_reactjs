@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import StepCadastroVisual from './StepCadastroVisual';
 import InputForm from './StepInput';
 import { useSelector, useDispatch } from 'react-redux';
+import primeira_tela from '../../assets/illustration/primeira_tela.svg';
 
 const StepCadastro = () => {
   const [textos, setTextos] = useState([]);
@@ -20,46 +21,73 @@ const StepCadastro = () => {
     TextosParaCadastro();
   }, []);
 
-  console.log(textos);
   const [step, setStep] = useState(1);
-  const Uses = useSelector(state => state.nome);
+  const [disabled, setDisabled] = useState(true);
+  console.log(disabled);
+
+  const RegistrarNome = useSelector(state => state.nome);
   const dispach = useDispatch();
+  const RegistrarEmail = useSelector(state => state.email);
+  const dispachEmail = useDispatch();
 
   function checkName(text) {
-    dispach({ type: 'REGISTRA_NOME', registrar: text });
+    dispach({ type: 'REGISTRA_NOME', registrarNome: text });
   }
 
-  console.log(Uses);
+  function checkEmail(texto) {
+    dispachEmail({ type: 'REGISTRA_EMAIL', registrarEmail: texto });
+  }
+
+  console.log(RegistrarNome);
+
+  console.log(RegistrarEmail);
+
   return (
-    <form
-      onSubmit={e => {
-        e.preventDefault();
-        setStep(step + 1);
-        checkName(e.target.nome.value);
-      }}
-    >
+    <>
       {textos.map(texto => {
         if (step === 1 && texto.id == '1') {
           return (
-            <StepCadastroVisual
-              textButton="Próximo"
-              numero="1"
-              width="20"
-              titulo={texto.title}
-              descricao={texto.description}
-              label={<InputForm label={'nome'} name={'nome'} />}
-            />
+            <form
+              onSubmit={e => {
+                e.preventDefault();
+                setStep(step + 1);
+                const Name = e.target.nome.value;
+                checkName(Name);
+                if (Name) {
+                  return setDisabled(false);
+                }
+              }}
+            >
+              <StepCadastroVisual
+                textButton="Próximo"
+                numero="1"
+                width="20"
+                titulo={texto.title}
+                descricao={texto.description}
+                img={primeira_tela}
+                label={<InputForm label={'Nome'} name={'nome'} />}
+              />
+            </form>
           );
         } else if (step === 2 && texto.id == '2') {
           return (
-            <StepCadastroVisual
-              textButton="Próximo"
-              numero="2"
-              width="40"
-              key={texto.id}
-              titulo={texto.title}
-              descricao={texto.description}
-            />
+            <form
+              onSubmit={e => {
+                e.preventDefault();
+                setStep(step + 1);
+                checkEmail(e.target.email.value);
+              }}
+            >
+              <StepCadastroVisual
+                textButton="Próximo"
+                numero="2"
+                width="40"
+                key={texto.id}
+                titulo={texto.title}
+                descricao={texto.description}
+                label={<InputForm label={'email'} name={'email'} />}
+              />
+            </form>
           );
         } else if (step === 3 && texto.id == '3') {
           return (
@@ -129,7 +157,7 @@ const StepCadastro = () => {
           );
         }
       })}
-    </form>
+    </>
   );
 };
 export default StepCadastro;

@@ -5,6 +5,8 @@ import SelectLabel from './StepDropdown';
 import SelectLabelDrop from './StepCadastroDropdownHub';
 import { useSelector, useDispatch } from 'react-redux';
 import primeiraTela from '../../assets/illustration/primeiraTela.svg';
+import FormValidation from './ValidacaoInput';
+import { StyledInputName } from '../../styles/components/InputNome';
 
 const StepCadastro = () => {
   const [textos, setTextos] = useState([]);
@@ -81,7 +83,7 @@ const StepCadastro = () => {
                 titulo={texto.title}
                 descricao={texto.description}
                 img={primeiraTela}
-                label={<InputForm label={'Nome'} name={'nome'} />}
+                label={<InputForm label={'Nome'} name={'nome'} type={'text'} />}
               />
             </form>
           );
@@ -102,7 +104,9 @@ const StepCadastro = () => {
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
-                label={<InputForm label={'email'} name={'email'} />}
+                label={
+                  <InputForm label={'Email'} name={'email'} type={'email'} />
+                }
               />
             </form>
           );

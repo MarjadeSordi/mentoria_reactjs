@@ -22,7 +22,7 @@ function StepCadastroVisual(props) {
         <ImagemonBoarding src={props.img} alt={props.img} />
         <ProgressBar displayBar={props.display} />
         <ProgressBarBlue widthBar={props.width} />
-        <ButtonApp colorbgButton={'#1B5DFF'}>
+        <ButtonApp colorbgButton={'#1B5DFF'} type="submit">
           <TextButton>{props.textButton}</TextButton>
         </ButtonApp>
       </ContainerCadastro>

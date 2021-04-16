@@ -30,12 +30,11 @@ export const StyledForm = styled.form`
 
 export const StyledInput = styled.input`
   display: block;
-  border: none;
   padding: 0 1rem;
-  border: none;
   border: ${props => (props.error ? '3px solid #EB5757' : '')};
   border: ${props => (props.check ? '3px solid #27AE60' : '')};
   ${StyleFormShared}
+  }
 `;
 
 export const MsgInputError = styled.div`

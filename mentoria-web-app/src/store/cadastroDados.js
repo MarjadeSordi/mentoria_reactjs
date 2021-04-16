@@ -4,6 +4,8 @@ import { createStore } from 'redux';
 const INITIAL_STATE = {
   nome: '',
   email: '',
+  startup: '',
+  atuacao: '',
 };
 
 function RegistraDados(state = INITIAL_STATE, action) {
@@ -12,6 +14,10 @@ function RegistraDados(state = INITIAL_STATE, action) {
       return { ...state, nome: action.registrarNome };
     case 'REGISTRA_EMAIL':
       return { ...state, email: action.registrarEmail };
+    case 'REGISTRA_STARTUP':
+      return { ...state, startup: action.registrarStartUp };
+    case 'REGISTRA_ATUACAO':
+      return { ...state, atuacao: action.registrarAtuacao };
     default:
       return state;
   }

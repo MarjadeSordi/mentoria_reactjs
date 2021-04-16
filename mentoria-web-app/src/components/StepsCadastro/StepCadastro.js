@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import StepCadastroVisual from './StepCadastroVisual';
 import InputForm from './StepInput';
+import SelectLabel from './StepDropdown';
+import SelectLabelDrop from './StepCadastroDropdownHub';
 import { useSelector, useDispatch } from 'react-redux';
-import primeira_tela from '../../assets/illustration/primeira_tela.svg';
+import primeiraTela from '../../assets/illustration/primeiraTela.svg';
 
 const StepCadastro = () => {
   const [textos, setTextos] = useState([]);
@@ -22,13 +24,18 @@ const StepCadastro = () => {
   }, []);
 
   const [step, setStep] = useState(1);
-  const [disabled, setDisabled] = useState(true);
-  console.log(disabled);
 
   const RegistrarNome = useSelector(state => state.nome);
   const dispach = useDispatch();
+
   const RegistrarEmail = useSelector(state => state.email);
   const dispachEmail = useDispatch();
+
+  const RegistrarStartUp = useSelector(state => state.startup);
+  const dispachstartUp = useDispatch();
+
+  const RegistrarAtuacao = useSelector(state => state.atuacao);
+  const dispachAtuacao = useDispatch();
 
   function checkName(text) {
     dispach({ type: 'REGISTRA_NOME', registrarNome: text });
@@ -38,9 +45,21 @@ const StepCadastro = () => {
     dispachEmail({ type: 'REGISTRA_EMAIL', registrarEmail: texto });
   }
 
+  function checkStartUp(startup) {
+    dispachstartUp({ type: 'REGISTRA_STARTUP', registrarStartUp: startup });
+  }
+
+  function checkAtuacao(areaAtuacao) {
+    dispachAtuacao({ type: 'REGISTRA_ATUACAO', registrarAtuacao: areaAtuacao });
+  }
+
   console.log(RegistrarNome);
 
   console.log(RegistrarEmail);
+
+  console.log(RegistrarStartUp);
+
+  console.log(RegistrarAtuacao);
 
   return (
     <>
@@ -53,9 +72,6 @@ const StepCadastro = () => {
                 setStep(step + 1);
                 const Name = e.target.nome.value;
                 checkName(Name);
-                if (Name) {
-                  return setDisabled(false);
-                }
               }}
             >
               <StepCadastroVisual
@@ -64,7 +80,7 @@ const StepCadastro = () => {
                 width="20"
                 titulo={texto.title}
                 descricao={texto.description}
-                img={primeira_tela}
+                img={primeiraTela}
                 label={<InputForm label={'Nome'} name={'nome'} />}
               />
             </form>
@@ -75,7 +91,8 @@ const StepCadastro = () => {
               onSubmit={e => {
                 e.preventDefault();
                 setStep(step + 1);
-                checkEmail(e.target.email.value);
+                const Email = e.target.email.value;
+                checkEmail(Email);
               }}
             >
               <StepCadastroVisual
@@ -91,25 +108,46 @@ const StepCadastro = () => {
           );
         } else if (step === 3 && texto.id == '3') {
           return (
-            <StepCadastroVisual
-              textButton="Próximo"
-              numero="3"
-              width="60"
-              key={texto.id}
-              titulo={texto.title}
-              descricao={texto.description}
-            />
+            <form
+              onSubmit={e => {
+                e.preventDefault();
+                setStep(step + 1);
+                const StarUp = e.target.startup.value;
+                checkStartUp(StarUp);
+              }}
+            >
+              <StepCadastroVisual
+                textButton="Próximo"
+                numero="3"
+                width="60"
+                onClick={() => setStep(3)}
+                key={texto.id}
+                titulo={texto.title}
+                descricao={texto.description}
+                label={<SelectLabelDrop name={'startup'} />}
+              />
+            </form>
           );
         } else if (step === 4 && texto.id == '4') {
           return (
-            <StepCadastroVisual
-              textButton="Próximo"
-              numero="4"
-              width="80"
-              key={texto.id}
-              titulo={texto.title}
-              descricao={texto.description}
-            />
+            <form
+              onSubmit={e => {
+                e.preventDefault();
+                setStep(step + 1);
+                const Atuacao = e.target.atuacao.value;
+                checkAtuacao(Atuacao);
+              }}
+            >
+              <StepCadastroVisual
+                textButton="Próximo"
+                numero="4"
+                width="80"
+                key={texto.id}
+                titulo={texto.title}
+                descricao={texto.description}
+                label={<SelectLabel name={'atuacao'} />}
+              />
+            </form>
           );
         } else if (step === 5 && texto.id == '5') {
           return (

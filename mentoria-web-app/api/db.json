@@ -50,5 +50,56 @@
       "title": "Ops... parece que algo deu errado",
       "description": "Não foi possível realizar seu cadastro. Tente inserir seus dados novamente."
     }
+  ],
+
+  "Area4all": [
+    {
+      "value": 1,
+      "label": "Tecnologia"
+    },
+    {
+      "value": 2,
+      "label": "UX"
+    },
+    {
+      "value": 3,
+      "label": "Marketing"
+    },
+    {
+      "value": 4,
+      "label": "RH"
+    }
+  ],
+
+  "StartUps": [
+    {
+      "idvalue": 1,
+      "label": "Phi"
+    },
+    {
+      "idvalue": 2,
+      "label": "DX CO"
+    },
+    {
+      "idvalue": 3,
+      "label": "Iris"
+    },
+    {
+      "idvalue": 4,
+      "label": "Uhuu"
+    },
+    {
+      "idvalue": 5,
+      "label": "Share Eat"
+    },
+    {
+      "idvalue": 6,
+      "label": "Pling"
+    },
+
+    {
+      "idvalue": 7,
+      "label": "AIO"
+    }
   ]
 }

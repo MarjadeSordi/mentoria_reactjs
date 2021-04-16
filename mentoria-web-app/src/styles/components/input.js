@@ -8,7 +8,6 @@ export const StyleFormShared = css`
   width: 340px;
   height: 48px;
   border-radius: 5px;
-
   margin-bottom: 5px; ;
 `;
 
@@ -36,7 +35,6 @@ export const StyledInput = styled.input`
   border: none;
   border: ${props => (props.error ? '3px solid #EB5757' : '')};
   border: ${props => (props.check ? '3px solid #27AE60' : '')};
-
   ${StyleFormShared}
 `;
 

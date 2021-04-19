@@ -61,7 +61,7 @@ export const ImagemError = styled.img`
 export const ImagemCheck = styled.img`
   width: 15px;
   position: absolute;
-  margin: -74px 330px;
+  margin: -64px 330px;
 `;
 
 export const SelectLabel = styled.select`

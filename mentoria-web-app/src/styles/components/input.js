@@ -8,6 +8,7 @@ export const StyleFormShared = css`
   width: 340px;
   height: 48px;
   border-radius: 5px;
+
   margin-bottom: 5px; ;
 `;
 
@@ -30,12 +31,13 @@ export const StyledForm = styled.form`
 
 export const StyledInput = styled.input`
   display: block;
+  border: none;
   padding: 0 1rem;
   border: none;
-  border: ${props => (props.error ? '2px solid #EB5757' : '')};
-  border: ${props => (props.check ? '2px solid #27AE60' : '')};
+  border: ${props => (props.error ? '3px solid #EB5757' : '')};
+  border: ${props => (props.check ? '3px solid #27AE60' : '')};
+
   ${StyleFormShared}
-  }
 `;
 
 export const MsgInputError = styled.div`
@@ -60,17 +62,10 @@ export const ImagemError = styled.img`
 export const ImagemCheck = styled.img`
   width: 15px;
   position: absolute;
-  margin: -64px 330px;
+  margin: -74px 330px;
 `;
 
 export const SelectLabel = styled.select`
-  ${StyleFormShared}
-  padding: 0 1rem 0 1rem;
-  border: none;
-  font-family: 'Source Sans Pro', sans-serif;
-`;
-
-export const SelectLabelDrop = styled.select`
   ${StyleFormShared}
   padding: 0 1rem 0 1rem;
   border: none;

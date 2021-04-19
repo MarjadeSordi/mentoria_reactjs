@@ -34,9 +34,8 @@ export const StyledInput = styled.input`
   border: none;
   padding: 0 1rem;
   border: none;
-  border: ${props => (props.error ? '3px solid #EB5757' : '')};
-  border: ${props => (props.check ? '3px solid #27AE60' : '')};
-
+  border: ${props => (props.error ? '2px solid #EB5757' : '')};
+  border: ${props => (props.check ? '2px solid #27AE60' : '')};
   ${StyleFormShared}
 `;
 
@@ -66,6 +65,13 @@ export const ImagemCheck = styled.img`
 `;
 
 export const SelectLabel = styled.select`
+  ${StyleFormShared}
+  padding: 0 1rem 0 1rem;
+  border: none;
+  font-family: 'Source Sans Pro', sans-serif;
+`;
+
+export const SelectLabelDrop = styled.select`
   ${StyleFormShared}
   padding: 0 1rem 0 1rem;
   border: none;

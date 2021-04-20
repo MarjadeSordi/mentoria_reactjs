@@ -101,5 +101,31 @@
       "idvalue": 7,
       "label": "AIO"
     }
+  ],
+  "Tecnologias": [
+    {
+      "id": 1,
+      "label": "React"
+    },
+    {
+      "id": 2,
+      "label": "React Native"
+    },
+    {
+      "id": 3,
+      "label": "Node JS"
+    },
+    {
+      "id": 4,
+      "label": "Next"
+    },
+    {
+      "id": 5,
+      "label": "Java"
+    },
+    {
+      "id": 6,
+      "label": "CSS"
+    }
   ]
 }

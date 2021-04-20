@@ -55,7 +55,7 @@ const OnboardingComponent = () => {
         textSubtitle={
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
         }
-        //finaliza={localStorage.setItem('isAuth', 'true')}
+        finaliza={localStorage.setItem('isAuth', 'true')}
         icon={caminho}
         iconvolta={caminhovolta}
         onClickAnterior={() => setSlide('2')}

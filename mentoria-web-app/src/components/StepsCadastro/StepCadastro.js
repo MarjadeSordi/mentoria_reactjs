@@ -5,8 +5,7 @@ import SelectLabel from './StepDropdown';
 import SelectLabelDrop from './StepCadastroDropdownHub';
 import { useSelector, useDispatch } from 'react-redux';
 import primeiraTela from '../../assets/illustration/primeiraTela.svg';
-import FormValidation from './ValidacaoInput';
-import { StyledInputName } from '../../styles/components/InputNome';
+import StepCheckTecnologias from './StepCheckTecnologias';
 
 const StepCadastro = () => {
   const [textos, setTextos] = useState([]);
@@ -39,6 +38,9 @@ const StepCadastro = () => {
   const RegistrarAtuacao = useSelector(state => state.atuacao);
   const dispachAtuacao = useDispatch();
 
+  const RegistrarTecnologias = useSelector(state => state.tecnologia);
+  const dispachTec = useDispatch();
+
   function checkName(text) {
     dispach({ type: 'REGISTRA_NOME', registrarNome: text });
   }
@@ -55,6 +57,10 @@ const StepCadastro = () => {
     dispachAtuacao({ type: 'REGISTRA_ATUACAO', registrarAtuacao: areaAtuacao });
   }
 
+  function checkTecnologia(tech) {
+    dispachTec({ type: 'REGISTRA_TECNOLOGIA', registrarTecnologia: tech });
+  }
+
   console.log(RegistrarNome);
 
   console.log(RegistrarEmail);
@@ -62,6 +68,8 @@ const StepCadastro = () => {
   console.log(RegistrarStartUp);
 
   console.log(RegistrarAtuacao);
+
+  console.log(RegistrarTecnologias);
 
   return (
     <>
@@ -155,14 +163,29 @@ const StepCadastro = () => {
           );
         } else if (step === 5 && texto.id == '5') {
           return (
-            <StepCadastroVisual
-              textButton="Próximo"
-              numero="5"
-              display="none"
-              key={texto.id}
-              titulo={texto.title}
-              descricao={texto.description}
-            />
+            <form
+              onSubmit={e => {
+                e.preventDefault();
+                setStep(step + 1);
+                const tech = e.target.tecnologia.value;
+                checkTecnologia.concat([tech]);
+              }}
+            >
+              <StepCadastroVisual
+                textButton="Próximo"
+                numero="5"
+                display="none"
+                key={texto.id}
+                titulo={texto.title}
+                descricao={texto.description}
+                label={
+                  <StepCheckTecnologias
+                    type={'checkbox'}
+                    name={'tecnologias'}
+                  />
+                }
+              />
+            </form>
           );
         } else if (step === 6 && texto.id == '6') {
           return (

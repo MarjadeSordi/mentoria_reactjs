@@ -19,7 +19,8 @@ function StepCadastroVisual(props) {
         <Title> {props.titulo} </Title>
         <TextoBody> {props.descricao} </TextoBody>
         <label> {props.label}</label>
-        <ImagemonBoarding src={props.img} alt={props.img} />
+        {props.img ? <ImagemonBoarding src={props.img} alt={props.img} /> : ''}
+
         <ProgressBar displayBar={props.display} />
         <ProgressBarBlue widthBar={props.width} />
         <ButtonApp colorbgButton={'#1B5DFF'} type="submit">

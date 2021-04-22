@@ -1,50 +1,58 @@
-import { useState, useEffect } from 'react';
-import Checkboxtag from '../Checkbox/Checkboxtag';
+import { useState } from 'react';
+import {
+  CheckCapsula,
+  CheckLabel,
+  CheckTag,
+} from '../../styles/components/CheckTag';
+import InputForm from '../Input/Input';
 
-const StepCheckTecnologias = ({ type, name }) => {
-  const [tec, setTec] = useState([]);
+const StepCheckTecnologias = ({ type, tecnologia, name, tipo, label }) => {
   const [checkTecnologia, setCheckTecnologia] = useState();
-  const [valordocheck, setValordocheck] = useState([]);
-
-  const SetarTecnologia = async () => {
-    try {
-      const responseTec = await fetch('http://localhost:5000/Tecnologias');
-      const jsonTec = await responseTec.json();
-      setTec(jsonTec);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [mostrarCheck, setMostrarCheck] = useState();
+  const [showTechOptions, setTechOptions] = useState();
 
   const handleCheck = e => {
-    setCheckTecnologia(e.target.checked);
-    if (checkTecnologia) {
-      let checkV = e.target.value;
-      return setValordocheck({ tecnologias: e.target.value });
-    }
+    let Checar = e.target.checked;
+    setCheckTecnologia(Checar);
+    let Show = e.target.value;
+    setMostrarCheck(Show);
   };
 
-  console.log(checkTecnologia);
-  console.log(valordocheck);
-
-  useEffect(() => {
-    SetarTecnologia();
-  }, []);
+  const ShowOptions = e => {
+    let Options = e.target.value;
+    setTechOptions(Options);
+  };
 
   return (
     <>
-      {tec.map(tecnologias => (
-        <>
-          <input
-            type={type}
-            onChange={handleCheck}
-            id={name}
-            name={name}
-            value={tecnologias.label}
-          ></input>
-          <label htmlFor={name}>{tecnologias.label}</label>
-        </>
-      ))}
+      <>
+        <CheckCapsula>
+          {tecnologia.map(tecnologias => (
+            <>
+              <CheckTag
+                type={type}
+                onClick={handleCheck}
+                name={tecnologias.label}
+                id={tecnologias.label}
+                value={tecnologias.label}
+                labelB={'#47D163'}
+              />
+              <CheckLabel htmlFor={tecnologias.label} id={tecnologias.label}>
+                <p>{tecnologias.label}</p>
+              </CheckLabel>
+            </>
+          ))}
+        </CheckCapsula>
+      </>
+      <>
+        <label htmlFor={name}> {label} </label>
+        <InputForm type={tipo} name={name} onChange={ShowOptions}></InputForm>
+      </>
+
+      <div>
+        {' '}
+        <p>{showTechOptions}</p> <p> {mostrarCheck}</p>
+      </div>
     </>
   );
 };

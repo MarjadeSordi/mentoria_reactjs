@@ -16,14 +16,18 @@ function StepCadastroVisual(props) {
   return (
     <>
       <ContainerCadastro>
-        <Title> {props.titulo} </Title>
+        <Title corTitulo={'#1B5DFF'}> {props.titulo} </Title>
         <TextoBody> {props.descricao} </TextoBody>
         <label> {props.label}</label>
         {props.img ? <ImagemonBoarding src={props.img} alt={props.img} /> : ''}
 
         <ProgressBar displayBar={props.display} />
         <ProgressBarBlue widthBar={props.width} />
-        <ButtonApp colorbgButton={'#1B5DFF'} type="submit">
+        <ButtonApp
+          colorbgButton={'#1B5DFF'}
+          type="submit"
+          buttonBorder={'none'}
+        >
           <TextButton>{props.textButton}</TextButton>
         </ButtonApp>
       </ContainerCadastro>

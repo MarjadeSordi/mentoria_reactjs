@@ -8,6 +8,7 @@ export const Title = styled.h1`
   line-height: 38px;
   letter-spacing: -0.3px;
   color: #333333;
+  color: ${props => `${props.corTitulo}`};
 `;
 
 export const TitleDois = styled.h2`

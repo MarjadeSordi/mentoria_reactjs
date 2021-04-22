@@ -16,7 +16,7 @@ export const CheckboxBorder = styled.div`
   width: 134px;
   height: 48px;
   margin-right: 9px;
-  background: ${props => (props.checked ? '#E0E0E0' : '#47D163')};
+  background: ${props => (props.onClick ? '#E0E0E0' : '#47D163')};
 `;
 
 export const CheckLabel = styled.div`

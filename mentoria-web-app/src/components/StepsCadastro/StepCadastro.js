@@ -6,9 +6,13 @@ import SelectLabelDrop from './StepCadastroDropdownHub';
 import { useSelector, useDispatch } from 'react-redux';
 import primeiraTela from '../../assets/illustration/primeiraTela.svg';
 import StepCheckTecnologias from './StepCheckTecnologias';
+import StepCheckContatos from './StepCheckContatos';
 
 const StepCadastro = () => {
   const [textos, setTextos] = useState([]);
+  const [tec, setTec] = useState([]);
+  const [contatos, setContatos] = useState([]);
+  const [inputContato, setInputContato] = useState({});
 
   const TextosParaCadastro = async () => {
     try {
@@ -19,6 +23,39 @@ const StepCadastro = () => {
       console.log(error);
     }
   };
+
+  const SetarTecnologia = async () => {
+    try {
+      const responseTec = await fetch('http://localhost:5000/Tecnologias');
+      const jsonTec = await responseTec.json();
+      setTec(jsonTec);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const SetarContatos = async () => {
+    try {
+      const responseCont = await fetch('http://localhost:5000/Contatos');
+      const jsonContato = await responseCont.json();
+      setContatos(jsonContato);
+      const chaveContato = jsonContato.reduce(
+        (acc, contato) => ({ [contato.label.toLowerCase()]: '', ...acc }),
+        {},
+      );
+      setInputContato(chaveContato);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    SetarTecnologia();
+  }, []);
+
+  useEffect(() => {
+    SetarContatos();
+  }, []);
 
   useEffect(() => {
     TextosParaCadastro();
@@ -41,6 +78,12 @@ const StepCadastro = () => {
   const RegistrarTecnologias = useSelector(state => state.tecnologia);
   const dispachTec = useDispatch();
 
+  const RegistrarOutras = useSelector(state => state.tecnologiaOutros);
+  const dispachTechOutros = useDispatch();
+
+  const RegistrarContatos = useSelector(state => state.contatos);
+  const dispachContatos = useDispatch();
+
   function checkName(text) {
     dispach({ type: 'REGISTRA_NOME', registrarNome: text });
   }
@@ -61,6 +104,18 @@ const StepCadastro = () => {
     dispachTec({ type: 'REGISTRA_TECNOLOGIA', registrarTecnologia: tech });
   }
 
+  function checkTecnologiaOutros(techOutros) {
+    dispachTechOutros({
+      type: 'REGISTRA_TECNOLOGIA',
+      registrarTecnologiaOutros: techOutros,
+    });
+  }
+
+  function checkContatos(cont) {
+    dispachTec({ type: 'REGISTRA_CONTATOS', registrarContatos: cont });
+  }
+
+  console.log({ inputContato });
   console.log(RegistrarNome);
 
   console.log(RegistrarEmail);
@@ -70,6 +125,8 @@ const StepCadastro = () => {
   console.log(RegistrarAtuacao);
 
   console.log(RegistrarTecnologias);
+
+  console.log(RegistrarOutras);
 
   return (
     <>
@@ -85,7 +142,7 @@ const StepCadastro = () => {
               }}
             >
               <StepCadastroVisual
-                textButton="Próximo"
+                textButton="Avançar"
                 numero="1"
                 width="20"
                 titulo={texto.title}
@@ -106,7 +163,7 @@ const StepCadastro = () => {
               }}
             >
               <StepCadastroVisual
-                textButton="Próximo"
+                textButton="Avançar"
                 numero="2"
                 width="40"
                 key={texto.id}
@@ -129,7 +186,7 @@ const StepCadastro = () => {
               }}
             >
               <StepCadastroVisual
-                textButton="Próximo"
+                textButton="Avançar"
                 numero="3"
                 width="60"
                 onClick={() => setStep(3)}
@@ -151,7 +208,7 @@ const StepCadastro = () => {
               }}
             >
               <StepCadastroVisual
-                textButton="Próximo"
+                textButton="Avançar"
                 numero="4"
                 width="80"
                 key={texto.id}
@@ -167,12 +224,22 @@ const StepCadastro = () => {
               onSubmit={e => {
                 e.preventDefault();
                 setStep(step + 1);
-                const tech = e.target.tecnologia.value;
-                checkTecnologia.concat([tech]);
+                let acumulador = tec.reduce((acc, tech) => {
+                  let techno = e.target[tech.label].checked;
+                  if (techno) {
+                    return [...acc, tech.label];
+                  }
+
+                  return acc;
+                }, []);
+                checkTecnologia({ tecnologias: acumulador });
+
+                let OutrasTech = e.target.tecnologias.value;
+                checkTecnologiaOutros({ tecnologias: OutrasTech });
               }}
             >
               <StepCadastroVisual
-                textButton="Próximo"
+                textButton="Avançar"
                 numero="5"
                 display="none"
                 key={texto.id}
@@ -180,8 +247,11 @@ const StepCadastro = () => {
                 descricao={texto.description}
                 label={
                   <StepCheckTecnologias
+                    tecnologia={tec}
                     type={'checkbox'}
                     name={'tecnologias'}
+                    tipo={'text'}
+                    label={'Outra(s)?'}
                   />
                 }
               />
@@ -189,19 +259,35 @@ const StepCadastro = () => {
           );
         } else if (step === 6 && texto.id == '6') {
           return (
-            <StepCadastroVisual
-              textButton="Próximo"
-              numero="6"
-              width="99"
-              key={texto.id}
-              titulo={texto.title}
-              descricao={texto.description}
-            />
+            <form
+              onSubmit={e => {
+                e.preventDefault();
+                setStep(step + 1);
+                checkContatos(inputContato);
+              }}
+            >
+              <StepCadastroVisual
+                textButton="Avançar"
+                numero="6"
+                width="99"
+                key={texto.id}
+                titulo={texto.title}
+                descricao={texto.description}
+                label={
+                  <StepCheckContatos
+                    contato={contatos}
+                    type={'checkbox'}
+                    inputcontato={inputContato}
+                    setinputcontato={setInputContato}
+                  />
+                }
+              />
+            </form>
           );
         } else if (step === 7 && texto.id == '7') {
           return (
             <StepCadastroVisual
-              textButton="Próximo"
+              textButton="Avançar"
               numero="7"
               display="none"
               key={texto.id}
@@ -212,7 +298,7 @@ const StepCadastro = () => {
         } else if (step === 8 && texto.id == '8') {
           return (
             <StepCadastroVisual
-              textButton="Próximo"
+              textButton="Avançar"
               numero="8"
               display="none"
               key={texto.id}

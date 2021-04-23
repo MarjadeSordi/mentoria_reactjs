@@ -5,7 +5,6 @@ import { coresGlobais } from '../style';
 
 export const CheckTag = styled.input`
   position: absolute;
-  z-index: 1;
   opacity: 0;
   &:checked + label {
     background: ${props => `${props.labelB}`};
@@ -35,15 +34,13 @@ export const CheckCapsula = styled.div`
 `;
 export const CheckTagContato = styled.input`
   position: absolute;
-  z-index: 1;
 
   &:checked + label {
-    background: ${coresGlobais.primary};
+    background: ${props => `${props.labelB}`};
   }
 `;
 
 export const CheckLabelContato = styled.label`
-  position: absolute;
   cursor: pointer;
   border: none;
   width: 300px;
@@ -60,7 +57,7 @@ export const CheckLabelContato = styled.label`
 `;
 
 export const InputContato = styled.input`
-  width: 250px;
+  width: 15%;
   height: 30px;
   border-radius: 5px;
   margin-bottom: 5px;

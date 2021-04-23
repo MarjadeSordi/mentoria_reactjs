@@ -43,10 +43,10 @@ const StepCheckContatos = ({
           <CheckTagContato
             type={type}
             name={cont.label}
-            id={cont.id}
             labelBack={'#47D163'}
             value={cont.label}
-            onChange={handleContato}
+            onClick={handleContato}
+            labelB={'#1B5DFF'}
           />
           <CheckLabelContato htmlFor={cont.label} id={cont.label.toLowerCase()}>
             <p> {cont.label} </p>

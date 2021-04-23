@@ -22,3 +22,16 @@ export const ContainerCadastro = styled.div`
   width: 100%;
   height: 100%;
 `;
+
+export const FormCadastro = styled.form`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+export const ImagemCadastro = styled.img`
+  margin: 10% 5% 5% 15%;
+  width: 40%;
+  height: 40%;
+`;

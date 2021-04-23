@@ -7,6 +7,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import primeiraTela from '../../assets/illustration/primeiraTela.svg';
 import StepCheckTecnologias from './StepCheckTecnologias';
 import StepCheckContatos from './StepCheckContatos';
+import cuate from '../../assets/illustration/cuate.svg';
+import telanove from '../../assets/illustration/telanove.svg';
+import telaoito from '../../assets/illustration/telaoito.svg';
+import { FormCadastro } from '../../styles/components/StepCadastroVisual';
 
 const StepCadastro = () => {
   const [textos, setTextos] = useState([]);
@@ -133,7 +137,7 @@ const StepCadastro = () => {
       {textos.map(texto => {
         if (step === 1 && texto.id == '1') {
           return (
-            <form
+            <FormCadastro
               onSubmit={e => {
                 e.preventDefault();
                 setStep(step + 1);
@@ -144,17 +148,18 @@ const StepCadastro = () => {
               <StepCadastroVisual
                 textButton="Avançar"
                 numero="1"
+                colorTitle={'#1B5DFF'}
                 width="20"
                 titulo={texto.title}
                 descricao={texto.description}
                 img={primeiraTela}
                 label={<InputForm label={'Nome'} name={'nome'} type={'text'} />}
               />
-            </form>
+            </FormCadastro>
           );
         } else if (step === 2 && texto.id == '2') {
           return (
-            <form
+            <FormCadastro
               onSubmit={e => {
                 e.preventDefault();
                 setStep(step + 1);
@@ -165,6 +170,7 @@ const StepCadastro = () => {
               <StepCadastroVisual
                 textButton="Avançar"
                 numero="2"
+                colorTitle={'#1B5DFF'}
                 width="40"
                 key={texto.id}
                 titulo={texto.title}
@@ -173,11 +179,11 @@ const StepCadastro = () => {
                   <InputForm label={'Email'} name={'email'} type={'email'} />
                 }
               />
-            </form>
+            </FormCadastro>
           );
         } else if (step === 3 && texto.id == '3') {
           return (
-            <form
+            <FormCadastro
               onSubmit={e => {
                 e.preventDefault();
                 setStep(step + 1);
@@ -188,6 +194,7 @@ const StepCadastro = () => {
               <StepCadastroVisual
                 textButton="Avançar"
                 numero="3"
+                colorTitle={'#1B5DFF'}
                 width="60"
                 onClick={() => setStep(3)}
                 key={texto.id}
@@ -195,11 +202,11 @@ const StepCadastro = () => {
                 descricao={texto.description}
                 label={<SelectLabelDrop name={'startup'} />}
               />
-            </form>
+            </FormCadastro>
           );
         } else if (step === 4 && texto.id == '4') {
           return (
-            <form
+            <FormCadastro
               onSubmit={e => {
                 e.preventDefault();
                 setStep(step + 1);
@@ -210,17 +217,18 @@ const StepCadastro = () => {
               <StepCadastroVisual
                 textButton="Avançar"
                 numero="4"
+                colorTitle={'#1B5DFF'}
                 width="80"
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
                 label={<SelectLabel name={'atuacao'} />}
               />
-            </form>
+            </FormCadastro>
           );
         } else if (step === 5 && texto.id == '5') {
           return (
-            <form
+            <FormCadastro
               onSubmit={e => {
                 e.preventDefault();
                 setStep(step + 1);
@@ -241,6 +249,7 @@ const StepCadastro = () => {
               <StepCadastroVisual
                 textButton="Avançar"
                 numero="5"
+                colorTitle={'#1B5DFF'}
                 display="none"
                 key={texto.id}
                 titulo={texto.title}
@@ -255,11 +264,11 @@ const StepCadastro = () => {
                   />
                 }
               />
-            </form>
+            </FormCadastro>
           );
         } else if (step === 6 && texto.id == '6') {
           return (
-            <form
+            <FormCadastro
               onSubmit={e => {
                 e.preventDefault();
                 setStep(step + 1);
@@ -269,6 +278,7 @@ const StepCadastro = () => {
               <StepCadastroVisual
                 textButton="Avançar"
                 numero="6"
+                colorTitle={'#1B5DFF'}
                 width="99"
                 key={texto.id}
                 titulo={texto.title}
@@ -282,29 +292,87 @@ const StepCadastro = () => {
                   />
                 }
               />
-            </form>
+            </FormCadastro>
           );
         } else if (step === 7 && texto.id == '7') {
           return (
-            <StepCadastroVisual
-              textButton="Avançar"
-              numero="7"
-              display="none"
-              key={texto.id}
-              titulo={texto.title}
-              descricao={texto.description}
-            />
+            <FormCadastro
+              onSubmit={e => {
+                e.preventDefault();
+                setStep(step + 1);
+              }}
+            >
+              {' '}
+              <StepCadastroVisual
+                textButton="Avançar"
+                numero="7"
+                colorTitle={'#1B5DFF'}
+                display="none"
+                key={texto.id}
+                titulo={texto.title}
+                descricao={texto.description}
+              />
+            </FormCadastro>
           );
         } else if (step === 8 && texto.id == '8') {
           return (
-            <StepCadastroVisual
-              textButton="Avançar"
-              numero="8"
-              display="none"
-              key={texto.id}
-              titulo={texto.title}
-              descricao={texto.description}
-            />
+            <FormCadastro
+              onSubmit={e => {
+                e.preventDefault();
+                setStep(step + 1);
+              }}
+            >
+              <StepCadastroVisual
+                textButton="Avançar"
+                numero="8"
+                colorTitle={'#1B5DFF'}
+                display="none"
+                img={telaoito}
+                key={texto.id}
+                titulo={texto.title}
+                descricao={texto.description}
+              />
+            </FormCadastro>
+          );
+        } else if (step === 9 && texto.id == '9') {
+          return (
+            <FormCadastro
+              onSubmit={e => {
+                e.preventDefault();
+                setStep(step + 1);
+              }}
+            >
+              <StepCadastroVisual
+                textButton="Avançar"
+                numero="9"
+                colorTitle={'#1B5DFF'}
+                img={telanove}
+                width="99"
+                key={texto.id}
+                titulo={texto.title}
+                descricao={texto.description}
+              />
+            </FormCadastro>
+          );
+        } else if (step === 10 && texto.id == '10') {
+          return (
+            <FormCadastro
+              onSubmit={e => {
+                e.preventDefault();
+                setStep(step + 1);
+              }}
+            >
+              <StepCadastroVisual
+                textButton="Avançar"
+                colorErro={'#EB5757'}
+                numero="10"
+                display="none"
+                key={texto.id}
+                img={cuate}
+                titulo={texto.title}
+                descricao={texto.description}
+              />
+            </FormCadastro>
           );
         }
       })}

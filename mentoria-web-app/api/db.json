@@ -157,7 +157,7 @@
       "id": 5,
       "label": "Discord",
       "type": "text",
-      "regex": "<(.*)#(d{4}):(d+)>"
+      "regex": "/^(w|.|s)+#d{4}$/"
     }
   ]
 }

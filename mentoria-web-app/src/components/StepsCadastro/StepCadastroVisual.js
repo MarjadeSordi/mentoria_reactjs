@@ -5,6 +5,7 @@ import {
   ProgressBar,
   ProgressBarBlue,
   ContainerCadastro,
+  ImagemCadastro,
 } from '../../styles/components/StepCadastroVisual';
 import {
   TextButton,
@@ -16,10 +17,13 @@ function StepCadastroVisual(props) {
   return (
     <>
       <ContainerCadastro>
-        <Title corTitulo={'#1B5DFF'}> {props.titulo} </Title>
+        <Title corTitulo={props.colorErro || props.colorTitle}>
+          {' '}
+          {props.titulo}{' '}
+        </Title>
         <TextoBody> {props.descricao} </TextoBody>
         <label> {props.label}</label>
-        {props.img ? <ImagemonBoarding src={props.img} alt={props.img} /> : ''}
+        {props.img ? <ImagemCadastro src={props.img} alt={props.img} /> : ''}
 
         <ProgressBar displayBar={props.display} />
         <ProgressBarBlue widthBar={props.width} />

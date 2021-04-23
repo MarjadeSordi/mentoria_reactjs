@@ -5,10 +5,9 @@ import { coresGlobais } from '../style';
 
 export const StyleFormShared = css`
   background-color: ${coresGlobais.lightShade};
-  width: 340px;
-  height: 48px;
+  width: 70%;
+  height: 50px;
   border-radius: 5px;
-
   margin-bottom: 5px; ;
 `;
 
@@ -41,27 +40,26 @@ export const StyledInput = styled.input`
 
 export const MsgInputError = styled.div`
   color: #eb5757;
-  font-size: 12px;
+  font-size: 1 rem;
   font-family: Open Sans;
   margin-top: 0px;
 `;
 
 export const MsgInputCheck = styled.div`
   color: #27ae60;
-  font-size: 12px;
+  font-size: 1 rem;
   font-family: Open Sans;
+  margin-top: 0px;
 `;
 
 export const ImagemError = styled.img`
-  width: 15px;
   position: absolute;
-  margin: -74px 330px;
+  margin: -18% 60%;
 `;
 
 export const ImagemCheck = styled.img`
-  width: 15px;
   position: absolute;
-  margin: -64px 330px;
+  margin: -15% 60%;
 `;
 
 export const SelectLabel = styled.select`

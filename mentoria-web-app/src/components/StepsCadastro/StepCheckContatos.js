@@ -4,7 +4,7 @@ import {
   CheckTagContato,
   InputContato,
   ListaContato,
-} from '../../styles/components/CheckTag';
+} from '../../styles/components/CheckTagContato';
 
 const StepCheckContatos = ({
   contato,

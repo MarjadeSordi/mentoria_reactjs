@@ -11,6 +11,7 @@ import cuate from '../../assets/illustration/cuate.svg';
 import telanove from '../../assets/illustration/telanove.svg';
 import telaoito from '../../assets/illustration/telaoito.svg';
 import { FormCadastro } from '../../styles/components/StepCadastroVisual';
+import StepCadastroSenha from './StepCadastroSenha';
 
 const StepCadastro = () => {
   const [textos, setTextos] = useState([]);
@@ -290,6 +291,7 @@ const StepCadastro = () => {
                 e.preventDefault();
                 setStep(step + 1);
                 checkContatos(inputContato);
+                setBotao(true);
               }}
               onChange={e => {
                 const ValidarBotao = inputContato;
@@ -334,6 +336,14 @@ const StepCadastro = () => {
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
+                label={
+                  <StepCadastroSenha
+                    type={'password'}
+                    name={'senha'}
+                    label={'Senha'}
+                    labelConfirma={'Confirmação'}
+                  />
+                }
               />
             </FormCadastro>
           );

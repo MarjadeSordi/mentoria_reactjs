@@ -38,22 +38,28 @@ const StepCheckContatos = ({
 
   return (
     <div>
-      {contato.map(cont => (
-        <>
-          <CheckTagContato
-            type={type}
-            name={cont.label}
-            labelBack={'#47D163'}
-            value={cont.label}
-            onClick={handleContato}
-            labelB={'#1B5DFF'}
-          />
-          <CheckLabelContato htmlFor={cont.label} id={cont.label.toLowerCase()}>
-            <p> {cont.label} </p>
-          </CheckLabelContato>
-        </>
-      ))}
-
+      <ListaContato>
+        {contato.map(cont => (
+          <>
+            <li key={cont.id}>
+              <CheckTagContato
+                type={type}
+                name={cont.label}
+                labelBack={'#47D163'}
+                value={cont.label}
+                onClick={handleContato}
+                labelB={'#1B5DFF'}
+              />
+              <CheckLabelContato
+                htmlFor={cont.label}
+                id={cont.label.toLowerCase()}
+              >
+                <p> {cont.label} </p>
+              </CheckLabelContato>
+            </li>
+          </>
+        ))}
+      </ListaContato>
       <InputContato
         ref={inputRef}
         type={typeInput?.type}

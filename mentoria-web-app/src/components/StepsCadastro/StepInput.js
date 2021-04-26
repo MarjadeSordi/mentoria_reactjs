@@ -15,13 +15,13 @@ const SetInput = ({ label, name, type }) => {
   const [check, setCheck] = useState('');
 
   const handleInput = e => {
-    const value = e.currentTarget.value;
+    const value = e.target.value;
     setValue(value);
   };
 
   const ValidarInput = () => {
     if (!value) {
-      setError('Não pode deixar campos em branco');
+      setError('Não pode deixar esse campo em branco');
       setCheck('');
     } else if (value) {
       setCheck('Pode prosseguir');
@@ -34,6 +34,8 @@ const SetInput = ({ label, name, type }) => {
       <label htmlFor={name}> {label} </label>
 
       <InputForm
+        required
+        value={value}
         name={name}
         type={type}
         onChange={handleInput}
@@ -63,7 +65,6 @@ const SetInput = ({ label, name, type }) => {
             ''
           )
         }
-        required
       />
     </>
   );

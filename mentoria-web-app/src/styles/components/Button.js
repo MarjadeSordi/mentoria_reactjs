@@ -10,7 +10,7 @@ export const ButtonApp = styled.button`
   font-family: Roboto;
 
   border-radius: 5px;
-
+  width: ${props => `${props.buttonSize}`};
   background-color: ${props => `${props.colorbgButton}`};
   color: ${props => `${props.buttonColor}`};
   border: ${props => `${props.buttonBorder}`};

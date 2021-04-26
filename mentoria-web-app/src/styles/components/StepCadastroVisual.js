@@ -20,7 +20,6 @@ export const ProgressBarBlue = styled.div`
 
 export const ContainerCadastro = styled.div`
   width: 100%;
-  height: 100%;
 `;
 
 export const FormCadastro = styled.form`
@@ -34,4 +33,11 @@ export const ImagemCadastro = styled.img`
   margin: 10% 5% 5% 15%;
   width: 40%;
   height: 40%;
+`;
+
+export const DivInternaCadastro = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;

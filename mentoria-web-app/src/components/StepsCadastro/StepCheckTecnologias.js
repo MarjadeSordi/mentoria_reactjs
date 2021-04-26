@@ -48,11 +48,6 @@ const StepCheckTecnologias = ({ type, tecnologia, name, tipo, label }) => {
         <label htmlFor={name}> {label} </label>
         <InputForm type={tipo} name={name} onChange={ShowOptions}></InputForm>
       </>
-
-      <div>
-        {' '}
-        <p>{showTechOptions}</p> <p> {mostrarCheck}</p>
-      </div>
     </>
   );
 };

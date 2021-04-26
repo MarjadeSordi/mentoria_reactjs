@@ -5,7 +5,7 @@ import { coresGlobais } from '../style';
 
 export const StyleFormShared = css`
   background-color: ${coresGlobais.lightShade};
-  width: 70%;
+  width: 90%;
   height: 50px;
   border-radius: 5px;
   margin-bottom: 5px; ;
@@ -20,15 +20,8 @@ export const StyledFormDiv = styled.div`
   padding: 20px;
 `;
 
-export const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 700px;
-  padding: 40px;
-`;
-
 export const StyledInput = styled.input`
+  width: 100%;
   display: block;
   border: none;
   padding: 0 1rem;
@@ -54,12 +47,12 @@ export const MsgInputCheck = styled.div`
 
 export const ImagemError = styled.img`
   position: absolute;
-  margin: -18% 60%;
+  margin: -18% 80%;
 `;
 
 export const ImagemCheck = styled.img`
   position: absolute;
-  margin: -15% 60%;
+  margin: -15% 80%;
 `;
 
 export const SelectLabel = styled.select`

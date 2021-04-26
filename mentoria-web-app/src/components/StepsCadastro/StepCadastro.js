@@ -17,6 +17,7 @@ const StepCadastro = () => {
   const [tec, setTec] = useState([]);
   const [contatos, setContatos] = useState([]);
   const [inputContato, setInputContato] = useState({});
+  const [botao, setBotao] = useState(true);
 
   const TextosParaCadastro = async () => {
     try {
@@ -119,19 +120,6 @@ const StepCadastro = () => {
     dispachTec({ type: 'REGISTRA_CONTATOS', registrarContatos: cont });
   }
 
-  console.log({ inputContato });
-  console.log(RegistrarNome);
-
-  console.log(RegistrarEmail);
-
-  console.log(RegistrarStartUp);
-
-  console.log(RegistrarAtuacao);
-
-  console.log(RegistrarTecnologias);
-
-  console.log(RegistrarOutras);
-
   return (
     <>
       {textos.map(texto => {
@@ -143,6 +131,13 @@ const StepCadastro = () => {
                 setStep(step + 1);
                 const Name = e.target.nome.value;
                 checkName(Name);
+                setBotao(true);
+              }}
+              onChange={e => {
+                const ValidarBotao = e.target.value;
+                console.log(ValidarBotao);
+                if (!ValidarBotao) return setBotao(true);
+                else return setBotao(false);
               }}
             >
               <StepCadastroVisual
@@ -153,6 +148,7 @@ const StepCadastro = () => {
                 titulo={texto.title}
                 descricao={texto.description}
                 img={primeiraTela}
+                botao={botao}
                 label={<InputForm label={'Nome'} name={'nome'} type={'text'} />}
               />
             </FormCadastro>
@@ -166,6 +162,11 @@ const StepCadastro = () => {
                 const Email = e.target.email.value;
                 checkEmail(Email);
               }}
+              onChange={e => {
+                const ValidarBotao = e.target.value;
+                if (!ValidarBotao) return setBotao(true);
+                else return setBotao(false);
+              }}
             >
               <StepCadastroVisual
                 textButton="Avançar"
@@ -175,6 +176,7 @@ const StepCadastro = () => {
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
+                botao={botao}
                 label={
                   <InputForm label={'Email'} name={'email'} type={'email'} />
                 }
@@ -212,6 +214,7 @@ const StepCadastro = () => {
                 setStep(step + 1);
                 const Atuacao = e.target.atuacao.value;
                 checkAtuacao(Atuacao);
+                setBotao(true);
               }}
             >
               <StepCadastroVisual
@@ -244,6 +247,13 @@ const StepCadastro = () => {
 
                 let OutrasTech = e.target.tecnologias.value;
                 checkTecnologiaOutros({ tecnologias: OutrasTech });
+                setBotao(true);
+              }}
+              onChange={e => {
+                const ValidarBotao = e.target.value || e.target.checked;
+                console.log(ValidarBotao);
+                if (!ValidarBotao) return setBotao(true);
+                else return setBotao(false);
               }}
             >
               <StepCadastroVisual
@@ -253,6 +263,7 @@ const StepCadastro = () => {
                 display="none"
                 key={texto.id}
                 titulo={texto.title}
+                botao={botao}
                 descricao={texto.description}
                 label={
                   <StepCheckTecnologias
@@ -274,6 +285,11 @@ const StepCadastro = () => {
                 setStep(step + 1);
                 checkContatos(inputContato);
               }}
+              onChange={e => {
+                const ValidarBotao = inputContato;
+                if (!ValidarBotao) return setBotao(true);
+                else return setBotao(false);
+              }}
             >
               <StepCadastroVisual
                 textButton="Avançar"
@@ -283,6 +299,7 @@ const StepCadastro = () => {
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
+                botao={botao}
                 label={
                   <StepCheckContatos
                     contato={contatos}
@@ -359,7 +376,7 @@ const StepCadastro = () => {
             <FormCadastro
               onSubmit={e => {
                 e.preventDefault();
-                setStep(step + 1);
+                setStep(1);
               }}
             >
               <StepCadastroVisual

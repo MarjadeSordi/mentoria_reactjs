@@ -6,7 +6,9 @@ const StepDropdownHub = ({ name }) => {
 
   const SetarStarUp = async () => {
     try {
-      const responseStartUp = await fetch('http://localhost:5000/StartUps');
+      const responseStartUp = await fetch(
+        'https://cors-anywhere.herokuapp.com/https://s3.amazonaws.com/doroteia.api/startups.json',
+      );
       const jsonStartUp = await responseStartUp.json();
       setStartUp(jsonStartUp);
     } catch (error) {

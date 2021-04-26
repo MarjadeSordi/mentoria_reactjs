@@ -12,10 +12,10 @@ export const CheckLabel = styled.label`
   position: relative;
   cursor: pointer;
   border: none;
-  width: 134px;
-  height: 48px;
+  width: 40%;
+  height: 25%;
   border-radius: 30px;
-  margin: 30px;
+  margin: 5%;
   color: #fff;
   display: flex;
   align-itens: center;

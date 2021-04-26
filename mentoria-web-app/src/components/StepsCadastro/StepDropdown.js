@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SelectLabel } from '../../styles/components/input';
+import { SelectLabel } from '../../styles/components/Input';
 
 const StepDropdown = ({ name }) => {
   const [areas, setAreas] = useState([]);

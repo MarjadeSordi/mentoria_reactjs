@@ -4,7 +4,7 @@ import {
   MsgInputCheck,
   ImagemCheck,
   ImagemError,
-} from '../../styles/components/input';
+} from '../../styles/components/Input';
 
 const InputForm = ({
   name,

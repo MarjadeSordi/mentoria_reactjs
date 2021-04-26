@@ -5,7 +5,7 @@ import {
   ImagemError,
   MsgInputCheck,
   MsgInputError,
-} from '../../styles/components/input';
+} from '../../styles/components/Input';
 import correct from '../../assets/icons/correct.svg';
 import Vector from '../../assets/icons/Vector.svg';
 

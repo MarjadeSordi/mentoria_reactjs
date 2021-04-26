@@ -45,7 +45,7 @@ export const MsgInputCheck = styled.div`
 
 export const ImagemError = styled.img`
   position: absolute;
-  margin: -22% 80%;
+  margin: -25% 80%;
 `;
 
 export const ImagemCheck = styled.img`

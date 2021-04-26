@@ -47,12 +47,12 @@ export const MsgInputCheck = styled.div`
 
 export const ImagemError = styled.img`
   position: absolute;
-  margin: -22% 80%;
+  margin: -20% 80%;
 `;
 
 export const ImagemCheck = styled.img`
   position: absolute;
-  margin: -18% 80%;
+  margin: -20% 80%;
 `;
 
 export const SelectLabel = styled.select`

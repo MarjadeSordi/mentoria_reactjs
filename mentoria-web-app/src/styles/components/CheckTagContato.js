@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { coresGlobais } from '../style';
 
 export const CheckTagContato = styled.input`
-  width: 100px;
-  height: 80px;
+  width: 45%;
+  height: 20%;
   position: absolute;
-  margin-left: 100px;
-  padding: 50px;
+  margin-left: 10%;
+  padding: 10%;
   -webkit-appearance: none;
   border: none;
   outline: none;
@@ -34,13 +34,13 @@ export const CheckLabelContato = styled.label`
 `;
 
 export const InputContato = styled.input`
-  width: 45%;
+  width: 40%;
   height: 30px;
   border-radius: 5px;
   margin-bottom: 5px;
   background-color: ${coresGlobais.primary};
   border: none;
-  margin-left: 15%;
+  margin-left: 25%;
   color: #fff;
   visibility: ${props => (props.show ? 'visible' : 'hidden')};
 `;

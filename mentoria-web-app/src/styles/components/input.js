@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components';
 import { coresGlobais } from '../style';
 
-<coresGlobais />;
-
 export const StyleFormShared = css`
   background-color: ${coresGlobais.lightShade};
   width: 90%;

@@ -308,6 +308,7 @@ const StepCadastro = () => {
                 titulo={texto.title}
                 descricao={texto.description}
                 botao={botao}
+                idSenha={'idsenha'}
                 label={
                   <StepCheckContatos
                     contato={contatos}
@@ -335,11 +336,13 @@ const StepCadastro = () => {
                 display="none"
                 key={texto.id}
                 titulo={texto.title}
+                botao={botao}
                 descricao={texto.description}
                 label={
                   <StepCadastroSenha
                     type={'password'}
-                    name={'senha'}
+                    name={'password'}
+                    nameConfirma={'confirmPassword'}
                     label={'Senha'}
                     labelConfirma={'Confirmação'}
                   />

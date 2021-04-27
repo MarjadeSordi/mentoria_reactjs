@@ -61,6 +61,7 @@ const StepCheckContatos = ({
         ))}
       </ListaContato>
       <InputContato
+        required
         ref={inputRef}
         type={typeInput?.type}
         show={checkContato}
@@ -85,11 +86,6 @@ const StepCheckContatos = ({
           setContatoOptions(e.target.value);
         }}
       />
-
-      <div>
-        {' '}
-        <p> {contatoOptions} </p>
-      </div>
     </div>
   );
 };

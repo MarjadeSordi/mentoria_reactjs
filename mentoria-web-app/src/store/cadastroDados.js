@@ -9,6 +9,7 @@ const INITIAL_STATE = {
   tecnologia: '',
   tecnologiaOutros: '',
   contatos: '',
+  senha: '',
 };
 
 function RegistraDados(state = INITIAL_STATE, action) {
@@ -35,6 +36,8 @@ function RegistraDados(state = INITIAL_STATE, action) {
         ...state,
         contatos: [...state.contatos, action.registrarContatos],
       };
+    case 'REGISTRA_SENHA':
+      return { ...state, senha: action.registrarSenha };
     default:
       return state;
   }

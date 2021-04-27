@@ -96,6 +96,9 @@ const StepCadastro = () => {
   const RegistrarContatos = useSelector(state => state.contatos);
   const dispachContatos = useDispatch();
 
+  const RegistrarSenha = useSelector(state => state.senha);
+  const dispachSenha = useDispatch();
+
   function checkName(text) {
     dispach({ type: 'REGISTRA_NOME', registrarNome: text });
   }
@@ -126,6 +129,12 @@ const StepCadastro = () => {
   function checkContatos(cont) {
     dispachTec({ type: 'REGISTRA_CONTATOS', registrarContatos: cont });
   }
+
+  function checkSenhas(sen) {
+    dispachSenha({ type: 'REGISTRA_SENHA', registrarSenha: sen });
+  }
+
+  console.log(RegistrarSenha);
 
   return (
     <>
@@ -293,7 +302,7 @@ const StepCadastro = () => {
                 checkContatos(inputContato);
                 setBotao(true);
               }}
-              onChange={e => {
+              onChange={() => {
                 const ValidarBotao = inputContato;
                 if (!ValidarBotao) return setBotao(true);
                 else return setBotao(false);
@@ -326,6 +335,14 @@ const StepCadastro = () => {
               onSubmit={e => {
                 e.preventDefault();
                 setStep(step + 1);
+                const confirmaSenha = e.target.confirmPassword.value;
+                checkSenhas(confirmaSenha);
+              }}
+              onChange={e => {
+                const ValidarBotao = e.target.confirmPasswordvalue;
+                console.log(ValidarBotao);
+                if (!ValidarBotao) return setBotao(true);
+                else return setBotao(false);
               }}
             >
               {' '}

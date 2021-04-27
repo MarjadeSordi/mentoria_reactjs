@@ -61,6 +61,7 @@ const StepCheckContatos = ({
         ))}
       </ListaContato>
       <InputContato
+        required
         ref={inputRef}
         type={typeInput?.type}
         show={checkContato}

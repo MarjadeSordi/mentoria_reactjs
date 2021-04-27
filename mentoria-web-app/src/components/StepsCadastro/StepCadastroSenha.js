@@ -46,13 +46,11 @@ const StepCadastroSenha = ({ label, name, nameConfirma, labelConfirma }) => {
                   'border: 2px solid #47D163';
                 setCheck('Perfeito!');
                 setError('');
-                setErrorConfirma('');
               } else {
                 document.getElementById('senhacadastro').style =
                   'border: 2px solid #EB5757';
                 setError('Essa senha não é apropriada');
                 setCheck('');
-                setErrorConfirma('');
               }
             }
           }}

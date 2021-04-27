@@ -339,7 +339,7 @@ const StepCadastro = () => {
                 checkSenhas(confirmaSenha);
               }}
               onChange={e => {
-                const ValidarBotao = e.target.confirmPasswordvalue;
+                const ValidarBotao = e.target.value;
                 console.log(ValidarBotao);
                 if (!ValidarBotao) return setBotao(true);
                 else return setBotao(false);

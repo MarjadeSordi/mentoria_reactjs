@@ -31,8 +31,8 @@ export const FormCadastro = styled.form`
 
 export const ImagemCadastro = styled.img`
   margin: 10% 5% 5% 15%;
-  width: 40%;
-  height: 40%;
+  width: 50%;
+  height: 50%;
 `;
 
 export const DivInternaCadastro = styled.div`

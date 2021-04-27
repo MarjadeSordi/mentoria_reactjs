@@ -12,7 +12,6 @@ const InputForm = ({
   value,
   onChange,
   validateInput,
-  checkInput,
   error = false,
   check = false,
   img,

@@ -24,7 +24,12 @@ const TelaInput = () => {
 
   return (
     <>
-      <InputForm name="input1" onChange={handleInput} />
+      <InputForm
+        name="input1"
+        backgroundImage={Vector}
+        onChange={handleInput}
+      />
+
       <InputForm
         name="input2"
         onChange={handleInput}

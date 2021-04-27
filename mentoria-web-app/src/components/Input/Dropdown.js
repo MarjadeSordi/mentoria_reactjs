@@ -1,5 +1,5 @@
 import React from 'react';
-import { SelectLabel } from '../../styles/components/input';
+import { SelectLabel } from '../../styles/components/Input';
 
 const Dropdown = ({ listaValor }) => {
   return (

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { SelectLabel } from '../../styles/components/input';
+import { SelectLabel } from '../../styles/components/Input';
 
 const StepDropdown = ({ name }) => {
   const [areas, setAreas] = useState([]);
 
   const SetarAreas = async () => {
     try {
-      const responseArea = await fetch('http://localhost:5000/Area4all');
+      const responseArea = await fetch(
+        'https://cors-anywhere.herokuapp.com/https://s3.amazonaws.com/doroteia.api/work-areas.json',
+      );
       const jsonAreas = await responseArea.json();
       setAreas(jsonAreas);
     } catch (error) {

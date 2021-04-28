@@ -4,7 +4,12 @@ import {
   MsgInputCheck,
   ImagemCheck,
   ImagemError,
+  StyledDivGrey,
 } from '../../styles/components/Input';
+
+import correct from '../../assets/icons/correct.svg';
+import Vector from '../../assets/icons/Vector.svg';
+import { PasswordToogle } from '../../styles/components/Password';
 
 const InputForm = ({
   name,
@@ -14,48 +19,51 @@ const InputForm = ({
   validateInput,
   error = false,
   check = false,
-  img,
-  imgError,
+  show,
+  imgerror,
+  imgcheck,
   ...props
 }) => {
   return (
     <>
-      <StyledInput
-        type={type}
-        name={name}
-        value={value}
-        onChange={onChange}
-        onBlur={validateInput}
-        error={error}
-        check={check}
-        {...props}
-      />
+      <StyledDivGrey erro={error} checkar={check} focus={'#4F4F4F'}>
+        <StyledInput
+          type={type}
+          name={name}
+          value={value}
+          onChange={onChange}
+          onBlur={validateInput}
+          error={error}
+          check={check}
+          {...props}
+        />
 
-      {check ? (
-        <>
-          {' '}
-          <MsgInputCheck>
-            {' '}
-            <p> {check}</p>{' '}
-          </MsgInputCheck>{' '}
-          <ImagemCheck src={img} />{' '}
-        </>
-      ) : (
-        ''
-      )}
+        {show ? <PasswordToogle> {show} </PasswordToogle> : ' '}
 
-      {error ? (
-        <>
-          {' '}
-          <MsgInputError>
+        {imgcheck ? (
+          <>
             {' '}
-            <p> {error} </p>
-          </MsgInputError>{' '}
-          <ImagemError src={imgError} />
-        </>
-      ) : (
-        ''
-      )}
+            <ImagemCheck src={correct} alt="Check" />
+          </>
+        ) : (
+          ''
+        )}
+
+        {imgerror ? (
+          <>
+            <ImagemError src={Vector} alt="Erro" />
+          </>
+        ) : (
+          ''
+        )}
+      </StyledDivGrey>
+      <MsgInputCheck>
+        <p> {check}</p>{' '}
+      </MsgInputCheck>{' '}
+      <MsgInputError>
+        {' '}
+        <p> {error} </p>
+      </MsgInputError>{' '}
     </>
   );
 };

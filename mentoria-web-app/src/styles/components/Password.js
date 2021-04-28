@@ -1,9 +1,8 @@
 import styled, { css } from 'styled-components';
 
 export const PasswordToogle = styled.span`
-  position: absolute;
-  top: 35%;
-  right: 15%;
+  margin-top: 3%;
+  margin-right: 5%;
   z-index: 1000;
   cursor: pointer;
 `;

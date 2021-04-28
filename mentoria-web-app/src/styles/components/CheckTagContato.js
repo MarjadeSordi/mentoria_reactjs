@@ -40,7 +40,7 @@ export const InputContato = styled.input`
   margin-bottom: 5px;
   background-color: ${coresGlobais.primary};
   border: none;
-  margin-left: 25%;
+  margin-left: 22%;
   color: #fff;
   visibility: ${props => (props.show ? 'visible' : 'hidden')};
 `;

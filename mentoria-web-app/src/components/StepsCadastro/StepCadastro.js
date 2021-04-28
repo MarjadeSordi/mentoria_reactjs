@@ -12,6 +12,7 @@ import telanove from '../../assets/illustration/telanove.svg';
 import telaoito from '../../assets/illustration/telaoito.svg';
 import { FormCadastro } from '../../styles/components/StepCadastroVisual';
 import StepCadastroSenha from './StepCadastroSenha';
+import StepVerificacao from './StepVerificacao';
 
 const StepCadastro = () => {
   const [textos, setTextos] = useState([]);
@@ -403,6 +404,12 @@ const StepCadastro = () => {
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
+                label={
+                  <StepVerificacao
+                    name={'verificacao'}
+                    label={'Codigo de Verificação'}
+                  />
+                }
                 botaocontador={true}
                 botaocontadorprops={{
                   value: `Enviar novamente o código ${

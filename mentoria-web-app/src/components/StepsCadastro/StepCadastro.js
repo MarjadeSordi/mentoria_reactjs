@@ -454,7 +454,7 @@ const StepCadastro = () => {
               }}
             >
               <StepCadastroVisual
-                textButton="Avançar"
+                textButton="Voltar ao cadastro"
                 colorErro={'#EB5757'}
                 numero="10"
                 display="none"

@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
 import InputForm from '../Input/Input';
-import {
-  ImagemCheck,
-  ImagemError,
-  MsgInputCheck,
-  MsgInputError,
-} from '../../styles/components/Input';
-import correct from '../../assets/icons/correct.svg';
-import Vector from '../../assets/icons/Vector.svg';
+import { MsgInputCheck, MsgInputError } from '../../styles/components/Input';
 
 const SetInput = ({ label, name, type }) => {
   const [value, setValue] = useState('');
@@ -35,6 +28,8 @@ const SetInput = ({ label, name, type }) => {
 
       <InputForm
         required
+        imgerror={error}
+        imgcheck={check}
         value={value}
         name={name}
         type={type}
@@ -48,7 +43,6 @@ const SetInput = ({ label, name, type }) => {
                 {' '}
                 <p> {error} </p>
               </MsgInputError>{' '}
-              <ImagemError src={Vector} />
             </>
           ) : (
             ''
@@ -59,7 +53,6 @@ const SetInput = ({ label, name, type }) => {
             <>
               {' '}
               <MsgInputCheck> {check}</MsgInputCheck>{' '}
-              <ImagemCheck src={correct} />
             </>
           ) : (
             ''

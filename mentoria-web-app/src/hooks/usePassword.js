@@ -7,7 +7,10 @@ const usePassword = () => {
   const [visible, setVisibility] = useState(false);
 
   const Icon = (
-    <ButtonTransparent onClick={() => setVisibility(visibility => !visibility)}>
+    <ButtonTransparent
+      type="button"
+      onClick={() => setVisibility(visibility => !visibility)}
+    >
       <img src={visible ? olho : olho_outline} alt="Status Senha " />
     </ButtonTransparent>
   );

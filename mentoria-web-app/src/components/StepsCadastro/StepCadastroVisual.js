@@ -30,6 +30,21 @@ function StepCadastroVisual(props) {
         </DivInternaCadastro>
         <ProgressBar displayBar={props.display} />
         <ProgressBarBlue widthBar={props.width} />
+        {props.botaocontador ? (
+          <ButtonApp
+            colorbgButton={'transparent'}
+            buttonColor={'#1B5DFF'}
+            buttonBorder={'1px solid #1B5DFF'}
+            type="button"
+            buttonSize={'100%'}
+            {...props.botaocontadorprops}
+          >
+            {' '}
+            {props.botaocontadorprops.value}{' '}
+          </ButtonApp>
+        ) : (
+          ''
+        )}
         <ButtonApp
           colorbgButton={props.botao ? '#D3D3D3' : '#1B5DFF'}
           type="submit"

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import StepCadastroVisual from './StepCadastroVisual';
 import InputForm from './StepInput';
 import SelectLabel from './StepDropdown';
@@ -19,6 +19,8 @@ const StepCadastro = () => {
   const [contatos, setContatos] = useState([]);
   const [inputContato, setInputContato] = useState({});
   const [botao, setBotao] = useState(true);
+  const [contador, setContador] = useState(60);
+  const [intervalo, setIntervalo] = useState();
 
   const TextosParaCadastro = async () => {
     try {
@@ -61,6 +63,21 @@ const StepCadastro = () => {
     }
   };
 
+  const contadorOnClick = () => {
+    const time = setInterval(() => {
+      setContador(cont => cont - 1);
+    }, 1000);
+    setIntervalo(time);
+  };
+
+  console.log(contador);
+  useEffect(() => {
+    if (contador < 1) {
+      clearInterval(intervalo);
+      setContador(60);
+    }
+  }, [contador]);
+
   useEffect(() => {
     SetarTecnologia();
   }, []);
@@ -71,6 +88,9 @@ const StepCadastro = () => {
 
   useEffect(() => {
     TextosParaCadastro();
+    return () => {
+      clearInterval(intervalo);
+    };
   }, []);
 
   const [step, setStep] = useState(1);
@@ -340,7 +360,6 @@ const StepCadastro = () => {
               }}
               onChange={e => {
                 const ValidarBotao = e.target.value;
-                console.log(ValidarBotao);
                 if (!ValidarBotao) return setBotao(true);
                 else return setBotao(false);
               }}
@@ -384,6 +403,14 @@ const StepCadastro = () => {
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
+                botaocontador={true}
+                botaocontadorprops={{
+                  value: `Enviar novamente o código ${
+                    contador < 60 ? contador : ''
+                  }`,
+                  onClick: contadorOnClick,
+                  disabled: contador < 60,
+                }}
               />
             </FormCadastro>
           );

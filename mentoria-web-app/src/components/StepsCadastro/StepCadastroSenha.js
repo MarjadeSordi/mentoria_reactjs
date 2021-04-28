@@ -42,23 +42,20 @@ const StepCadastroSenha = ({ label, name, nameConfirma, labelConfirma }) => {
             if (e.target.value) {
               const validar = new RegExp(regex).test(e.target.value);
               if (validar) {
-                document.getElementById('senhacadastro').style =
-                  'border: 2px solid #47D163';
                 setCheck('Perfeito!');
                 setError('');
               } else {
-                document.getElementById('senhacadastro').style =
-                  'border: 2px solid #EB5757';
-                setError('Essa senha não é apropriada');
+                setError('Sua senha não atingiu os critérios de segurança.');
                 setCheck('');
               }
             }
           }}
           value={valueSenha}
+          show={iconPassword}
+          error={error}
+          check={check}
         />
-        <PasswordToogle>{iconPassword}</PasswordToogle>
-        {check ? <MsgInputCheck> {check} </MsgInputCheck> : ' '}
-        {error ? <MsgInputError> {error} </MsgInputError> : ' '}
+
         <label htmlFor={nameConfirma}> {labelConfirma} </label>
         <InputForm
           required
@@ -67,23 +64,19 @@ const StepCadastroSenha = ({ label, name, nameConfirma, labelConfirma }) => {
           type={passwordType}
           onChange={handleConfirm}
           value={confirmValue}
-          onFocus={() => {
+          onBlur={() => {
             if (confirmValue === valueSenha) {
-              document.getElementById('confirmasenha').style =
-                'border: 2px solid #47D163';
               setcheckConfirma('Campos corretos');
               setErrorConfirma('');
             } else {
-              document.getElementById('confirmasenha').style =
-                'border: 2px solid #EB5757';
               setErrorConfirma(' Os campos não condizem entre si');
               setcheckConfirma('');
             }
           }}
+          show={iconPassword}
+          error={errorconfirma}
+          check={checkConfirma}
         />
-        <PasswordToogleConfirmado>{iconPassword}</PasswordToogleConfirmado>
-        {checkConfirma ? <MsgInputCheck> {checkConfirma} </MsgInputCheck> : ' '}
-        {errorconfirma ? <MsgInputError> {errorconfirma} </MsgInputError> : ' '}
       </CapsulaPassword>
     </>
   );

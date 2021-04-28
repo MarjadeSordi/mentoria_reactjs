@@ -35,6 +35,8 @@ export const ImagemCadastro = styled.img`
   height: 70%;
   padding-bottom: 10%;
   padding-top: 10%;
+  width: ${props => props.widthImg}%;
+  padding-left: ${props => props.paddingImg}%;
 `;
 
 export const DivInternaCadastro = styled.div`
@@ -42,4 +44,13 @@ export const DivInternaCadastro = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+`;
+
+export const DivTelasFinais = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 10%;
 `;

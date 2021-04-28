@@ -30,9 +30,11 @@ export const FormCadastro = styled.form`
 `;
 
 export const ImagemCadastro = styled.img`
-  margin: 10% 5% 5% 15%;
-  width: 50%;
-  height: 50%;
+  margin: 0 auto;
+  width: 70%;
+  height: 70%;
+  padding-bottom: 10%;
+  padding-top: 10%;
 `;
 
 export const DivInternaCadastro = styled.div`

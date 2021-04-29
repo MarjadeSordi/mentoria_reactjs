@@ -2,6 +2,7 @@ import { ButtonApp } from '../styles/components/Button';
 import {
   AlinhamentosButton,
   ContainerOnbiarding,
+  DivImg,
   IconesOnboarding,
   IconesOnboardingVolta,
   ImagemonBoarding,
@@ -14,7 +15,10 @@ function OnboardingElement(props) {
   return (
     <div>
       <ContainerOnbiarding>
-        <ImagemonBoarding src={props.img} />
+        <DivImg>
+          <ImagemonBoarding src={props.img} />{' '}
+        </DivImg>
+
         <DivTelasFinais>
           <Title>{props.textTitle}</Title>
 

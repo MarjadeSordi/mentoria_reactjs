@@ -5,13 +5,19 @@ export const ContainerOnbiarding = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 12px;
+  padding: 6%;
 `;
 
+export const DivImg = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15% 5% 5% 5%;
+  width: 80%;
+`;
 export const ImagemonBoarding = styled.img`
-  margin-top: 3%;
-  width: 308px;
-  height: 229.5px;
+  width: 90%;
 `;
 
 export const AlinhamentosButton = styled.div`
@@ -20,23 +26,20 @@ export const AlinhamentosButton = styled.div`
 `;
 
 export const IconesOnboarding = styled.img`
-  width: 8px;
-  margin-left: 5px;
+  width: 3%;
   position: absolute;
-  padding: -20px;
 `;
 
 export const IconesOnboardingVolta = styled.img`
-  width: 8px;
-  margin-left: -18px;
+  width: 3%;
+  margin-left: -3%;
   position: absolute;
-  padding: -20px;
 `;
 
 export const SpanDot = styled.span`
-  height: 10px;
+  height: 8px;
   margin: 5px;
-  width: 10px;
+  width: 2%;
   background-color: ${props => `${props.colorbg}`};
   border-radius: 50%;
   display: inline-block;

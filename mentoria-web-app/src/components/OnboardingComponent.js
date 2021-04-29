@@ -20,8 +20,6 @@ const OnboardingComponent = () => {
           'Explore dicas, compartilhe projetos e troque conteúdos com seus colegas de trabalho!'
         }
         icon={caminho}
-        onClickAnterior={() => (window.location = '/home')}
-        textAnterior="Home"
         onClick={() => setSlide('2')}
         SpanUm={<SpanDot colorbg="#1B5DFF" />}
         SpanDois={<SpanDot colorbg="#bbb" />}
@@ -84,7 +82,6 @@ const OnboardingComponent = () => {
         SpanDois={<SpanDot colorbg="#bbb" />}
         SpanTres={<SpanDot colorbg="#bbb" />}
         SpanQuatro={<SpanDot colorbg="#1B5DFF" />}
-        text="Cadastro"
       />
     );
   }

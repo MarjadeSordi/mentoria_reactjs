@@ -27,7 +27,7 @@ const StepCadastro = () => {
   const TextosParaCadastro = async () => {
     try {
       const response = await fetch(
-        'https://cors-anywhere.herokuapp.com/https://s3.amazonaws.com/doroteia.api/signup-texts.json',
+        'https://s3.amazonaws.com/doroteia.api/signup-texts.json',
       );
       const json = await response.json();
       setTextos(json);
@@ -39,7 +39,7 @@ const StepCadastro = () => {
   const SetarTecnologia = async () => {
     try {
       const responseTec = await fetch(
-        'https://cors-anywhere.herokuapp.com/https://s3.amazonaws.com/doroteia.api/techs.json',
+        'https://s3.amazonaws.com/doroteia.api/techs.json',
       );
       const jsonTec = await responseTec.json();
       setTec(jsonTec);
@@ -51,7 +51,7 @@ const StepCadastro = () => {
   const SetarContatos = async () => {
     try {
       const responseCont = await fetch(
-        'https://cors-anywhere.herokuapp.com/https://s3.amazonaws.com/doroteia.api/contacts.json',
+        'https://s3.amazonaws.com/doroteia.api/contacts.json',
       );
       const jsonContato = await responseCont.json();
       setContatos(jsonContato);

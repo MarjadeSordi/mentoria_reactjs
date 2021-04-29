@@ -7,7 +7,7 @@ const StepDropdown = ({ name }) => {
   const SetarAreas = async () => {
     try {
       const responseArea = await fetch(
-        'https://cors-anywhere.herokuapp.com/https://s3.amazonaws.com/doroteia.api/work-areas.json',
+        'https://s3.amazonaws.com/doroteia.api/work-areas.json',
       );
       const jsonAreas = await responseArea.json();
       setAreas(jsonAreas);

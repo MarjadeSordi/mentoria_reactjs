@@ -13,6 +13,7 @@ import telaoito from '../../assets/illustration/telaoito.svg';
 import { FormCadastro } from '../../styles/components/StepCadastroVisual';
 import StepCadastroSenha from './StepCadastroSenha';
 import StepVerificacao from './StepVerificacao';
+import { divAjusteTexto } from '../../styles/pages/PagedeCadastro';
 
 const StepCadastro = () => {
   const [textos, setTextos] = useState([]);
@@ -181,7 +182,7 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="1"
                 colorTitle={'#1B5DFF'}
-                width="20"
+                width="15"
                 titulo={texto.title}
                 descricao={texto.description}
                 img={primeiraTela}
@@ -209,7 +210,7 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="2"
                 colorTitle={'#1B5DFF'}
-                width="40"
+                width="30"
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
@@ -234,7 +235,7 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="3"
                 colorTitle={'#1B5DFF'}
-                width="60"
+                width="45"
                 onClick={() => setStep(3)}
                 key={texto.id}
                 titulo={texto.title}
@@ -258,7 +259,7 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="4"
                 colorTitle={'#1B5DFF'}
-                width="80"
+                width="60"
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
@@ -333,7 +334,7 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="6"
                 colorTitle={'#1B5DFF'}
-                width="99"
+                width="75"
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
@@ -432,12 +433,15 @@ const StepCadastro = () => {
               <StepCadastroVisual
                 textButton="Avançar"
                 numero="9"
+                width="92"
                 colorTitle={'#1B5DFF'}
                 img={telanove}
-                width="99"
                 key={texto.id}
-                titulo={texto.title}
-                descricao={texto.description}
+                tituloAjuste={'tituloAjuste'}
+                titulotelas={texto.title}
+                descricaotelas={texto.description}
+                widthImg={'100'}
+                paddingImg={'20'}
               />
             </FormCadastro>
           );
@@ -450,14 +454,21 @@ const StepCadastro = () => {
               }}
             >
               <StepCadastroVisual
-                textButton="Avançar"
+                textButton="Voltar ao cadastro"
                 colorErro={'#EB5757'}
                 numero="10"
                 display="none"
                 key={texto.id}
                 img={cuate}
-                titulo={texto.title}
-                descricao={texto.description}
+                tituloAjuste={'tituloAjuste'}
+                titulotelas={texto.title}
+                descricaotelas={texto.description}
+                widthImg={'70'}
+                botaocontador={true}
+                botaocontadorprops={{
+                  value: 'Retornar a tela de erro',
+                  disabled: true,
+                }}
               />
             </FormCadastro>
           );

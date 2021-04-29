@@ -6,3 +6,8 @@ export const DivCapsulaCadastro = styled.div`
   align-items: center;
   padding: 2%;
 `;
+
+export const DivTelas = styled.div`
+  display: flex;
+  margin-top: 25%;
+`;

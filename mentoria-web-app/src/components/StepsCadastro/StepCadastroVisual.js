@@ -7,6 +7,7 @@ import {
   ContainerCadastro,
   ImagemCadastro,
   DivInternaCadastro,
+  DivTelasFinais,
 } from '../../styles/components/StepCadastroVisual';
 import {
   TextButton,
@@ -18,6 +19,20 @@ function StepCadastroVisual(props) {
   return (
     <>
       <ContainerCadastro>
+        {props.tituloAjuste && (
+          <DivTelasFinais>
+            {' '}
+            <>
+              {' '}
+              <Title corTitulo={props.colorTitle || props.colorErro}>
+                {' '}
+                {props.titulotelas}{' '}
+              </Title>
+              <TextoBody> {props.descricaotelas}</TextoBody>{' '}
+            </>{' '}
+          </DivTelasFinais>
+        )}
+
         <Title corTitulo={props.colorErro || props.colorTitle}>
           {' '}
           {props.titulo}{' '}
@@ -26,7 +41,16 @@ function StepCadastroVisual(props) {
 
         <label> {props.label}</label>
         <DivInternaCadastro>
-          {props.img ? <ImagemCadastro src={props.img} alt={props.img} /> : ''}
+          {props.img ? (
+            <ImagemCadastro
+              src={props.img}
+              alt={props.img}
+              widthImg={props.widthImg}
+              paddingImg={props.paddingImg}
+            />
+          ) : (
+            ''
+          )}
         </DivInternaCadastro>
         <ProgressBar displayBar={props.display} />
         <ProgressBarBlue widthBar={props.width} />

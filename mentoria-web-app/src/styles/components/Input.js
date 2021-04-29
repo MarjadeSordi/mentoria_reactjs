@@ -52,14 +52,14 @@ export const StyledInput = styled.input`
 
 export const MsgInputError = styled.div`
   color: #eb5757;
-  font-size: 1 rem;
+  font-size: 12px;
   font-family: Open Sans;
   margin-top: 1%;
 `;
 
 export const MsgInputCheck = styled.div`
   color: #27ae60;
-  font-size: 1 rem;
+  font-size: 12px;
   font-family: Open Sans;
   margin-top: 1%;
 `;

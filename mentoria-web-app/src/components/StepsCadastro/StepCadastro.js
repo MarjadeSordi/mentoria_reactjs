@@ -13,7 +13,7 @@ import telaoito from '../../assets/illustration/telaoito.svg';
 import { FormCadastro } from '../../styles/components/StepCadastroVisual';
 import StepCadastroSenha from './StepCadastroSenha';
 import StepVerificacao from './StepVerificacao';
-import { divAjusteTexto } from '../../styles/pages/PagedeCadastro';
+import StepCadastroEmail from './StepCadastroEmail';
 
 const StepCadastro = () => {
   const [textos, setTextos] = useState([]);
@@ -201,7 +201,9 @@ const StepCadastro = () => {
                 checkEmail(Email);
               }}
               onChange={e => {
-                const ValidarBotao = e.target.value;
+                const regex =
+                  '^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$';
+                const ValidarBotao = new RegExp(regex).test(e.target.value);
                 if (!ValidarBotao) return setBotao(true);
                 else return setBotao(false);
               }}
@@ -216,7 +218,11 @@ const StepCadastro = () => {
                 descricao={texto.description}
                 botao={botao}
                 label={
-                  <InputForm label={'Email'} name={'email'} type={'email'} />
+                  <StepCadastroEmail
+                    label={'Email'}
+                    name={'email'}
+                    type={'email'}
+                  />
                 }
               />
             </FormCadastro>
@@ -324,8 +330,8 @@ const StepCadastro = () => {
                 checkContatos(inputContato);
                 setBotao(true);
               }}
-              onChange={() => {
-                const ValidarBotao = inputContato;
+              onChange={e => {
+                const ValidarBotao = e.target.checked && inputContato;
                 if (!ValidarBotao) return setBotao(true);
                 else return setBotao(false);
               }}
@@ -359,9 +365,11 @@ const StepCadastro = () => {
                 setStep(step + 1);
                 const confirmaSenha = e.target.confirmPassword.value;
                 checkSenhas(confirmaSenha);
+                setBotao(true);
               }}
               onChange={e => {
-                const ValidarBotao = e.target.value;
+                const regex = /^(?=.*\d)(?=.*[a-z])[0-9a-zA-Z!$*&@#]{8,}$/;
+                const ValidarBotao = new RegExp(regex).test(e.target.value);
                 if (!ValidarBotao) return setBotao(true);
                 else return setBotao(false);
               }}
@@ -395,6 +403,12 @@ const StepCadastro = () => {
                 e.preventDefault();
                 setStep(step + 1);
               }}
+              onChange={e => {
+                const regex = '123456';
+                const ValidarBotao = new RegExp(regex).test(e.target.value);
+                if (!ValidarBotao) return setBotao(true);
+                else return setBotao(false);
+              }}
             >
               <StepCadastroVisual
                 textButton="Avançar"
@@ -403,6 +417,7 @@ const StepCadastro = () => {
                 display="none"
                 img={telaoito}
                 key={texto.id}
+                botao={botao}
                 titulo={texto.title}
                 descricao={texto.description}
                 label={

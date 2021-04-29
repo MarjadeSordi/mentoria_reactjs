@@ -7,16 +7,20 @@ const SetInput = ({ label, name, type }) => {
   const [error, setError] = useState('');
   const [check, setCheck] = useState('');
 
+  const regex =
+    '^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$';
+
   const handleInput = e => {
     const value = e.target.value;
     setValue(value);
   };
 
   const ValidarInput = () => {
-    if (!value) {
-      setError('Esse campo não pode ficar em branco');
+    const Validaremail = new RegExp(regex).test(value);
+    if (!Validaremail) {
+      setError('Digite um e-mail válido');
       setCheck('');
-    } else if (value) {
+    } else if (Validaremail) {
       setCheck('Pode prosseguir');
       setError('');
     }

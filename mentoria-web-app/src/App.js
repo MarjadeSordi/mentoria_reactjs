@@ -47,7 +47,7 @@ function App() {
               path="/testandoOnboarding"
               component={ModalOnboarding}
             />
-            <Route exact path="/teste" component={TelaInput} />
+            <Route exact path="/teste" component={ModalOnboarding} />
             <Route exact path="/ajuda" component={PagedeAjuda} />
           </Provider>
 

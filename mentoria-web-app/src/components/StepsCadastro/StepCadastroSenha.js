@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import usePassword from '../../hooks/usePassword';
 import InputForm from '../Input/Input';
-import {
-  CapsulaPassword,
-  PasswordToogle,
-  PasswordToogleConfirmado,
-} from '../../styles/components/Password';
-import { MsgInputCheck, MsgInputError } from '../../styles/components/Input';
+import { CapsulaPassword } from '../../styles/components/Password';
 
 const StepCadastroSenha = ({ label, name, nameConfirma, labelConfirma }) => {
   const [passwordType, iconPassword] = usePassword();

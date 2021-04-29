@@ -3,9 +3,10 @@ import OnboardingElement from './OnboardingElement';
 import rafiki from '../assets/illustration/rafiki.svg';
 import amico from '../assets/illustration/amico.svg';
 import pana from '../assets/illustration/pana.svg';
+import telaquatro from '../assets/illustration/telaquatro.svg';
 import caminho from '../assets/icons/caminho.svg';
 import caminhovolta from '../assets/icons/caminhovolta.svg';
-import { SpanBlue, SpanDot } from '../styles/components/Onboarding';
+import { SpanDot } from '../styles/components/Onboarding';
 
 const OnboardingComponent = () => {
   const [slide, setSlide] = useState('1');
@@ -14,9 +15,9 @@ const OnboardingComponent = () => {
     return (
       <OnboardingElement
         img={rafiki}
-        textTitle={'H1 - Headline'}
+        textTitle={'Bem-vindx ao [Nome do app]!'}
         textSubtitle={
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+          'Explore dicas, compartilhe projetos e troque conteúdos com seus colegas de trabalho!'
         }
         icon={caminho}
         onClickAnterior={() => (window.location = '/home')}
@@ -25,6 +26,7 @@ const OnboardingComponent = () => {
         SpanUm={<SpanDot colorbg="#1B5DFF" />}
         SpanDois={<SpanDot colorbg="#bbb" />}
         SpanTres={<SpanDot colorbg="#bbb" />}
+        SpanQuatro={<SpanDot colorbg="#bbb" />}
         text="Próximo"
       />
     );
@@ -32,10 +34,8 @@ const OnboardingComponent = () => {
     return (
       <OnboardingElement
         img={amico}
-        textTitle={'H1 - Headline'}
-        textSubtitle={
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-        }
+        textTitle={'Tenha uma equipe multidisciplinar!'}
+        textSubtitle={'Receba ajuda de forma ágil de todas as áreas do hub.'}
         icon={caminho}
         iconvolta={caminhovolta}
         onClickAnterior={() => setSlide('1')}
@@ -44,6 +44,7 @@ const OnboardingComponent = () => {
         SpanUm={<SpanDot colorbg="#bbb" />}
         SpanDois={<SpanDot colorbg="#1B5DFF" />}
         SpanTres={<SpanDot colorbg="#bbb" />}
+        SpanQuatro={<SpanDot colorbg="#bbb" />}
         text="Próximo"
       />
     );
@@ -51,19 +52,38 @@ const OnboardingComponent = () => {
     return (
       <OnboardingElement
         img={pana}
-        textTitle={'H1 - Headline'}
+        textTitle={'Solucione suas dúvidas em tempo real!'}
         textSubtitle={
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+          'Você também pode conversar por chat com seus colegas de área!'
         }
-        finaliza={localStorage.setItem('isAuth', 'true')}
         icon={caminho}
         iconvolta={caminhovolta}
         onClickAnterior={() => setSlide('2')}
         textAnterior="Anterior"
-        onClick={() => (window.location = '/cadastro')}
+        onClick={() => setSlide('4')}
         SpanUm={<SpanDot colorbg="#bbb" />}
         SpanDois={<SpanDot colorbg="#bbb" />}
         SpanTres={<SpanDot colorbg="#1B5DFF" />}
+        SpanQuatro={<SpanDot colorbg="#bbb" />}
+        text="Próximo"
+      />
+    );
+  } else if (slide === '4') {
+    return (
+      <OnboardingElement
+        img={telaquatro}
+        textTitle={'Pronto!'}
+        textSubtitle={'Bora trocar conhecimento?'}
+        finaliza={localStorage.setItem('isAuth', 'true')}
+        iconvolta={caminhovolta}
+        onClickAnterior={() => setSlide('3')}
+        textAnterior="Anterior"
+        button={'Começar'}
+        onClick={() => (window.location = '/cadastro')}
+        SpanUm={<SpanDot colorbg="#bbb" />}
+        SpanDois={<SpanDot colorbg="#bbb" />}
+        SpanTres={<SpanDot colorbg="#bbb" />}
+        SpanQuatro={<SpanDot colorbg="#1B5DFF" />}
         text="Cadastro"
       />
     );

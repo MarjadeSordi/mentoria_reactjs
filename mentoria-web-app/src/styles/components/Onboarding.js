@@ -15,7 +15,7 @@ export const ImagemonBoarding = styled.img`
 `;
 
 export const AlinhamentosButton = styled.div`
-  top: 70%;
+  margin-top: 20%;
   display: flex;
 `;
 

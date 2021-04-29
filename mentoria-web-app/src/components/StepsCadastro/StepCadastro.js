@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import StepCadastroVisual from './StepCadastroVisual';
 import InputForm from './StepInput';
 import SelectLabel from './StepDropdown';
@@ -331,7 +331,7 @@ const StepCadastro = () => {
                 setBotao(true);
               }}
               onChange={e => {
-                const ValidarBotao = e.target.checked && inputContato;
+                const ValidarBotao = inputContato;
                 if (!ValidarBotao) return setBotao(true);
                 else return setBotao(false);
               }}

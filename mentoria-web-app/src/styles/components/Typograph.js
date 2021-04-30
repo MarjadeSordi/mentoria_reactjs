@@ -9,6 +9,7 @@ export const Title = styled.h1`
   letter-spacing: -0.3px;
   color: #333333;
   color: ${props => `${props.corTitulo}`};
+  font-size= color: ${props => `${props.fontSize}`};
 `;
 
 export const TitleDois = styled.h2`

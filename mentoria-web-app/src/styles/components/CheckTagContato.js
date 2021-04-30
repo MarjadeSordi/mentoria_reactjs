@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { coresGlobais } from '../style';
 
 export const CheckTagContato = styled.input`
-  width: 45%;
-  height: 20%;
+  width: 55%;
+  height: 14%;
   position: absolute;
   margin-left: 10%;
   padding: 10%;

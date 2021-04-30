@@ -8,7 +8,7 @@ export const ButtonApp = styled.button`
   cursor: pointer;
 
   font-family: Roboto;
-
+  outline = ${props => `${props.outline}`};
   border-radius: 5px;
   width: ${props => `${props.buttonSize}`};
   background-color: ${props => `${props.colorbgButton}`};

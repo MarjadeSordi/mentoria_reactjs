@@ -13,7 +13,7 @@ export const DivImg = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 15% 5% 5% 5%;
+  margin: 10% 5% 5% 5%;
   width: 80%;
 `;
 export const ImagemonBoarding = styled.img`

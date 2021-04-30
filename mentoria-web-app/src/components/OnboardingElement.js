@@ -20,7 +20,7 @@ function OnboardingElement(props) {
         </DivImg>
 
         <DivTelasFinais>
-          <Title>{props.textTitle}</Title>
+          <Title fontSize={'25px'}>{props.textTitle}</Title>
 
           <TextoBody> {props.textSubtitle} </TextoBody>
         </DivTelasFinais>
@@ -33,6 +33,7 @@ function OnboardingElement(props) {
             buttonColor={'#fff'}
             onClick={props.onClick}
             type="button"
+            outline={'none'}
           >
             {' '}
             {props.button}{' '}

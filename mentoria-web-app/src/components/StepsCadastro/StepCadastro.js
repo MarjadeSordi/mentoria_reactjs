@@ -184,7 +184,7 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="1"
                 colorTitle={'#1B5DFF'}
-                width="15"
+                width="12"
                 titulo={texto.title}
                 descricao={texto.description}
                 img={primeiraTela}
@@ -214,7 +214,7 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="2"
                 colorTitle={'#1B5DFF'}
-                width="30"
+                width="24"
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
@@ -243,7 +243,7 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="3"
                 colorTitle={'#1B5DFF'}
-                width="45"
+                width="36"
                 onClick={() => setStep(3)}
                 key={texto.id}
                 titulo={texto.title}
@@ -267,7 +267,7 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="4"
                 colorTitle={'#1B5DFF'}
-                width="60"
+                width="48"
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
@@ -306,6 +306,7 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="5"
                 colorTitle={'#1B5DFF'}
+                width="54"
                 display="none"
                 key={texto.id}
                 titulo={texto.title}
@@ -342,7 +343,7 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="6"
                 colorTitle={'#1B5DFF'}
-                width="75"
+                width="66"
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
@@ -381,6 +382,7 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="7"
                 colorTitle={'#1B5DFF'}
+                width="78"
                 display="none"
                 key={texto.id}
                 titulo={texto.title}

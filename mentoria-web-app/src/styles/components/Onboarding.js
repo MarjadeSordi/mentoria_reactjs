@@ -16,6 +16,11 @@ export const DivImg = styled.div`
   margin: 10% 5% 5% 5%;
   width: 80%;
 `;
+
+export const DivSubImg = styled.div`
+  width: 90%;
+  heigth: 60%;
+`;
 export const ImagemonBoarding = styled.img`
   width: 90%;
 `;

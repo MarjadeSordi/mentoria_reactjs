@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import usePassword from '../../hooks/usePassword';
 import InputForm from '../Input/Input';
 import { CapsulaPassword } from '../../styles/components/Password';
+import { TextoBold } from '../../styles/components/Typograph';
 
 const StepCadastroSenha = ({ label, name, nameConfirma, labelConfirma }) => {
   const [passwordType, iconPassword] = usePassword();
@@ -26,7 +27,12 @@ const StepCadastroSenha = ({ label, name, nameConfirma, labelConfirma }) => {
   return (
     <>
       <CapsulaPassword>
-        <label htmlFor={name}>{label}</label>
+        <label htmlFor={name}>
+          {' '}
+          <TextoBold fsize={'13px'} pbottom={'2'}>
+            {label}{' '}
+          </TextoBold>{' '}
+        </label>
         <InputForm
           required
           name={name}
@@ -51,7 +57,13 @@ const StepCadastroSenha = ({ label, name, nameConfirma, labelConfirma }) => {
           check={check}
         />
 
-        <label htmlFor={nameConfirma}> {labelConfirma} </label>
+        <label htmlFor={nameConfirma}>
+          {' '}
+          <TextoBold fsize={'13px'} pbottom={'2'}>
+            {' '}
+            {labelConfirma}{' '}
+          </TextoBold>{' '}
+        </label>
         <InputForm
           required
           id="confirmasenha"

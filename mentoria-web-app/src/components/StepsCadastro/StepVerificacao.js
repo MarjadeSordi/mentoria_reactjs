@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { TextoBold } from '../../styles/components/Typograph';
 import InputForm from '../Input/Input';
 
 const StepVerificacao = ({ name, label }) => {
@@ -22,7 +23,13 @@ const StepVerificacao = ({ name, label }) => {
   };
   return (
     <>
-      <label htmlFor={name}> {label}</label>
+      <label htmlFor={name}>
+        {' '}
+        <TextoBold fsize={'13px'} pbottom={'2'}>
+          {' '}
+          {label}
+        </TextoBold>{' '}
+      </label>
       <InputForm
         name={name}
         placeholder={'__ __ __ . __ __ __'}

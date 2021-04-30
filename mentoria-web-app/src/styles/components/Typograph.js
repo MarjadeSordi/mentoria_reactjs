@@ -47,10 +47,11 @@ export const TextoBold = styled.span`
   font-weight: bold;
   font-size: 18px;
   line-height: 22px;
-  /* identical to box height, or 122% */
   display: flex;
   align-items: center;
   color: #23232e;
+  font-size: ${props => `${props.fsize}`};
+  padding-bottom: ${props => `${props.pbottom}`}%;
 `;
 
 export const BodyLarge = styled.span`

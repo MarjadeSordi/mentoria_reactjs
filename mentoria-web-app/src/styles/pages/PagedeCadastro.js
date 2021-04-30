@@ -5,4 +5,5 @@ export const DivCapsulaCadastro = styled.div`
   justify-content: center;
   align-items: center;
   padding: 2%;
+  width: 95%;
 `;

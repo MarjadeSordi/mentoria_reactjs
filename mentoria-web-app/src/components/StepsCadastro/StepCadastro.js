@@ -14,6 +14,8 @@ import { FormCadastro } from '../../styles/components/StepCadastroVisual';
 import StepCadastroSenha from './StepCadastroSenha';
 import StepVerificacao from './StepVerificacao';
 import StepCadastroEmail from './StepCadastroEmail';
+import StepDropdown from './StepDropdown';
+import StepDropdownHub from './StepCadastroDropdownHub';
 
 const StepCadastro = () => {
   const [textos, setTextos] = useState([]);
@@ -219,7 +221,7 @@ const StepCadastro = () => {
                 botao={botao}
                 label={
                   <StepCadastroEmail
-                    label={'Email'}
+                    label={'E-mail coorporativo'}
                     name={'email'}
                     type={'email'}
                   />
@@ -246,7 +248,7 @@ const StepCadastro = () => {
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
-                label={<SelectLabelDrop name={'startup'} />}
+                label={<StepDropdown name={'startup'} label={'Startup'} />}
               />
             </FormCadastro>
           );
@@ -269,7 +271,7 @@ const StepCadastro = () => {
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
-                label={<SelectLabel name={'atuacao'} />}
+                label={<StepDropdownHub name={'atuacao'} label={'Área'} />}
               />
             </FormCadastro>
           );

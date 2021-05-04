@@ -63,7 +63,7 @@ export default function Login({
   const handleSenha = e => {
     const validarConfirma = new RegExp(regexSenha).test(e.target.value);
     if (!validarConfirma) {
-      setErrorSenha('Digite uma senha válida');
+      setErrorSenha('Por favor, digite uma senha válida');
     }
   };
 

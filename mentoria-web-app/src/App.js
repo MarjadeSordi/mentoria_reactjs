@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import PageIndex from './PageIndex';
-import PageLogin from './PageLogin';
+import PageLogin from '../src/pages/PageLogin';
 import PagedeAjuda from './PagedeAjuda';
 import PageNotFound from './PageNotFound';
 import { isAuthenticated } from './auth';
@@ -13,7 +13,6 @@ import PageDropdown from './PageDropdown';
 import PageCheckBoxTag from './PageCheckBoxTag';
 import ModalOnboarding from './ModalOnboarding';
 import PagedeCadastro from '../src/pages/PagedeCadastro';
-import TelaInput from './TelaInput';
 
 const OnboardingRoute = ({ component: Component, ...rest }) => (
   <Route

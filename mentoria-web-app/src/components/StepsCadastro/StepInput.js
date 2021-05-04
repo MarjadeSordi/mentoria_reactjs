@@ -11,15 +11,16 @@ const SetInput = ({ label, name, type }) => {
   const handleInput = e => {
     const value = e.target.value;
     setValue(value);
+    if (value) {
+      setCheck('Pode prosseguir');
+      setError('');
+    }
   };
 
   const ValidarInput = () => {
     if (!value) {
       setError('Esse campo não pode ficar em branco');
       setCheck('');
-    } else if (value) {
-      setCheck('Pode prosseguir');
-      setError('');
     }
   };
 

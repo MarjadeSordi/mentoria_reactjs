@@ -15,13 +15,24 @@ const StepCadastroSenha = ({ label, name, nameConfirma, labelConfirma }) => {
   const [check, setCheck] = useState();
 
   const regex = /^(?=.*\d)(?=.*[a-z])[0-9a-zA-Z!$*&@#]{8,}$/;
+  const regexSenha = valueSenha;
 
   const handleInput = e => {
     setValueSenha(e.target.value);
+    const validar = new RegExp(regex).test(e.target.value);
+    if (validar) {
+      setCheck('Perfeito!');
+      setError('');
+    }
   };
 
   const handleConfirm = e => {
     setConfirmValue(e.target.value);
+    const validarConfirma = new RegExp(regexSenha).test(e.target.value);
+    if (validarConfirma) {
+      setcheckConfirma('Campos corretos');
+      setErrorConfirma('');
+    }
   };
 
   return (
@@ -42,10 +53,7 @@ const StepCadastroSenha = ({ label, name, nameConfirma, labelConfirma }) => {
           onBlur={e => {
             if (e.target.value) {
               const validar = new RegExp(regex).test(e.target.value);
-              if (validar) {
-                setCheck('Perfeito!');
-                setError('');
-              } else {
+              if (!validar) {
                 setError('Sua senha não atingiu os critérios de segurança.');
                 setCheck('');
               }
@@ -72,10 +80,7 @@ const StepCadastroSenha = ({ label, name, nameConfirma, labelConfirma }) => {
           onChange={handleConfirm}
           value={confirmValue}
           onBlur={() => {
-            if (confirmValue === valueSenha) {
-              setcheckConfirma('Campos corretos');
-              setErrorConfirma('');
-            } else {
+            if (confirmValue !== valueSenha) {
               setErrorConfirma(' Os campos não condizem entre si');
               setcheckConfirma('');
             }

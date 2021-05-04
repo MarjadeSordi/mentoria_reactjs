@@ -49,16 +49,17 @@ export const TextoBold = styled.span`
   font-size: 18px;
   line-height: 22px;
   display: flex;
-  align-items: center;
   color: #23232e;
   font-size: ${props => `${props.fsize}`};
   padding-bottom: ${props => `${props.pbottom}`}%;
+  padding-top: ${props => `${props.ptop}`}%;
+  color: ${props => `${props.colorText}`};
 `;
 
 export const BodyLarge = styled.span`
   font-family: Open Sans;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 700;
   font-size: 18px;
   line-height: 25px;
   display: flex;

@@ -13,7 +13,12 @@ const SetInput = ({ label, name, type }) => {
 
   const handleInput = e => {
     const value = e.target.value;
+    const Validaremail = new RegExp(regex).test(value);
     setValue(value);
+    if (Validaremail) {
+      setCheck('Pode prosseguir');
+      setError('');
+    }
   };
 
   const ValidarInput = () => {
@@ -21,9 +26,6 @@ const SetInput = ({ label, name, type }) => {
     if (!Validaremail) {
       setError('Digite um e-mail válido');
       setCheck('');
-    } else if (Validaremail) {
-      setCheck('Pode prosseguir');
-      setError('');
     }
   };
 

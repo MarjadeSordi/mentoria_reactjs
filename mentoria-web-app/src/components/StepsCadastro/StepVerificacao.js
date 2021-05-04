@@ -10,13 +10,14 @@ const StepVerificacao = ({ name, label }) => {
   const handleInput = e => {
     const value = e.target.value;
     setValue(value);
-  };
-
-  const ValidarInput = () => {
     if (value === '123456') {
       setError('');
       setCheck('Código verificado com sucesso');
-    } else {
+    }
+  };
+
+  const ValidarInput = () => {
+    if (value !== '123456') {
       setCheck('');
       setError('Código inválido');
     }

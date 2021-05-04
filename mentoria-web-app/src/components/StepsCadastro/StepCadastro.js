@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import StepCadastroVisual from './StepCadastroVisual';
 import InputForm from './StepInput';
-import SelectLabel from './StepDropdown';
-import SelectLabelDrop from './StepCadastroDropdownHub';
 import { useSelector, useDispatch } from 'react-redux';
 import primeiraTela from '../../assets/illustration/primeiraTela.svg';
 import StepCheckTecnologias from './StepCheckTecnologias';

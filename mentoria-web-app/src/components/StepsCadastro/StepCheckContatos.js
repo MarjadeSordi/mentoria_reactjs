@@ -5,8 +5,6 @@ import {
   InputContato,
   ListaContato,
 } from '../../styles/components/CheckTagContato';
-import correct_white from '../../assets/icons/correct_white.svg';
-import { ImagemCheck } from '../../styles/components/Input';
 
 const StepCheckContatos = ({
   contato,
@@ -74,7 +72,7 @@ const StepCheckContatos = ({
             if (validar) {
               document.getElementById(saveContato).style =
                 'background: #47D163';
-            } else {
+            } else if (!validar) {
               document.getElementById(saveContato).style = 'background:#EB5757';
             }
           }

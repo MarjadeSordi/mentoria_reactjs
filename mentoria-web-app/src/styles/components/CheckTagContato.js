@@ -30,6 +30,10 @@ export const CheckLabelContato = styled.label`
   align-itens: center;
   justify-content: center;
   background: #e0e0e0;
+
+  @media (min-width: 1024px) {
+    width: 40%;
+  }
 `;
 
 export const InputContato = styled.input`

@@ -21,6 +21,9 @@ export const CheckLabel = styled.label`
   align-itens: center;
   justify-content: center;
   background: #e0e0e0;
+  @media (min-width: 1024px) {
+    width: 20%;
+  }
 `;
 
 export const CheckCapsula = styled.div`
@@ -28,4 +31,7 @@ export const CheckCapsula = styled.div`
   flex-wrap: wrap;
   position: relative;
   width: 100%;
+  @media (min-width: 1024px) {
+    width: 80%;
+  }
 `;

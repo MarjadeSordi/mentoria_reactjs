@@ -9,6 +9,9 @@ export const DivCapsulaLogin = styled.div`
   padding: 2%;
   margin-top: 10%;
   width: 95%;
+  @media (min-width: 1024px) {
+    margin-top: 0;
+  }
 `;
 
 export const DivLogin = styled.div`
@@ -25,6 +28,16 @@ export const DivLogin = styled.div`
     top: 35%;
     border: none;
   }
+
+  @media (min-width: 1024px) {
+    margin-top: 0;
+    margin-bottom: 2%;
+  }
+`;
+
+export const DivForm = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const DivCentralizar = styled.div`
@@ -32,6 +45,12 @@ export const DivCentralizar = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+
+  @media (min-width: 1024px) {
+ 
+ align-items: flex-start;
+  justify-content: flex-start;
+  text-align: flex-start;
 `;
 
 export const ImgLoader = styled.img`

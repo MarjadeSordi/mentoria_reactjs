@@ -1,92 +1,61 @@
+import e from 'cors';
 import { useRef, useState, useEffect } from 'react';
+import { connectAdvanced } from 'react-redux';
 import {
-  CheckLabelContato,
-  CheckTagContato,
-  InputContato,
+  DivCapsulaContatos,
   ListaContato,
 } from '../../styles/components/CheckTagContato';
+import InputTag from '../Input/InputTag';
 
-const StepCheckContatos = ({
-  contato,
-  type,
-  inputcontato,
-  setinputcontato,
-}) => {
+const StepCheckContatos = ({ contato, inputcontato, setinputcontato }) => {
   const [checkContato, setContato] = useState();
+  const [onfocus, setonFocus] = useState(false);
   const [saveContato, setSaveContato] = useState();
   const [typeInput, setTypeInput] = useState();
-  const [contatoOptions, setContatoOptions] = useState();
+  const [validInput, setValidInput] = useState({});
+  const [error, setError] = useState(false);
 
   const handleContato = e => {
-    setContato(e.target.checked);
-    setSaveContato(e.target.name.toLowerCase());
+    setContato(e.target.value);
   };
 
-  const inputRef = useRef();
-
-  useEffect(() => {
-    if (inputRef && checkContato) {
-      inputRef.current.focus();
-    }
-    if (checkContato) {
-      const tipoInput = contato.find(
-        tipo => tipo.label.toLowerCase() === saveContato,
-      );
-      setTypeInput(tipoInput);
-    }
-  }, [checkContato]);
-
   return (
-    <div>
+    <DivCapsulaContatos>
       <ListaContato>
         {contato.map(cont => (
           <>
             <li key={cont.id}>
-              <CheckTagContato
-                type={type}
+              <InputTag
+                placeholder={cont.label}
+                type={cont.type}
                 name={cont.label}
-                labelBack={'#47D163'}
-                value={cont.label}
-                onClick={handleContato}
-                labelB={'#1B5DFF'}
+                id={cont.id}
+                onChange={e => {
+                  setContato(e.target.value);
+                  const validInputCopy = Object.assign({}, validInput);
+                  if (e.target.value) {
+                    const validar = new RegExp(cont.regex).test(e.target.value);
+                    validInputCopy[cont.label] = validar;
+                  }
+                  setValidInput(validInputCopy);
+                  setError(false);
+                }}
+                onBlur={() => {
+                  if (
+                    validInput[cont.label] === undefined &&
+                    validInput[cont.label] !== null
+                  ) {
+                    setError(false);
+                  } else setError(!validInput[cont.label]);
+                }}
+                check={validInput[cont.label]}
+                error={error}
               />
-              <CheckLabelContato
-                htmlFor={cont.label}
-                id={cont.label.toLowerCase()}
-              >
-                <p> {cont.label} </p>
-              </CheckLabelContato>
             </li>
           </>
         ))}
       </ListaContato>
-      <InputContato
-        required
-        ref={inputRef}
-        type={typeInput?.type}
-        show={checkContato}
-        value={inputcontato[saveContato]}
-        onBlur={e => {
-          if (e.target.value) {
-            const validar = new RegExp(typeInput.regex).test(e.target.value);
-            if (validar) {
-              document.getElementById(saveContato).style =
-                'background: #47D163';
-            } else if (!validar) {
-              document.getElementById(saveContato).style = 'background:#EB5757';
-            }
-          }
-        }}
-        onChange={e => {
-          const newContatos = {
-            ...inputcontato,
-            [saveContato]: e.target.value,
-          };
-          setinputcontato(newContatos);
-          setContatoOptions(e.target.value);
-        }}
-      />
-    </div>
+    </DivCapsulaContatos>
   );
 };
 

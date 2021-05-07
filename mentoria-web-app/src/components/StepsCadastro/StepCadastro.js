@@ -350,7 +350,6 @@ const StepCadastro = () => {
                 label={
                   <StepCheckContatos
                     contato={contatos}
-                    type={'checkbox'}
                     inputcontato={inputContato}
                     setinputcontato={setInputContato}
                   />

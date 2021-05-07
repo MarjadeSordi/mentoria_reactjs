@@ -51,10 +51,12 @@ function OnboardingElement(props) {
               {props.textAnterior}
             </TextButton>{' '}
           </ButtonApp>
+
           <> {props.SpanUm} </>
           <> {props.SpanDois} </>
           <> {props.SpanTres} </>
           <> {props.SpanQuatro} </>
+
           <ButtonApp
             colorbgButton={'transparent'}
             buttonColor={'#23232E'}

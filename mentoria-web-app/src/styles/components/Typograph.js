@@ -9,6 +9,7 @@ export const Title = styled.h1`
   letter-spacing: -0.3px;
   color: #333333;
   color: ${props => `${props.corTitulo}`};
+  font-size= color: ${props => `${props.fontSize}`};
 `;
 
 export const TitleDois = styled.h2`
@@ -47,16 +48,18 @@ export const TextoBold = styled.span`
   font-weight: bold;
   font-size: 18px;
   line-height: 22px;
-  /* identical to box height, or 122% */
   display: flex;
-  align-items: center;
   color: #23232e;
+  font-size: ${props => `${props.fsize}`};
+  padding-bottom: ${props => `${props.pbottom}`}%;
+  padding-top: ${props => `${props.ptop}`}%;
+  color: ${props => `${props.colorText}`};
 `;
 
 export const BodyLarge = styled.span`
   font-family: Open Sans;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 700;
   font-size: 18px;
   line-height: 25px;
   display: flex;

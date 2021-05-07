@@ -21,6 +21,9 @@ export const StyledDivGrey = styled.div`
   & :focus-within {
     border: ${props => `${props.focus}`};
   }
+  @media (min-width: 1024px) {
+    width: 30%;
+  }
 `;
 
 export const StyledFormDiv = styled.div`
@@ -52,14 +55,14 @@ export const StyledInput = styled.input`
 
 export const MsgInputError = styled.div`
   color: #eb5757;
-  font-size: 1 rem;
+  font-size: 12px;
   font-family: Open Sans;
   margin-top: 1%;
 `;
 
 export const MsgInputCheck = styled.div`
   color: #27ae60;
-  font-size: 1 rem;
+  font-size: 12px;
   font-family: Open Sans;
   margin-top: 1%;
 `;
@@ -79,6 +82,9 @@ export const SelectLabel = styled.select`
   padding: 0 1rem 0 1rem;
   border: none;
   font-family: 'Source Sans Pro', sans-serif;
+  @media (min-width: 1024px) {
+    width: 30%;
+  }
 `;
 
 export const SelectLabelDrop = styled.select`
@@ -86,4 +92,7 @@ export const SelectLabelDrop = styled.select`
   padding: 0 1rem 0 1rem;
   border: none;
   font-family: 'Source Sans Pro', sans-serif;
+  @media (min-width: 1024px) {
+    width: 30%;
+  }
 `;

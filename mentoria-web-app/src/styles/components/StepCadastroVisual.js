@@ -8,6 +8,9 @@ export const ProgressBar = styled.div`
   background-color: #e5e5ea;
   position: relative;
   display: ${props => props.displayBar};
+  @media (min-width: 1024px) {
+    margin: 0;
+  }
 `;
 
 export const ProgressBarBlue = styled.div`
@@ -31,12 +34,17 @@ export const FormCadastro = styled.form`
 
 export const ImagemCadastro = styled.img`
   margin: 0 auto;
-  width: 70%;
-  height: 70%;
+  width: 65%;
+  height: 60%;
   padding-bottom: 10%;
   padding-top: 10%;
   width: ${props => props.widthImg}%;
   padding-left: ${props => props.paddingImg}%;
+  @media (min-width: 1024px) {
+    width: 20%;
+    paddind-bottom: 0;
+    padding-top: 0;
+  }
 `;
 
 export const DivInternaCadastro = styled.div`

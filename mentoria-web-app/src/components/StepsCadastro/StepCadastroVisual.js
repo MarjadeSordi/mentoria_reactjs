@@ -24,7 +24,10 @@ function StepCadastroVisual(props) {
             {' '}
             <>
               {' '}
-              <Title corTitulo={props.colorTitle || props.colorErro}>
+              <Title
+                corTitulo={props.colorTitle || props.colorErro}
+                fontSize={'25px'}
+              >
                 {' '}
                 {props.titulotelas}{' '}
               </Title>
@@ -33,7 +36,10 @@ function StepCadastroVisual(props) {
           </DivTelasFinais>
         )}
 
-        <Title corTitulo={props.colorErro || props.colorTitle}>
+        <Title
+          corTitulo={props.colorErro || props.colorTitle}
+          fontSize={'25px'}
+        >
           {' '}
           {props.titulo}{' '}
         </Title>

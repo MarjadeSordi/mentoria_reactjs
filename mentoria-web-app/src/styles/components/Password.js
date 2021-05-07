@@ -30,6 +30,6 @@ export const CapsulaPassword = styled.div`
   padding: 0;
   margin-bottom: 20%;
   > label {
-    padding-top: 2%;
+    padding-top: 1%;
   }
 `;

@@ -2,16 +2,19 @@ import styled from 'styled-components';
 
 export const ButtonApp = styled.button`
   height: 48px;
-  width: 200px;
   border-radius: 5px;
   margin-top: 1%;
   cursor: pointer;
 
-  font-family: Roboto;
 
+  outline = ${props => `${props.outline}`};
   border-radius: 5px;
   width: ${props => `${props.buttonSize}`};
   background-color: ${props => `${props.colorbgButton}`};
   color: ${props => `${props.buttonColor}`};
   border: ${props => `${props.buttonBorder}`};
+  
+  @media (min-width: 1024px) {
+    width: 30%;
+  }
 `;

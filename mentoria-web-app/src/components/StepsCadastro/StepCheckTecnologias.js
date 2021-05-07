@@ -4,6 +4,7 @@ import {
   CheckLabel,
   CheckTag,
 } from '../../styles/components/CheckTag';
+import { TextoBold } from '../../styles/components/Typograph';
 import InputForm from '../Input/Input';
 
 const StepCheckTecnologias = ({ type, tecnologia, name, tipo, label }) => {
@@ -45,7 +46,13 @@ const StepCheckTecnologias = ({ type, tecnologia, name, tipo, label }) => {
         </CheckCapsula>
       </>
       <>
-        <label htmlFor={name}> {label} </label>
+        <label htmlFor={name}>
+          {' '}
+          <TextoBold fsize={'13px'} pbottom={'2'}>
+            {' '}
+            {label}
+          </TextoBold>{' '}
+        </label>
         <InputForm type={tipo} name={name} onChange={ShowOptions}></InputForm>
       </>
     </>

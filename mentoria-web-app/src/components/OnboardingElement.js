@@ -2,10 +2,12 @@ import { ButtonApp } from '../styles/components/Button';
 import {
   AlinhamentosButton,
   ContainerOnbiarding,
+  DivImg,
   IconesOnboarding,
   IconesOnboardingVolta,
   ImagemonBoarding,
 } from '../styles/components/Onboarding';
+import { DivTelasFinais } from '../styles/components/StepCadastroVisual';
 import { TextButton, TextoBody, Title } from '../styles/components/Typograph';
 
 function OnboardingElement(props) {
@@ -13,12 +15,30 @@ function OnboardingElement(props) {
   return (
     <div>
       <ContainerOnbiarding>
-        <ImagemonBoarding src={props.img} />
+        <DivImg>
+          <ImagemonBoarding src={props.img} />{' '}
+        </DivImg>
 
-        <Title>{props.textTitle}</Title>
+        <DivTelasFinais>
+          <Title fontSize={'25px'}>{props.textTitle}</Title>
 
-        <TextoBody> {props.textSubtitle} </TextoBody>
-
+          <TextoBody> {props.textSubtitle} </TextoBody>
+        </DivTelasFinais>
+        {props.button && (
+          <ButtonApp
+            colorbgButton={'#1B5DFF'}
+            buttonTop={25}
+            buttonBorder={'none'}
+            buttonSize={'50%'}
+            buttonColor={'#fff'}
+            onClick={props.onClick}
+            type="button"
+            outline={'none'}
+          >
+            {' '}
+            {props.button}{' '}
+          </ButtonApp>
+        )}
         <AlinhamentosButton>
           <ButtonApp
             colorbgButton={'transparent'}
@@ -34,6 +54,7 @@ function OnboardingElement(props) {
           <> {props.SpanUm} </>
           <> {props.SpanDois} </>
           <> {props.SpanTres} </>
+          <> {props.SpanQuatro} </>
           <ButtonApp
             colorbgButton={'transparent'}
             buttonColor={'#23232E'}

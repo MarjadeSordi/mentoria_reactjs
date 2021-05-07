@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { TextoBold } from '../../styles/components/Typograph';
 import InputForm from '../Input/Input';
 
 const StepVerificacao = ({ name, label }) => {
@@ -9,20 +10,27 @@ const StepVerificacao = ({ name, label }) => {
   const handleInput = e => {
     const value = e.target.value;
     setValue(value);
-  };
-
-  const ValidarInput = () => {
     if (value === '123456') {
       setError('');
       setCheck('Código verificado com sucesso');
-    } else {
+    }
+  };
+
+  const ValidarInput = () => {
+    if (value !== '123456') {
       setCheck('');
       setError('Código inválido');
     }
   };
   return (
     <>
-      <label htmlFor={name}> {label}</label>
+      <label htmlFor={name}>
+        {' '}
+        <TextoBold fsize={'13px'} pbottom={'2'}>
+          {' '}
+          {label}
+        </TextoBold>{' '}
+      </label>
       <InputForm
         name={name}
         placeholder={'__ __ __ . __ __ __'}

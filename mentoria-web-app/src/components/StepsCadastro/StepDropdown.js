@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { SelectLabel } from '../../styles/components/Input';
+import { TextoBold } from '../../styles/components/Typograph';
 
-const StepDropdown = ({ name }) => {
+const StepDropdown = ({ name, label }) => {
   const [areas, setAreas] = useState([]);
 
   const SetarAreas = async () => {
     try {
       const responseArea = await fetch(
-        'https://cors-anywhere.herokuapp.com/https://s3.amazonaws.com/doroteia.api/work-areas.json',
+        'https://s3.amazonaws.com/doroteia.api/work-areas.json',
       );
       const jsonAreas = await responseArea.json();
       setAreas(jsonAreas);
@@ -20,18 +21,24 @@ const StepDropdown = ({ name }) => {
     SetarAreas();
   }, []);
 
-  console.log(areas);
-
   return (
-    <div>
-      <SelectLabel id={name} onChange={e => e.target.value}>
-        {areas.map(area => (
-          <option key={area.value} name={name} value={area.label}>
-            {area.label}
-          </option>
-        ))}
-      </SelectLabel>
-    </div>
+    <>
+      <div>
+        {' '}
+        <label htmlFor={name}>
+          <TextoBold fsize={'13px'} pbottom={'2'}>
+            {label}
+          </TextoBold>{' '}
+        </label>
+        <SelectLabel id={name} onChange={e => e.target.value}>
+          {areas.map(area => (
+            <option key={area.value} name={name} value={area.label}>
+              {area.label}
+            </option>
+          ))}
+        </SelectLabel>
+      </div>
+    </>
   );
 };
 

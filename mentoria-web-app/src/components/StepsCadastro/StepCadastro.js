@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import StepCadastroVisual from './StepCadastroVisual';
 import InputForm from './StepInput';
-import SelectLabel from './StepDropdown';
-import SelectLabelDrop from './StepCadastroDropdownHub';
 import { useSelector, useDispatch } from 'react-redux';
 import primeiraTela from '../../assets/illustration/primeiraTela.svg';
 import StepCheckTecnologias from './StepCheckTecnologias';
@@ -13,7 +11,9 @@ import telaoito from '../../assets/illustration/telaoito.svg';
 import { FormCadastro } from '../../styles/components/StepCadastroVisual';
 import StepCadastroSenha from './StepCadastroSenha';
 import StepVerificacao from './StepVerificacao';
-import { divAjusteTexto } from '../../styles/pages/PagedeCadastro';
+import StepCadastroEmail from './StepCadastroEmail';
+import StepDropdown from './StepDropdown';
+import StepDropdownHub from './StepCadastroDropdownHub';
 
 const StepCadastro = () => {
   const [textos, setTextos] = useState([]);
@@ -27,7 +27,7 @@ const StepCadastro = () => {
   const TextosParaCadastro = async () => {
     try {
       const response = await fetch(
-        'https://cors-anywhere.herokuapp.com/https://s3.amazonaws.com/doroteia.api/signup-texts.json',
+        'https://s3.amazonaws.com/doroteia.api/signup-texts.json',
       );
       const json = await response.json();
       setTextos(json);
@@ -39,7 +39,7 @@ const StepCadastro = () => {
   const SetarTecnologia = async () => {
     try {
       const responseTec = await fetch(
-        'https://cors-anywhere.herokuapp.com/https://s3.amazonaws.com/doroteia.api/techs.json',
+        'https://s3.amazonaws.com/doroteia.api/techs.json',
       );
       const jsonTec = await responseTec.json();
       setTec(jsonTec);
@@ -51,7 +51,7 @@ const StepCadastro = () => {
   const SetarContatos = async () => {
     try {
       const responseCont = await fetch(
-        'https://cors-anywhere.herokuapp.com/https://s3.amazonaws.com/doroteia.api/contacts.json',
+        'https://s3.amazonaws.com/doroteia.api/contacts.json',
       );
       const jsonContato = await responseCont.json();
       setContatos(jsonContato);
@@ -182,7 +182,7 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="1"
                 colorTitle={'#1B5DFF'}
-                width="15"
+                width="12"
                 titulo={texto.title}
                 descricao={texto.description}
                 img={primeiraTela}
@@ -201,7 +201,9 @@ const StepCadastro = () => {
                 checkEmail(Email);
               }}
               onChange={e => {
-                const ValidarBotao = e.target.value;
+                const regex =
+                  '^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$';
+                const ValidarBotao = new RegExp(regex).test(e.target.value);
                 if (!ValidarBotao) return setBotao(true);
                 else return setBotao(false);
               }}
@@ -210,13 +212,17 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="2"
                 colorTitle={'#1B5DFF'}
-                width="30"
+                width="24"
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
                 botao={botao}
                 label={
-                  <InputForm label={'Email'} name={'email'} type={'email'} />
+                  <StepCadastroEmail
+                    label={'E-mail coorporativo'}
+                    name={'email'}
+                    type={'email'}
+                  />
                 }
               />
             </FormCadastro>
@@ -235,12 +241,12 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="3"
                 colorTitle={'#1B5DFF'}
-                width="45"
+                width="36"
                 onClick={() => setStep(3)}
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
-                label={<SelectLabelDrop name={'startup'} />}
+                label={<StepDropdown name={'startup'} label={'Startup'} />}
               />
             </FormCadastro>
           );
@@ -259,11 +265,11 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="4"
                 colorTitle={'#1B5DFF'}
-                width="60"
+                width="48"
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
-                label={<SelectLabel name={'atuacao'} />}
+                label={<StepDropdownHub name={'atuacao'} label={'Área'} />}
               />
             </FormCadastro>
           );
@@ -298,6 +304,7 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="5"
                 colorTitle={'#1B5DFF'}
+                width="54"
                 display="none"
                 key={texto.id}
                 titulo={texto.title}
@@ -324,7 +331,7 @@ const StepCadastro = () => {
                 checkContatos(inputContato);
                 setBotao(true);
               }}
-              onChange={() => {
+              onChange={e => {
                 const ValidarBotao = inputContato;
                 if (!ValidarBotao) return setBotao(true);
                 else return setBotao(false);
@@ -334,7 +341,7 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="6"
                 colorTitle={'#1B5DFF'}
-                width="75"
+                width="66"
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
@@ -359,9 +366,11 @@ const StepCadastro = () => {
                 setStep(step + 1);
                 const confirmaSenha = e.target.confirmPassword.value;
                 checkSenhas(confirmaSenha);
+                setBotao(true);
               }}
               onChange={e => {
-                const ValidarBotao = e.target.value;
+                const regex = /^(?=.*\d)(?=.*[a-z])[0-9a-zA-Z!$*&@#]{8,}$/;
+                const ValidarBotao = new RegExp(regex).test(e.target.value);
                 if (!ValidarBotao) return setBotao(true);
                 else return setBotao(false);
               }}
@@ -371,6 +380,7 @@ const StepCadastro = () => {
                 textButton="Avançar"
                 numero="7"
                 colorTitle={'#1B5DFF'}
+                width="78"
                 display="none"
                 key={texto.id}
                 titulo={texto.title}
@@ -395,6 +405,12 @@ const StepCadastro = () => {
                 e.preventDefault();
                 setStep(step + 1);
               }}
+              onChange={e => {
+                const regex = '123456';
+                const ValidarBotao = new RegExp(regex).test(e.target.value);
+                if (!ValidarBotao) return setBotao(true);
+                else return setBotao(false);
+              }}
             >
               <StepCadastroVisual
                 textButton="Avançar"
@@ -403,6 +419,7 @@ const StepCadastro = () => {
                 display="none"
                 img={telaoito}
                 key={texto.id}
+                botao={botao}
                 titulo={texto.title}
                 descricao={texto.description}
                 label={

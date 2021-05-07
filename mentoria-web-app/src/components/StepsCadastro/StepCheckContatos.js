@@ -72,7 +72,7 @@ const StepCheckContatos = ({
             if (validar) {
               document.getElementById(saveContato).style =
                 'background: #47D163';
-            } else {
+            } else if (!validar) {
               document.getElementById(saveContato).style = 'background:#EB5757';
             }
           }

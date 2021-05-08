@@ -1,6 +1,4 @@
-import e from 'cors';
-import { useRef, useState, useEffect } from 'react';
-import { connectAdvanced } from 'react-redux';
+import { useState, useEffect } from 'react';
 import {
   DivCapsulaContatos,
   ListaContato,
@@ -9,11 +7,8 @@ import InputTag from '../Input/InputTag';
 
 const StepCheckContatos = ({ contato, inputcontato, setinputcontato }) => {
   const [checkContato, setContato] = useState();
-  const [onfocus, setonFocus] = useState(false);
-  const [saveContato, setSaveContato] = useState();
-  const [typeInput, setTypeInput] = useState();
   const [validInput, setValidInput] = useState({});
-  const [error, setError] = useState(false);
+  const [color, setColor] = useState(false);
 
   const handleContato = e => {
     setContato(e.target.value);
@@ -26,6 +21,7 @@ const StepCheckContatos = ({ contato, inputcontato, setinputcontato }) => {
           <>
             <li key={cont.id}>
               <InputTag
+                autocomplete="off"
                 placeholder={cont.label}
                 type={cont.type}
                 name={cont.label}
@@ -36,20 +32,19 @@ const StepCheckContatos = ({ contato, inputcontato, setinputcontato }) => {
                   if (e.target.value) {
                     const validar = new RegExp(cont.regex).test(e.target.value);
                     validInputCopy[cont.label] = validar;
+                    document.getElementById(cont.id).style =
+                      'background-color:#27AE60';
                   }
                   setValidInput(validInputCopy);
-                  setError(false);
                 }}
+                color={color}
                 onBlur={() => {
-                  if (
-                    validInput[cont.label] === undefined &&
-                    validInput[cont.label] !== null
-                  ) {
-                    setError(false);
-                  } else setError(!validInput[cont.label]);
+                  if (!validInput[cont.label]) {
+                    document.getElementById(cont.id).style =
+                      'background-color:#EB5757';
+                  }
                 }}
                 check={validInput[cont.label]}
-                error={error}
               />
             </li>
           </>

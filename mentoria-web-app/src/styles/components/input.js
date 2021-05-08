@@ -99,16 +99,15 @@ export const SelectLabelDrop = styled.select`
 
 export const StyledDivBack = styled.div`
   background-color: ${coresGlobais.lightShade};
-  width: 100%;
-  height: 50px;
+  width: 110%;
+  height: 40px;
   border-radius: 30px;
   margin-bottom: 5px;
   display: flex;
   color: #fff;
-  background-color: ${props =>
-    props.onFocus ? `${coresGlobais.primary}` : ''};
-  background-color: ${props => (props.error ? '#EB5757' : '')};
+  background-color: ${props => (props.color ? `${coresGlobais.primary}` : '')};
   background-color: ${props => (props.check ? '#27AE60' : '')};
+  background-color: ${props => (props.error ? '#EB5757' : '')};
 `;
 
 export const StyledInputTag = styled.input`
@@ -123,7 +122,7 @@ export const StyledInputTag = styled.input`
 
   :: placeholder {
     color: #fff;
-    font-size: 16px;
+    font-size: 14px;
     padding-left: 15%;
     font-weight: bold;
     text-align: center;

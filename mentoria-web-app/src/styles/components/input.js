@@ -99,7 +99,7 @@ export const SelectLabelDrop = styled.select`
 
 export const StyledDivBack = styled.div`
   background-color: ${coresGlobais.lightShade};
-  width: 110%;
+  width: 90%;
   height: 40px;
   border-radius: 30px;
   margin-bottom: 5px;
@@ -118,7 +118,7 @@ export const StyledInputTag = styled.input`
   outline: none;
   height: 50%;
   width: 70%;
-  margin-top: 7%;
+  margin-top: 5%;
 
   :: placeholder {
     color: #fff;
@@ -133,7 +133,7 @@ export const StyledInputTag = styled.input`
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px
-      ${props => (props.check ? '#27AE60' : '#EB5757')} inset !important;
+      ${props => (props.check ? '#27AE60' : '#EB5757')} inset;
     -webkit-text-fill-color: #fff;
   }
 
@@ -146,7 +146,7 @@ export const StyledInputTag = styled.input`
   }
 
   &:-webkit-autofill {
-    -webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
+    -webkit-animation-delay: 1s;
     -webkit-animation-name: autofill;
     -webkit-animation-fill-mode: both;
   }

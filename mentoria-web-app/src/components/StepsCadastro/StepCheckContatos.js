@@ -1,17 +1,33 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   DivCapsulaContatos,
   ListaContato,
 } from '../../styles/components/CheckTagContato';
+import { TextoBold } from '../../styles/components/Typograph';
+import InputForm from '../Input/Input';
 import InputTag from '../Input/InputTag';
 
-const StepCheckContatos = ({ contato, inputcontato, setinputcontato }) => {
+const StepCheckContatos = ({
+  contato,
+  inputcontato,
+  setinputcontato,
+  name,
+  type,
+  label,
+}) => {
   const [checkContato, setContato] = useState();
   const [validInput, setValidInput] = useState({});
-  const [color, setColor] = useState(false);
+
+  const [value, setValue] = useState();
 
   const handleContato = e => {
-    setContato(e.target.value);
+    setValue(e.target.value);
+  };
+
+  const inputContatoRef = useRef();
+
+  const componentContato = () => {
+    inputContatoRef.current.focus();
   };
 
   return (
@@ -21,6 +37,7 @@ const StepCheckContatos = ({ contato, inputcontato, setinputcontato }) => {
           <>
             <li key={cont.id}>
               <InputTag
+                ref={inputcontato}
                 autocomplete="off"
                 placeholder={cont.label}
                 type={cont.type}
@@ -37,12 +54,22 @@ const StepCheckContatos = ({ contato, inputcontato, setinputcontato }) => {
                   }
                   setValidInput(validInputCopy);
                 }}
-                color={color}
-                onBlur={() => {
-                  if (!validInput[cont.label]) {
+                onBlur={e => {
+                  if (e.target.value === '') {
+                    document.getElementById(cont.id).style =
+                      'background-color:none';
+                  } else if (!validInput[cont.label]) {
                     document.getElementById(cont.id).style =
                       'background-color:#EB5757';
                   }
+                }}
+                onClick={e => {
+                  if (e.target.value !== '') {
+                    document.getElementById(cont.id).style =
+                      'background-color:none';
+                  } else
+                    document.getElementById(cont.id).style =
+                      'background-color:#1B5DFF';
                 }}
                 check={validInput[cont.label]}
               />
@@ -50,6 +77,16 @@ const StepCheckContatos = ({ contato, inputcontato, setinputcontato }) => {
           </>
         ))}
       </ListaContato>
+      <>
+        <label htmlFor={name}>
+          {' '}
+          <TextoBold fsize={'13px'} pbottom={'2'}>
+            {' '}
+            {label}
+          </TextoBold>{' '}
+        </label>
+        <InputForm type={type} name={name} onChange={handleContato}></InputForm>
+      </>
     </DivCapsulaContatos>
   );
 };

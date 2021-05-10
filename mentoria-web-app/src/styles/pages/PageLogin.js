@@ -1,6 +1,11 @@
 import styled, { keyframes } from 'styled-components';
 import { coresGlobais } from '../style';
 
+const inputAnimation = keyframes`
+to {
+  transform: rotate(360deg)
+}`;
+
 export const DivCapsulaLogin = styled.div`
   display: flex;
   flex-direction: column;
@@ -54,7 +59,8 @@ export const DivCentralizar = styled.div`
 `;
 
 export const ImgLoader = styled.img`
-  transform: rotate(360g) 1s infinite;
+  animation: ${inputAnimation} .6s linear infinite;
+  margin-bottom: 1%;
 };
 
 `;

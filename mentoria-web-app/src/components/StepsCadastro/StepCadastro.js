@@ -352,6 +352,9 @@ const StepCadastro = () => {
                     contato={contatos}
                     inputcontato={inputContato}
                     setinputcontato={setInputContato}
+                    name={'contatos'}
+                    label={'Outra(s)?'}
+                    tipo={'text'}
                   />
                 }
               />

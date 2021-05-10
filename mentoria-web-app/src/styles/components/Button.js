@@ -4,7 +4,7 @@ export const ButtonApp = styled.button`
   height: 48px;
   border-radius: 5px;
   margin-top: 1%;
-  cursor: pointer;
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};;
 
 
   outline = ${props => `${props.outline}`};

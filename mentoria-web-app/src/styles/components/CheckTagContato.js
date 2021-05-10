@@ -11,6 +11,7 @@ export const ListaContato = styled.ul`
 
 export const DivCapsulaContatos = styled.div`
   display: flex;
+  flex-direction: column;
   align-itens: center;
   justify-content: center;
   width: 90%;

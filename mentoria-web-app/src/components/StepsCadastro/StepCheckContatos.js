@@ -24,12 +24,6 @@ const StepCheckContatos = ({
     setValue(e.target.value);
   };
 
-  const inputContatoRef = useRef();
-
-  const componentContato = () => {
-    inputContatoRef.current.focus();
-  };
-
   return (
     <DivCapsulaContatos>
       <ListaContato>
@@ -37,8 +31,6 @@ const StepCheckContatos = ({
           <>
             <li key={cont.id}>
               <InputTag
-                ref={inputcontato}
-                autocomplete="off"
                 placeholder={cont.label}
                 type={cont.type}
                 name={cont.label}
@@ -58,7 +50,8 @@ const StepCheckContatos = ({
                   if (e.target.value === '') {
                     document.getElementById(cont.id).style =
                       'background-color:none';
-                  } else if (!validInput[cont.label]) {
+                  }
+                  if (!validInput[cont.label]) {
                     document.getElementById(cont.id).style =
                       'background-color:#EB5757';
                   }

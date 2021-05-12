@@ -7,87 +7,87 @@ import telaquatro from '../assets/illustration/telaquatro.svg';
 import caminho from '../assets/icons/caminho.svg';
 import caminhovolta from '../assets/icons/caminhovolta.svg';
 import { SpanDot } from '../styles/components/Onboarding';
-import OnboardingTextos from '../text/textos';
+import { OnboardingTextos } from '../text/textos';
 
 const OnboardingComponent = () => {
   const [slide, setSlide] = useState('1');
 
-  if (slide === '1') {
-    return (
-      <OnboardingElement
-        img={rafiki}
-        textTitle={'Bem-vindx ao [Nome do app]!'}
-        textSubtitle={
-          'Explore dicas, compartilhe projetos e troque conteúdos com seus colegas de trabalho!'
+  return (
+    <>
+      {OnboardingTextos.map(text => {
+        if (slide === '1' && text.id === 1) {
+          return (
+            <OnboardingElement
+              img={rafiki}
+              textTitle={text.titulo}
+              textSubtitle={text.texto}
+              icon={caminho}
+              onClick={() => setSlide('2')}
+              SpanUm={<SpanDot colorbg="#1B5DFF" />}
+              SpanDois={<SpanDot colorbg="#bbb" />}
+              SpanTres={<SpanDot colorbg="#bbb" />}
+              SpanQuatro={<SpanDot colorbg="#bbb" />}
+              text={text.buttonAvancar}
+            />
+          );
+        } else if (slide === '2' && text.id === 2) {
+          return (
+            <OnboardingElement
+              img={amico}
+              textTitle={text.titulo}
+              textSubtitle={text.texto}
+              icon={caminho}
+              iconvolta={caminhovolta}
+              onClickAnterior={() => setSlide('1')}
+              textAnterior={text.buttonRetornar}
+              onClick={() => setSlide('3')}
+              SpanUm={<SpanDot colorbg="#bbb" />}
+              SpanDois={<SpanDot colorbg="#1B5DFF" />}
+              SpanTres={<SpanDot colorbg="#bbb" />}
+              SpanQuatro={<SpanDot colorbg="#bbb" />}
+              text={text.buttonAvancar}
+            />
+          );
+        } else if (slide === '3' && text.id === 3) {
+          return (
+            <OnboardingElement
+              img={pana}
+              textTitle={text.titulo}
+              textSubtitle={text.texto}
+              icon={caminho}
+              iconvolta={caminhovolta}
+              onClickAnterior={() => setSlide('2')}
+              textAnterior={text.buttonRetornar}
+              onClick={() => setSlide('4')}
+              SpanUm={<SpanDot colorbg="#bbb" />}
+              SpanDois={<SpanDot colorbg="#bbb" />}
+              SpanTres={<SpanDot colorbg="#1B5DFF" />}
+              SpanQuatro={<SpanDot colorbg="#bbb" />}
+              text={text.buttonAvancar}
+            />
+          );
+        } else if (slide === '4' && text.id === 4) {
+          return (
+            <OnboardingElement
+              img={telaquatro}
+              textTitle={text.titulo}
+              textSubtitle={text.texto}
+              finaliza={localStorage.setItem('isAuth', 'true')}
+              iconvolta={caminhovolta}
+              onClickAnterior={() => setSlide('3')}
+              textAnterior={text.buttonRetornar}
+              button={text.button}
+              onClick={() => (window.location = '/login')}
+              SpanUm={<SpanDot colorbg="#bbb" />}
+              SpanDois={<SpanDot colorbg="#bbb" />}
+              SpanTres={<SpanDot colorbg="#bbb" />}
+              SpanQuatro={<SpanDot colorbg="#1B5DFF" />}
+            />
+          );
         }
-        icon={caminho}
-        onClick={() => setSlide('2')}
-        SpanUm={<SpanDot colorbg="#1B5DFF" />}
-        SpanDois={<SpanDot colorbg="#bbb" />}
-        SpanTres={<SpanDot colorbg="#bbb" />}
-        SpanQuatro={<SpanDot colorbg="#bbb" />}
-        text="Próximo"
-      />
-    );
-  } else if (slide === '2') {
-    return (
-      <OnboardingElement
-        img={amico}
-        textTitle={'Tenha uma equipe multidisciplinar!'}
-        textSubtitle={'Receba ajuda de forma ágil de todas as áreas do hub.'}
-        icon={caminho}
-        iconvolta={caminhovolta}
-        onClickAnterior={() => setSlide('1')}
-        textAnterior="Anterior"
-        onClick={() => setSlide('3')}
-        SpanUm={<SpanDot colorbg="#bbb" />}
-        SpanDois={<SpanDot colorbg="#1B5DFF" />}
-        SpanTres={<SpanDot colorbg="#bbb" />}
-        SpanQuatro={<SpanDot colorbg="#bbb" />}
-        text="Próximo"
-      />
-    );
-  } else if (slide === '3') {
-    return (
-      <OnboardingElement
-        img={pana}
-        textTitle={'Solucione suas dúvidas em tempo real!'}
-        textSubtitle={
-          'Você também pode conversar por chat com seus colegas de área!'
-        }
-        icon={caminho}
-        iconvolta={caminhovolta}
-        onClickAnterior={() => setSlide('2')}
-        textAnterior="Anterior"
-        onClick={() => setSlide('4')}
-        SpanUm={<SpanDot colorbg="#bbb" />}
-        SpanDois={<SpanDot colorbg="#bbb" />}
-        SpanTres={<SpanDot colorbg="#1B5DFF" />}
-        SpanQuatro={<SpanDot colorbg="#bbb" />}
-        text="Próximo"
-      />
-    );
-  } else if (slide === '4') {
-    return (
-      <OnboardingElement
-        img={telaquatro}
-        textTitle={'Pronto!'}
-        textSubtitle={'Bora trocar conhecimento?'}
-        finaliza={localStorage.setItem('isAuth', 'true')}
-        iconvolta={caminhovolta}
-        onClickAnterior={() => setSlide('3')}
-        textAnterior="Anterior"
-        button={'Começar'}
-        onClick={() => (window.location = '/login')}
-        SpanUm={<SpanDot colorbg="#bbb" />}
-        SpanDois={<SpanDot colorbg="#bbb" />}
-        SpanTres={<SpanDot colorbg="#bbb" />}
-        SpanQuatro={<SpanDot colorbg="#1B5DFF" />}
-      />
-    );
-  }
-
-  return <div>{OnboardingComponent()}</div>;
+      })}
+    </>
+  );
 };
 
 export default OnboardingComponent;

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import InputForm from '../Input/Input';
 import { MsgInputCheck, MsgInputError } from '../../styles/components/Input';
 import { TextoBold } from '../../styles/components/Typograph';
+import { Feedback } from '../../text/textos';
 
 const SetInput = ({ label, name, type }) => {
   const [value, setValue] = useState('');
@@ -16,7 +17,7 @@ const SetInput = ({ label, name, type }) => {
     const Validaremail = new RegExp(regex).test(value);
     setValue(value);
     if (Validaremail) {
-      setCheck('Pode prosseguir');
+      setCheck(Feedback.inputOk);
       setError('');
     }
   };
@@ -24,7 +25,7 @@ const SetInput = ({ label, name, type }) => {
   const ValidarInput = () => {
     const Validaremail = new RegExp(regex).test(value);
     if (!Validaremail) {
-      setError('Digite um e-mail válido');
+      setError(Feedback.inputErroEmail);
       setCheck('');
     }
   };

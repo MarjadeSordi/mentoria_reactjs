@@ -20,6 +20,7 @@ import InputForm from '../Input/Input';
 import usePassword from '../../hooks/usePassword';
 import { Link } from 'react-router-dom';
 import { ButtonApp } from '../../styles/components/Button';
+import { Button, Titulos, Navegar, Feedback } from '../../text/textos';
 
 export default function Login({
   textoPrincipal,
@@ -53,7 +54,7 @@ export default function Login({
   const ValidarInput = () => {
     const Validaremail = new RegExp(regex).test(value);
     if (!Validaremail) {
-      setError('Por favor, digite um e-mail válido');
+      setError(Feedback.inputErroEmail);
     } else setError('');
   };
 
@@ -64,17 +65,14 @@ export default function Login({
 
   const handleSenha = e => {
     if (!valueSenha) {
-      setErrorSenha('Por favor, digite uma senha');
+      setErrorSenha(Feedback.inputSenhaVazio);
     } else setErrorSenha('');
   };
 
   function Login() {
     if (value === 'marjadesordi@gmail.com' && valueSenha === '1234567p') {
       return setLogin(true);
-    } else
-      return setErrorSenha(
-        'E-mail ou senha incorretos. Por favor, tente novamente',
-      );
+    } else return setErrorSenha(Feedback.inputErroSenhaEmail);
   }
 
   const Botao = () => {
@@ -102,7 +100,8 @@ export default function Login({
         </TextoBold>
       </DivCapsulaLogin>
       <DivLogin>
-        <ImgIcone src={login2} alt="login" /> <BodyLarge> Login </BodyLarge>
+        <ImgIcone src={login2} alt="login" />{' '}
+        <BodyLarge> {Titulos.login} </BodyLarge>
         <hr />
       </DivLogin>
 
@@ -144,7 +143,7 @@ export default function Login({
               {' '}
               <TextoBold fsize={'13px'} colorText={'#1B5DFF'}>
                 {' '}
-                ESQUECI MINHA SENHA{' '}
+                {Navegar.navSenha}{' '}
               </TextoBold>{' '}
             </Link>
           </DivCentralizar>
@@ -158,7 +157,7 @@ export default function Login({
               onClick={() => (window.location = '/cadastro')}
               buttonSize={'100%'}
             >
-              <TextButton> Ainda não tenho cadastro </TextButton>
+              <TextButton> {Button.buttonCadastrar} </TextButton>
             </ButtonApp>
 
             <ButtonApp
@@ -175,7 +174,7 @@ export default function Login({
                 {loading ? (
                   <ImgLoader src={loader} alt="carregando" />
                 ) : (
-                  'Entrar'
+                  `${Button.buttonEntrar}`
                 )}{' '}
               </TextButton>
             </ButtonApp>

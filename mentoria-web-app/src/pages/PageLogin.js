@@ -1,16 +1,17 @@
 import React from 'react';
 import Login from '../components/Login/Login';
+import { BoasVindas, Label } from '../text/textos';
 
 const PagedeLogin = () => {
   return (
     <div>
       <Login
-        textoPrincipal={'Que bom te ver de novo!'}
+        textoPrincipal={BoasVindas.saudacao}
         nameemail={'email'}
         typeemail={'email'}
-        labelemail={'E-mail'}
+        labelemail={Label.labelemail}
         namesenha={'senha'}
-        labelsenha={'Senha'}
+        labelsenha={Label.labelSenha}
       />{' '}
     </div>
   );

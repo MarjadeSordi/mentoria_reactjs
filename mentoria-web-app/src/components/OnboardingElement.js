@@ -10,7 +10,7 @@ import {
 import { DivTelasFinais } from '../styles/components/StepCadastroVisual';
 import { TextButton, TextoBody, Title } from '../styles/components/Typograph';
 
-function OnboardingElement(...props) {
+function OnboardingElement(props) {
   return (
     <div>
       <ContainerOnbiarding>

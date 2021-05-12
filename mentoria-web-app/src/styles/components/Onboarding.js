@@ -26,7 +26,7 @@ export const ImagemonBoarding = styled.img`
 `;
 
 export const AlinhamentosButton = styled.div`
-  margin-top: 20%;
+  margin-top: 10%;
   display: flex;
 
   @media (min-width: 1024px) {
@@ -60,8 +60,8 @@ export const IconesOnboardingVolta = styled.img`
 
 export const SpanDot = styled.span`
   height: 8px;
-  margin: 5px;
-  width: 2%;
+  margin: 10px;
+  width: 8px;
   background-color: ${props => `${props.colorbg}`};
   border-radius: 50%;
   display: inline-block;

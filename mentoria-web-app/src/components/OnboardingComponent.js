@@ -7,6 +7,7 @@ import telaquatro from '../assets/illustration/telaquatro.svg';
 import caminho from '../assets/icons/caminho.svg';
 import caminhovolta from '../assets/icons/caminhovolta.svg';
 import { SpanDot } from '../styles/components/Onboarding';
+import OnboardingTextos from '../text/textos';
 
 const OnboardingComponent = () => {
   const [slide, setSlide] = useState('1');

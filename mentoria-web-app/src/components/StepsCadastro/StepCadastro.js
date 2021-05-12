@@ -27,7 +27,7 @@ const StepCadastro = () => {
   const TextosParaCadastro = async () => {
     try {
       const response = await fetch(
-        'https://s3.amazonaws.com/doroteia.api/signup-texts.json',
+        `${process.env.REACT_APP_LINK_DOROTEIA}signup-texts.json`,
       );
       const json = await response.json();
       setTextos(json);
@@ -51,7 +51,7 @@ const StepCadastro = () => {
   const SetarContatos = async () => {
     try {
       const responseCont = await fetch(
-        'https://s3.amazonaws.com/doroteia.api/contacts.json',
+        `${process.env.REACT_APP_LINK_DOROTEIA}contacts.json`,
       );
       const jsonContato = await responseCont.json();
       setContatos(jsonContato);
@@ -72,6 +72,7 @@ const StepCadastro = () => {
     setIntervalo(time);
   };
 
+  console.log();
   console.log(contador);
   useEffect(() => {
     if (contador < 1) {

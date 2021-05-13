@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SelectLabel } from '../../styles/components/Input';
 import { TextoBold } from '../../styles/components/Typograph';
+import StepErro from './StepErro';
 
 const StepDropdown = ({ name, label }) => {
   const [areas, setAreas] = useState([]);
@@ -13,7 +14,7 @@ const StepDropdown = ({ name, label }) => {
       const jsonAreas = await responseArea.json();
       setAreas(jsonAreas);
     } catch (error) {
-      console.log(error);
+      <StepErro />;
     }
   };
 

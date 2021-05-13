@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SelectLabelDrop } from '../../styles/components/Input';
 import { TextoBold } from '../../styles/components/Typograph';
+import StepErro from './StepErro';
 
 const StepDropdownHub = ({ name, label }) => {
   const [startUp, setStartUp] = useState([]);
@@ -13,7 +14,7 @@ const StepDropdownHub = ({ name, label }) => {
       const jsonStartUp = await responseStartUp.json();
       setStartUp(jsonStartUp);
     } catch (error) {
-      console.log(error);
+      <StepErro />;
     }
   };
 

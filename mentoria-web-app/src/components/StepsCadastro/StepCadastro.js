@@ -16,6 +16,7 @@ import StepDropdown from './StepDropdown';
 import StepDropdownHub from './StepCadastroDropdownHub';
 import { Button } from '../../text/textos';
 import { Label } from '../../text/textos';
+import StepErro from './StepErro';
 
 const StepCadastro = () => {
   const [textos, setTextos] = useState([]);
@@ -34,7 +35,7 @@ const StepCadastro = () => {
       const json = await response.json();
       setTextos(json);
     } catch (error) {
-      console.log(error);
+      <StepErro />;
     }
   };
 
@@ -46,7 +47,7 @@ const StepCadastro = () => {
       const jsonTec = await responseTec.json();
       setTec(jsonTec);
     } catch (error) {
-      console.log(error);
+      <StepErro />;
     }
   };
 
@@ -63,7 +64,7 @@ const StepCadastro = () => {
       );
       setInputContato(chaveContato);
     } catch (error) {
-      console.log(error);
+      <StepErro />;
     }
   };
 
@@ -479,23 +480,7 @@ const StepCadastro = () => {
             </FormCadastro>
           );
         } else {
-          <StepCadastroVisual
-            textButton={Button.buttonretornaCadastro}
-            colorErro={'#EB5757'}
-            numero="10"
-            display="none"
-            key={texto.id}
-            img={cuate}
-            tituloAjuste={'tituloAjuste'}
-            titulotelas={texto.title}
-            descricaotelas={texto.description}
-            widthImg={'70'}
-            botaocontador={true}
-            botaocontadorprops={{
-              value: Button.buttontelaErro,
-              disabled: true,
-            }}
-          />;
+          <StepErro />;
         }
       })}
     </>

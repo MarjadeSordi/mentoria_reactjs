@@ -15,6 +15,7 @@ import ModalOnboarding from './ModalOnboarding';
 import PagedeCadastro from '../src/pages/PagedeCadastro';
 import { coresGlobais } from '../src/styles/style';
 import { ThemeProvider } from 'styled-components';
+import StepErro from './components/StepsCadastro/StepErro';
 
 const OnboardingRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -48,7 +49,7 @@ function App() {
               path="/testandoOnboarding"
               component={ModalOnboarding}
             />
-            <Route exact path="/teste" component={ModalOnboarding} />
+            <Route exact path="/teste" component={StepErro} />
             <Route exact path="/ajuda" component={PagedeAjuda} />
           </Provider>
 

@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import { coresGlobais } from '../style';
 
 const inputAnimation = keyframes`
 to {
@@ -26,7 +25,7 @@ export const DivLogin = styled.div`
   margin-bottom: 20%;
   > hr {
     height: 2px;
-    background-color: ${coresGlobais.lightShade};
+    background-color: ${props => props.theme.lightShade};
     border-top-width: 1px;
     position: absolute;
     width: 95%;

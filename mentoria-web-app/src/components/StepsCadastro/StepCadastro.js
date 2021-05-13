@@ -478,33 +478,24 @@ const StepCadastro = () => {
               />
             </FormCadastro>
           );
-        } else if (step === 10 && texto.id == '10') {
-          return (
-            <FormCadastro
-              onSubmit={e => {
-                e.preventDefault();
-                setStep(1);
-              }}
-            >
-              <StepCadastroVisual
-                textButton={Button.buttonretornaCadastro}
-                colorErro={'#EB5757'}
-                numero="10"
-                display="none"
-                key={texto.id}
-                img={cuate}
-                tituloAjuste={'tituloAjuste'}
-                titulotelas={texto.title}
-                descricaotelas={texto.description}
-                widthImg={'70'}
-                botaocontador={true}
-                botaocontadorprops={{
-                  value: Button.buttontelaErro,
-                  disabled: true,
-                }}
-              />
-            </FormCadastro>
-          );
+        } else {
+          <StepCadastroVisual
+            textButton={Button.buttonretornaCadastro}
+            colorErro={'#EB5757'}
+            numero="10"
+            display="none"
+            key={texto.id}
+            img={cuate}
+            tituloAjuste={'tituloAjuste'}
+            titulotelas={texto.title}
+            descricaotelas={texto.description}
+            widthImg={'70'}
+            botaocontador={true}
+            botaocontadorprops={{
+              value: Button.buttontelaErro,
+              disabled: true,
+            }}
+          />;
         }
       })}
     </>

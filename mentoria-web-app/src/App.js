@@ -13,6 +13,8 @@ import PageDropdown from './PageDropdown';
 import PageCheckBoxTag from './PageCheckBoxTag';
 import ModalOnboarding from './ModalOnboarding';
 import PagedeCadastro from '../src/pages/PagedeCadastro';
+import { coresGlobais } from '../src/styles/style';
+import { ThemeProvider } from 'styled-components';
 
 const OnboardingRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -29,7 +31,7 @@ const OnboardingRoute = ({ component: Component, ...rest }) => (
 
 function App() {
   return (
-    <div>
+    <ThemeProvider theme={coresGlobais}>
       <GlobalStyle />
 
       <BrowserRouter>
@@ -53,7 +55,7 @@ function App() {
           <Route component={PageNotFound} />
         </Switch>
       </BrowserRouter>
-    </div>
+    </ThemeProvider>
   );
 }
 

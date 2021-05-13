@@ -50,7 +50,7 @@ const StepCheckContatos = ({
                 onBlur={e => {
                   if (e.target.value === '') {
                     document.getElementById(cont.id).style =
-                      'background-color:none';
+                      'background-color:unset';
                   }
                   if (!validInput[cont.label]) {
                     document.getElementById(cont.id).style =

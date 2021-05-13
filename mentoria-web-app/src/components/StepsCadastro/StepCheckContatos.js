@@ -37,6 +37,7 @@ const StepCheckContatos = ({
                 id={cont.id}
                 onChange={e => {
                   setContato(e.target.value);
+                  setinputcontato(checkContato);
                   const validInputCopy = Object.assign({}, validInput);
                   if (e.target.value) {
                     const validar = new RegExp(cont.regex).test(e.target.value);

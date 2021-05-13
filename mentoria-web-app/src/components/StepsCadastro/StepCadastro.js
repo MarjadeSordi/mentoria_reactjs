@@ -123,6 +123,7 @@ const StepCadastro = () => {
 
   const RegistrarSenha = useSelector(state => state.senha);
   const dispachSenha = useDispatch();
+  console.log(RegistrarContatos);
 
   function checkName(text) {
     dispach({ type: 'REGISTRA_NOME', registrarNome: text });

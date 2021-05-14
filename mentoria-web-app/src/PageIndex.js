@@ -1,12 +1,18 @@
 import Logo from './components/Logo';
 import Typografia from '../src/components/Typografia';
+import { ButtonApp } from './styles/components/Button';
 
 const PageIndex = () => {
   return (
     <>
       <Logo />
-      <p> Bem vindo {process.env.REACT_APP_NAME}</p>
-      <Typografia />
+
+      <ButtonApp type="button" onClick={() => (window.location = '/cadastro')}>
+        Cadastro
+      </ButtonApp>
+      <ButtonApp type="button" onClick={() => (window.location = '/login')}>
+        Login
+      </ButtonApp>
     </>
   );
 };

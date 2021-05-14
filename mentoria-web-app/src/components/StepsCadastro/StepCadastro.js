@@ -14,6 +14,9 @@ import StepVerificacao from './StepVerificacao';
 import StepCadastroEmail from './StepCadastroEmail';
 import StepDropdown from './StepDropdown';
 import StepDropdownHub from './StepCadastroDropdownHub';
+import { Button } from '../../text/textos';
+import { Label } from '../../text/textos';
+import StepErro from './StepErro';
 
 const StepCadastro = () => {
   const [textos, setTextos] = useState([]);
@@ -27,12 +30,12 @@ const StepCadastro = () => {
   const TextosParaCadastro = async () => {
     try {
       const response = await fetch(
-        'https://s3.amazonaws.com/doroteia.api/signup-texts.json',
+        `${process.env.REACT_APP_LINK_DOROTEIA}signup-texts.json`,
       );
       const json = await response.json();
       setTextos(json);
     } catch (error) {
-      console.log(error);
+      <StepErro />;
     }
   };
 
@@ -44,14 +47,14 @@ const StepCadastro = () => {
       const jsonTec = await responseTec.json();
       setTec(jsonTec);
     } catch (error) {
-      console.log(error);
+      <StepErro />;
     }
   };
 
   const SetarContatos = async () => {
     try {
       const responseCont = await fetch(
-        'https://s3.amazonaws.com/doroteia.api/contacts.json',
+        `${process.env.REACT_APP_LINK_DOROTEIA}contacts.json`,
       );
       const jsonContato = await responseCont.json();
       setContatos(jsonContato);
@@ -61,7 +64,7 @@ const StepCadastro = () => {
       );
       setInputContato(chaveContato);
     } catch (error) {
-      console.log(error);
+      <StepErro />;
     }
   };
 
@@ -72,6 +75,7 @@ const StepCadastro = () => {
     setIntervalo(time);
   };
 
+  console.log();
   console.log(contador);
   useEffect(() => {
     if (contador < 1) {
@@ -120,6 +124,7 @@ const StepCadastro = () => {
 
   const RegistrarSenha = useSelector(state => state.senha);
   const dispachSenha = useDispatch();
+  console.log(RegistrarContatos);
 
   function checkName(text) {
     dispach({ type: 'REGISTRA_NOME', registrarNome: text });
@@ -179,7 +184,7 @@ const StepCadastro = () => {
               }}
             >
               <StepCadastroVisual
-                textButton="Avançar"
+                textButton={Button.buttonAvancar}
                 numero="1"
                 colorTitle={'#1B5DFF'}
                 width="12"
@@ -187,7 +192,13 @@ const StepCadastro = () => {
                 descricao={texto.description}
                 img={primeiraTela}
                 botao={botao}
-                label={<InputForm label={'Nome'} name={'nome'} type={'text'} />}
+                label={
+                  <InputForm
+                    label={Label.labelnome}
+                    name={'nome'}
+                    type={'text'}
+                  />
+                }
               />
             </FormCadastro>
           );
@@ -209,7 +220,7 @@ const StepCadastro = () => {
               }}
             >
               <StepCadastroVisual
-                textButton="Avançar"
+                textButton={Button.buttonAvancar}
                 numero="2"
                 colorTitle={'#1B5DFF'}
                 width="24"
@@ -219,7 +230,7 @@ const StepCadastro = () => {
                 botao={botao}
                 label={
                   <StepCadastroEmail
-                    label={'E-mail coorporativo'}
+                    label={Label.labelemail}
                     name={'email'}
                     type={'email'}
                   />
@@ -238,7 +249,7 @@ const StepCadastro = () => {
               }}
             >
               <StepCadastroVisual
-                textButton="Avançar"
+                textButton={Button.buttonAvancar}
                 numero="3"
                 colorTitle={'#1B5DFF'}
                 width="36"
@@ -246,7 +257,9 @@ const StepCadastro = () => {
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
-                label={<StepDropdown name={'startup'} label={'Startup'} />}
+                label={
+                  <StepDropdown name={'startup'} label={Label.labelStart} />
+                }
               />
             </FormCadastro>
           );
@@ -262,14 +275,16 @@ const StepCadastro = () => {
               }}
             >
               <StepCadastroVisual
-                textButton="Avançar"
+                textButton={Button.buttonAvancar}
                 numero="4"
                 colorTitle={'#1B5DFF'}
                 width="48"
                 key={texto.id}
                 titulo={texto.title}
                 descricao={texto.description}
-                label={<StepDropdownHub name={'atuacao'} label={'Área'} />}
+                label={
+                  <StepDropdownHub name={'atuacao'} label={Label.labelArea} />
+                }
               />
             </FormCadastro>
           );
@@ -301,7 +316,7 @@ const StepCadastro = () => {
               }}
             >
               <StepCadastroVisual
-                textButton="Avançar"
+                textButton={Button.buttonAvancar}
                 numero="5"
                 colorTitle={'#1B5DFF'}
                 width="54"
@@ -316,7 +331,7 @@ const StepCadastro = () => {
                     type={'checkbox'}
                     name={'tecnologias'}
                     tipo={'text'}
-                    label={'Outra(s)?'}
+                    label={Label.labelOutros}
                   />
                 }
               />
@@ -338,7 +353,7 @@ const StepCadastro = () => {
               }}
             >
               <StepCadastroVisual
-                textButton="Avançar"
+                textButton={Button.buttonAvancar}
                 numero="6"
                 colorTitle={'#1B5DFF'}
                 width="66"
@@ -350,9 +365,11 @@ const StepCadastro = () => {
                 label={
                   <StepCheckContatos
                     contato={contatos}
-                    type={'checkbox'}
                     inputcontato={inputContato}
                     setinputcontato={setInputContato}
+                    name={'contatos'}
+                    label={Label.labelOutros}
+                    tipo={'text'}
                   />
                 }
               />
@@ -377,7 +394,7 @@ const StepCadastro = () => {
             >
               {' '}
               <StepCadastroVisual
-                textButton="Avançar"
+                textButton={Button.buttonAvancar}
                 numero="7"
                 colorTitle={'#1B5DFF'}
                 width="78"
@@ -391,8 +408,8 @@ const StepCadastro = () => {
                     type={'password'}
                     name={'password'}
                     nameConfirma={'confirmPassword'}
-                    label={'Senha'}
-                    labelConfirma={'Confirmação'}
+                    label={Label.labelSenha}
+                    labelConfirma={Label.labelConfirmaSenha}
                   />
                 }
               />
@@ -413,7 +430,7 @@ const StepCadastro = () => {
               }}
             >
               <StepCadastroVisual
-                textButton="Avançar"
+                textButton={Button.buttonAvancar}
                 numero="8"
                 colorTitle={'#1B5DFF'}
                 display="none"
@@ -425,12 +442,12 @@ const StepCadastro = () => {
                 label={
                   <StepVerificacao
                     name={'verificacao'}
-                    label={'Codigo de Verificação'}
+                    label={Label.labelCodigo}
                   />
                 }
                 botaocontador={true}
                 botaocontadorprops={{
-                  value: `Enviar novamente o código ${
+                  value: `${Button.buttonReenvia} ${
                     contador < 60 ? contador : ''
                   }`,
                   onClick: contadorOnClick,
@@ -448,7 +465,7 @@ const StepCadastro = () => {
               }}
             >
               <StepCadastroVisual
-                textButton="Avançar"
+                textButton={Button.buttonAvancar}
                 numero="9"
                 width="92"
                 colorTitle={'#1B5DFF'}
@@ -462,33 +479,8 @@ const StepCadastro = () => {
               />
             </FormCadastro>
           );
-        } else if (step === 10 && texto.id == '10') {
-          return (
-            <FormCadastro
-              onSubmit={e => {
-                e.preventDefault();
-                setStep(1);
-              }}
-            >
-              <StepCadastroVisual
-                textButton="Voltar ao cadastro"
-                colorErro={'#EB5757'}
-                numero="10"
-                display="none"
-                key={texto.id}
-                img={cuate}
-                tituloAjuste={'tituloAjuste'}
-                titulotelas={texto.title}
-                descricaotelas={texto.description}
-                widthImg={'70'}
-                botaocontador={true}
-                botaocontadorprops={{
-                  value: 'Retornar a tela de erro',
-                  disabled: true,
-                }}
-              />
-            </FormCadastro>
-          );
+        } else {
+          <StepErro />;
         }
       })}
     </>

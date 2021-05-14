@@ -1,92 +1,87 @@
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
-  CheckLabelContato,
-  CheckTagContato,
-  InputContato,
+  DivCapsulaContatos,
   ListaContato,
 } from '../../styles/components/CheckTagContato';
+import { TextoBold } from '../../styles/components/Typograph';
+import InputForm from '../Input/Input';
+import InputTag from '../Input/InputTag';
 
 const StepCheckContatos = ({
   contato,
-  type,
   inputcontato,
   setinputcontato,
+  name,
+  type,
+  label,
 }) => {
   const [checkContato, setContato] = useState();
-  const [saveContato, setSaveContato] = useState();
-  const [typeInput, setTypeInput] = useState();
-  const [contatoOptions, setContatoOptions] = useState();
+  const [validInput, setValidInput] = useState({});
+
+  const [value, setValue] = useState();
 
   const handleContato = e => {
-    setContato(e.target.checked);
-    setSaveContato(e.target.name.toLowerCase());
+    setValue(e.target.value);
   };
 
-  const inputRef = useRef();
-
-  useEffect(() => {
-    if (inputRef && checkContato) {
-      inputRef.current.focus();
-    }
-    if (checkContato) {
-      const tipoInput = contato.find(
-        tipo => tipo.label.toLowerCase() === saveContato,
-      );
-      setTypeInput(tipoInput);
-    }
-  }, [checkContato]);
-
   return (
-    <div>
+    <DivCapsulaContatos>
       <ListaContato>
         {contato.map(cont => (
           <>
             <li key={cont.id}>
-              <CheckTagContato
-                type={type}
+              <InputTag
+                placeholder={cont.label}
+                type={cont.type}
                 name={cont.label}
-                labelBack={'#47D163'}
-                value={cont.label}
-                onClick={handleContato}
-                labelB={'#1B5DFF'}
+                id={cont.id}
+                onChange={e => {
+                  setContato(e.target.value);
+                  setinputcontato(checkContato);
+                  const validInputCopy = Object.assign({}, validInput);
+                  if (e.target.value) {
+                    const validar = new RegExp(cont.regex).test(e.target.value);
+                    validInputCopy[cont.label] = validar;
+                    document.getElementById(cont.id).style =
+                      'background-color:#27AE60';
+                  }
+                  setValidInput(validInputCopy);
+                }}
+                onBlur={e => {
+                  if (e.target.value === '') {
+                    document.getElementById(cont.id).style =
+                      'background-color:unset';
+                  }
+                  if (!validInput[cont.label]) {
+                    document.getElementById(cont.id).style =
+                      'background-color:#EB5757';
+                  }
+                }}
+                onClick={e => {
+                  if (e.target.value !== '') {
+                    document.getElementById(cont.id).style =
+                      'background-color:none';
+                  } else
+                    document.getElementById(cont.id).style =
+                      'background-color:#1B5DFF';
+                }}
+                check={validInput[cont.label]}
               />
-              <CheckLabelContato
-                htmlFor={cont.label}
-                id={cont.label.toLowerCase()}
-              >
-                <p> {cont.label} </p>
-              </CheckLabelContato>
             </li>
           </>
         ))}
       </ListaContato>
-      <InputContato
-        required
-        ref={inputRef}
-        type={typeInput?.type}
-        show={checkContato}
-        value={inputcontato[saveContato]}
-        onBlur={e => {
-          if (e.target.value) {
-            const validar = new RegExp(typeInput.regex).test(e.target.value);
-            if (validar) {
-              document.getElementById(saveContato).style =
-                'background: #47D163';
-            } else if (!validar) {
-              document.getElementById(saveContato).style = 'background:#EB5757';
-            }
-          }
-        }}
-        onChange={e => {
-          const newContatos = {
-            ...inputcontato,
-            [saveContato]: e.target.value,
-          };
-          setinputcontato(newContatos);
-          setContatoOptions(e.target.value);
-        }}
-      />
-    </div>
+      <>
+        <label htmlFor={name}>
+          {' '}
+          <TextoBold fsize={'13px'} pbottom={'2'}>
+            {' '}
+            {label}
+          </TextoBold>{' '}
+        </label>
+        <InputForm type={type} name={name} onChange={handleContato}></InputForm>
+      </>
+    </DivCapsulaContatos>
   );
 };
 

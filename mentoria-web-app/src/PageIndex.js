@@ -5,6 +5,7 @@ const PageIndex = () => {
   return (
     <>
       <Logo />
+      <p> Bem vindo {process.env.REACT_APP_NAME}</p>
       <Typografia />
     </>
   );

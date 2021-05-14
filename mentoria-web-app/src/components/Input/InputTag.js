@@ -5,29 +5,38 @@ import {
   ImagemCheck,
   ImagemError,
   StyledDivGrey,
+  StyledDivBack,
+  TextDiv,
+  StyledInputTag,
 } from '../../styles/components/Input';
 
 import correct from '../../assets/icons/correct.svg';
 import Vector from '../../assets/icons/Vector.svg';
 import { PasswordToogle } from '../../styles/components/Password';
 
-const InputForm = ({
+const InputTag = ({
   type = 'text',
+
   validateInput,
   error,
   check,
   show,
   imgerror,
   imgcheck,
+  onFocus,
+  placeholder,
+  nulo = true,
+
   ...props
 }) => {
   return (
     <div>
-      <StyledDivGrey error={error} check={check} {...props}>
-        <StyledInput
+      <StyledDivBack error={error} check={check} null={nulo} {...props}>
+        <StyledInputTag
           type={type}
           onBlur={validateInput}
           check={check}
+          placeholder={placeholder}
           {...props}
         />
 
@@ -49,7 +58,7 @@ const InputForm = ({
         ) : (
           ''
         )}
-      </StyledDivGrey>
+      </StyledDivBack>
       <MsgInputCheck>
         <p> {check}</p>{' '}
       </MsgInputCheck>{' '}
@@ -61,4 +70,4 @@ const InputForm = ({
   );
 };
 
-export default InputForm;
+export default InputTag;

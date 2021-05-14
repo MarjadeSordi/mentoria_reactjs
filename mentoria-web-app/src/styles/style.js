@@ -9,7 +9,7 @@ html {
   
 body {
     font-family: Open Sans;
-  
+    font-size: 16px;
 }
 
 `;

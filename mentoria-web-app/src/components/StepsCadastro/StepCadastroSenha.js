@@ -3,6 +3,7 @@ import usePassword from '../../hooks/usePassword';
 import InputForm from '../Input/Input';
 import { CapsulaPassword } from '../../styles/components/Password';
 import { TextoBold } from '../../styles/components/Typograph';
+import { Feedback } from '../../text/textos';
 
 const StepCadastroSenha = ({ label, name, nameConfirma, labelConfirma }) => {
   const [passwordType, iconPassword] = usePassword();
@@ -21,7 +22,7 @@ const StepCadastroSenha = ({ label, name, nameConfirma, labelConfirma }) => {
     setValueSenha(e.target.value);
     const validar = new RegExp(regex).test(e.target.value);
     if (validar) {
-      setCheck('Perfeito!');
+      setCheck(Feedback.inputSenha);
       setError('');
     }
   };
@@ -30,7 +31,7 @@ const StepCadastroSenha = ({ label, name, nameConfirma, labelConfirma }) => {
     setConfirmValue(e.target.value);
     const validarConfirma = new RegExp(regexSenha).test(e.target.value);
     if (validarConfirma) {
-      setcheckConfirma('Campos corretos');
+      setcheckConfirma(Feedback.inputErroConfirmaSenha);
       setErrorConfirma('');
     }
   };
@@ -54,7 +55,7 @@ const StepCadastroSenha = ({ label, name, nameConfirma, labelConfirma }) => {
             if (e.target.value) {
               const validar = new RegExp(regex).test(e.target.value);
               if (!validar) {
-                setError('Sua senha não atingiu os critérios de segurança.');
+                setError(Feedback.inputErroSenha);
                 setCheck('');
               }
             }
@@ -81,7 +82,7 @@ const StepCadastroSenha = ({ label, name, nameConfirma, labelConfirma }) => {
           value={confirmValue}
           onBlur={() => {
             if (confirmValue !== valueSenha) {
-              setErrorConfirma(' Os campos não condizem entre si');
+              setErrorConfirma(Feedback.inputErroConfirmaSenha);
               setcheckConfirma('');
             }
           }}

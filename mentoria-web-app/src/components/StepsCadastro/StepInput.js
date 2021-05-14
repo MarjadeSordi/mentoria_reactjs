@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import InputForm from '../Input/Input';
 import { MsgInputCheck, MsgInputError } from '../../styles/components/Input';
 import { TextoBody, TextoBold } from '../../styles/components/Typograph';
+import { Feedback } from '../../text/textos';
 
 const SetInput = ({ label, name, type }) => {
   const [value, setValue] = useState('');
@@ -12,14 +13,14 @@ const SetInput = ({ label, name, type }) => {
     const value = e.target.value;
     setValue(value);
     if (value) {
-      setCheck('Pode prosseguir');
+      setCheck(Feedback.inputOk);
       setError('');
     }
   };
 
   const ValidarInput = () => {
     if (!value) {
-      setError('Esse campo não pode ficar em branco');
+      setError(Feedback.inputVazio);
       setCheck('');
     }
   };

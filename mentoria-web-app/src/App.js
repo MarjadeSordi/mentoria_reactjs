@@ -13,6 +13,9 @@ import PageDropdown from './PageDropdown';
 import PageCheckBoxTag from './PageCheckBoxTag';
 import ModalOnboarding from './ModalOnboarding';
 import PagedeCadastro from '../src/pages/PagedeCadastro';
+import { coresGlobais } from '../src/styles/style';
+import { ThemeProvider } from 'styled-components';
+import StepErro from './components/StepsCadastro/StepErro';
 
 const OnboardingRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -29,7 +32,7 @@ const OnboardingRoute = ({ component: Component, ...rest }) => (
 
 function App() {
   return (
-    <div>
+    <ThemeProvider theme={coresGlobais}>
       <GlobalStyle />
 
       <BrowserRouter>
@@ -46,14 +49,14 @@ function App() {
               path="/testandoOnboarding"
               component={ModalOnboarding}
             />
-            <Route exact path="/teste" component={ModalOnboarding} />
+            <Route exact path="/teste" component={StepErro} />
             <Route exact path="/ajuda" component={PagedeAjuda} />
           </Provider>
 
           <Route component={PageNotFound} />
         </Switch>
       </BrowserRouter>
-    </div>
+    </ThemeProvider>
   );
 }
 

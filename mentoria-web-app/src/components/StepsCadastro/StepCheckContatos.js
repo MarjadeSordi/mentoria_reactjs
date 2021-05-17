@@ -36,8 +36,6 @@ const StepCheckContatos = ({
                 name={cont.label}
                 id={cont.id}
                 onChange={e => {
-                  setContato(e.target.value);
-                  setinputcontato(checkContato);
                   const validInputCopy = Object.assign({}, validInput);
                   if (e.target.value) {
                     const validar = new RegExp(cont.regex).test(e.target.value);
@@ -45,12 +43,18 @@ const StepCheckContatos = ({
                     document.getElementById(cont.id).style =
                       'background-color:#27AE60';
                   }
+
                   setValidInput(validInputCopy);
+                  const newContatos = {
+                    ...inputcontato,
+                    [cont.label]: e.target.value,
+                  };
+                  setinputcontato(newContatos);
                 }}
                 onBlur={e => {
                   if (e.target.value === '') {
                     document.getElementById(cont.id).style =
-                      'background-color:unset';
+                      'background-color:none';
                   }
                   if (!validInput[cont.label]) {
                     document.getElementById(cont.id).style =

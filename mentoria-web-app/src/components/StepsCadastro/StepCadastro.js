@@ -41,7 +41,7 @@ const StepCadastro = () => {
   const SetarTecnologia = async () => {
     try {
       const responseTec = await fetch(
-        'https://s3.amazonaws.com/doroteia.api/techs.json',
+        `${process.env.REACT_APP_LINK_DOROTEIA}skills.json`,
       );
       const jsonTec = await responseTec.json();
       setTec(jsonTec);

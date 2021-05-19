@@ -9,7 +9,7 @@ const StepDropdown = ({ name, label }) => {
   const SetarAreas = async () => {
     try {
       const responseArea = await fetch(
-        'https://s3.amazonaws.com/doroteia.api/work-areas.json',
+        `${process.env.REACT_APP_LINK_DOROTEIA}work-areas.json`,
       );
       const jsonAreas = await responseArea.json();
       setAreas(jsonAreas);

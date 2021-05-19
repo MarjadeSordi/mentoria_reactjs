@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
   DivCapsulaLogin,
@@ -21,6 +21,7 @@ import usePassword from '../../hooks/usePassword';
 import { Link } from 'react-router-dom';
 import { ButtonApp } from '../../styles/components/Button';
 import { Button, Titulos, Navegar, Feedback } from '../../text/textos';
+import { auth } from '../../firebaseConfig';
 
 export default function Login({
   textoPrincipal,
@@ -40,6 +41,7 @@ export default function Login({
   const [loading, isLoading] = useState(false);
   const [botao, setBotao] = useState(true);
   const history = useHistory();
+  const [user, setUser] = useState(false);
 
   const regex =
     '^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$';
@@ -50,6 +52,9 @@ export default function Login({
     const value = e.target.value;
     setValue(value);
   };
+
+  const emailRef = useRef();
+  const passwordRef = useRef();
 
   const ValidarInput = () => {
     const Validaremail = new RegExp(regex).test(value);
@@ -69,22 +74,30 @@ export default function Login({
     } else setErrorSenha('');
   };
 
-  function Login() {
-    if (value === 'marjadesordi@gmail.com' && valueSenha === '1234567p') {
-      return setLogin(true);
-    } else return setErrorSenha(Feedback.inputErroSenhaEmail);
-  }
-
-  const Botao = () => {
-    if (value && valueSenha) {
-      return setBotao(false);
-    }
+  const Login = e => {
+    e.preventDefault();
+    auth
+      .createUserWithEmailAndPassword(value, valueSenha)
+      .then(user => {
+        console.log(user);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
-  const onSubmit = e => {
+  const Logar = e => {
     e.preventDefault();
-    Login();
-    if (login) {
+    auth
+      .signInWithEmailAndPassword(value, valueSenha)
+      .then(user => {
+        setUser(true);
+        console.log(user);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    if (user === true) {
       return history.push('/home');
     }
     isLoading(false);
@@ -106,13 +119,13 @@ export default function Login({
       </DivLogin>
 
       <DivForm>
-        <form onSubmit={onSubmit} onChange={Botao}>
+        <form>
           <label htmlFor={nameemail}>
             {' '}
             <TextoBold fsize={'13px'}> {labelemail}</TextoBold>
           </label>
           <InputForm
-            autoComplete="off"
+            ref={emailRef}
             required
             name={nameemail}
             type={typeemail}
@@ -128,6 +141,7 @@ export default function Login({
             <TextoBold fsize={'13px'}> {labelsenha}</TextoBold>{' '}
           </label>
           <InputForm
+            ref={passwordRef}
             required
             autoComplete="off"
             name={namesenha}
@@ -148,26 +162,27 @@ export default function Login({
             </Link>
           </DivCentralizar>
           <DivForm>
-            <ButtonApp
-              type="button"
-              colorbgButton={'transparent'}
-              buttonColor={'#1B5DFF'}
-              buttonTop={45}
-              buttonBorder={'1px solid #1B5DFF'}
-              onClick={() => (window.location = '/cadastro')}
-              buttonSize={'100%'}
-            >
-              <TextButton> {Button.buttonCadastrar} </TextButton>
-            </ButtonApp>
-
+            {' '}
+            <Link to="/cadastro">
+              <ButtonApp
+                type="button"
+                colorbgButton={'transparent'}
+                buttonColor={'#1B5DFF'}
+                buttonTop={45}
+                buttonBorder={'1px solid #1B5DFF'}
+                buttonSize={'100%'}
+                onClick={Login}
+              >
+                <TextButton>{Button.buttonCadastrar}</TextButton>
+              </ButtonApp>
+            </Link>{' '}
             <ButtonApp
               type="submit"
               colorbgButton={botao ? '#D3D3D3' : '#1B5DFF'}
               buttonColor={'#fff'}
               buttonSize={'100%'}
               buttonBorder={'none'}
-              onSubmit={() => isLoading(true)}
-              disabled={botao}
+              onClick={Logar}
             >
               <TextButton>
                 {' '}

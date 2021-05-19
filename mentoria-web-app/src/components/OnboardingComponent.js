@@ -77,7 +77,6 @@ const OnboardingComponent = () => {
               onClickAnterior={() => setSlide('3')}
               textAnterior={text.buttonRetornar}
               button={text.button}
-              onClick={() => (window.location = '/login')}
               SpanUm={<SpanDot colorbg="#bbb" />}
               SpanDois={<SpanDot colorbg="#bbb" />}
               SpanTres={<SpanDot colorbg="#bbb" />}

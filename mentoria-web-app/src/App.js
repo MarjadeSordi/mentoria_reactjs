@@ -1,21 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import PageIndex from './PageIndex';
 import PageLogin from '../src/pages/PageLogin';
-import PagedeAjuda from './PagedeAjuda';
-import PageNotFound from './PageNotFound';
 import { isAuthenticated } from './auth';
 import { Provider } from 'react-redux';
 import storeCadastro from './store/cadastroDados';
 import OnboardingComponent from './components/OnboardingComponent';
 import { GlobalStyle } from './styles/style';
-import PageDropdown from './PageDropdown';
-import PageCheckBoxTag from './PageCheckBoxTag';
-
 import PagedeCadastro from '../src/pages/PagedeCadastro';
 import { coresGlobais } from '../src/styles/style';
 import { ThemeProvider } from 'styled-components';
 import StepErro from './components/StepsCadastro/StepErro';
+import { auth } from './firebaseConfig';
 
 const OnboardingRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -24,13 +20,31 @@ const OnboardingRoute = ({ component: Component, ...rest }) => (
       isAuthenticated() ? (
         <Component {...props} />
       ) : (
-        <Redirect to={{ pathname: '/home', state: { from: props.location } }} />
+        <Redirect
+          to={{ pathname: '/login', state: { from: props.location } }}
+        />
       )
     }
   />
 );
 
 function App() {
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const logar = auth.onAuthStateChanged(userAuth => {
+      const user = {
+        uid: userAuth.uid,
+        email: userAuth.email,
+      };
+      if (userAuth) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+    return logar;
+  }, []);
+
   return (
     <ThemeProvider theme={coresGlobais}>
       <GlobalStyle />
@@ -39,16 +53,15 @@ function App() {
         <Switch>
           <OnboardingRoute exact path="/" component={OnboardingComponent} />
           <Provider store={storeCadastro}>
-            <Route exact path="/home" component={PageIndex} />
             <Route exact path="/login" component={PageLogin} />
-            <Route exact path="/cadastro" component={PagedeCadastro} />
-            <Route exact path="/dropdown" component={PageDropdown} />
-            <Route exact path="/checkboxtag" component={PageCheckBoxTag} />
             <Route exact path="/teste" component={StepErro} />
-            <Route exact path="/ajuda" component={PagedeAjuda} />
+            <Route exact path="/cadastro" component={PagedeCadastro} />
+            {user ? (
+              <Route exact path="/home" component={PageIndex} />
+            ) : (
+              <StepErro />
+            )}
           </Provider>
-
-          <Route component={PageNotFound} />
         </Switch>
       </BrowserRouter>
     </ThemeProvider>

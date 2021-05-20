@@ -1,12 +1,13 @@
 import firebase from 'firebase';
-
-const key = process.env.REACT_APP_apiKey;
-const domain = process.env.REACT_APP_authDomain;
-const pId = process.env.REACT_APP_projectId;
-const sBucket = process.env.REACT_APP_storadeBucket;
-const mSenderId = process.env.REACT_APP_messagingSenderId;
-const aId = process.env.REACT_APP_appId;
-const mentId = process.env.REACT_APP_mentId;
+import {
+  key,
+  domain,
+  pId,
+  sBucket,
+  mSenderId,
+  mentId,
+  aId,
+} from '../src/config';
 
 const firebaseConfig = {
   apiKey: key,
@@ -18,7 +19,6 @@ const firebaseConfig = {
   measurementId: mentId,
 };
 
-// Initialize Firebase
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const auth = firebase.auth();

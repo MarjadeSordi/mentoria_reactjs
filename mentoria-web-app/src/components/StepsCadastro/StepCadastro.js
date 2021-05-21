@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import primeiraTela from '../../assets/illustration/primeiraTela.svg';
 import StepCheckTecnologias from './StepCheckTecnologias';
 import StepCheckContatos from './StepCheckContatos';
-import cuate from '../../assets/illustration/cuate.svg';
 import telanove from '../../assets/illustration/telanove.svg';
 import telaoito from '../../assets/illustration/telaoito.svg';
 import { FormCadastro } from '../../styles/components/StepCadastroVisual';

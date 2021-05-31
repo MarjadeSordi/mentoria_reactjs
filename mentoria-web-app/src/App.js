@@ -13,6 +13,7 @@ import { ThemeProvider } from 'styled-components';
 import StepErro from './components/StepsCadastro/StepErro';
 import { auth } from './firebaseConfig';
 import PagedeAjuda from './PagedeAjuda';
+import CardCompleted from './components/Filters/CardCompleted';
 
 const OnboardingRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -57,6 +58,7 @@ function App() {
             <Route exact path="/login" component={PageLogin} />
             <Route exact path="/teste" component={PagedeAjuda} />
             <Route exact path="/testando" component={PagedeAjuda} />
+            <Route exact path="/card" component={CardCompleted} />
             <Route exact path="/cadastro" component={PagedeCadastro} />
             {user ? (
               <Route exact path="/home" component={PageIndex} />

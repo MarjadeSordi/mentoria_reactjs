@@ -1,5 +1,5 @@
 import Logo from '../components/Logo';
-import { Link } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 import { ButtonApp } from '../styles/components/Button';
 import { auth } from '../firebaseConfig';
 import Search, { SearchList } from '../components/Filters/Search';
@@ -19,10 +19,17 @@ import { useState } from 'react';
 import { FaDoorClosed } from 'react-icons/fa';
 import { FaDoorOpen } from 'react-icons/fa';
 import FilterTag from '../components/Filters/FilterTag';
+import CardCompleted from '../components/Filters/CardCompleted';
 
 const PageIndex = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [showPesquisa, setShowPesquisa] = useState(false);
+
+  const redirecionar = useHistory();
+
+  const redirect = () => {
+    redirecionar.push('/card');
+  };
 
   const show = () => {
     setShowMenu(true);
@@ -68,7 +75,7 @@ const PageIndex = () => {
         <DivCapsula>
           {JSONINFO.map(val => (
             <SearchList key={val.id}>
-              <DivsearchList>
+              <DivsearchList onClick={redirect}>
                 <TextoBold>
                   {val.title}
                   <div>
@@ -87,7 +94,7 @@ const PageIndex = () => {
                   <TextoBold fsize={'10px'}> {val.creationDate} | </TextoBold>
                   <TextoBold fsize={'10px'}> {val.endDate} </TextoBold>
                 </DivSearchData>
-              </DivsearchList>
+              </DivsearchList>{' '}
             </SearchList>
           ))}
         </DivCapsula>

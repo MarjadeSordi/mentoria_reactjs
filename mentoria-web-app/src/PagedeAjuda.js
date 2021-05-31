@@ -1,12 +1,9 @@
-import Buttons from './components/Buttons/Buttons';
-import Dropdown from './components/Input/Dropdown';
+import React from 'react';
+import FilterTag from './components/Filters/FilterTag';
+import Search from './components/Filters/Search';
 
-const PagedeAjuda = props => {
-  return (
-    <>
-      <Buttons />
-    </>
-  );
+const FilterTest = () => {
+  return <FilterTag />;
 };
 
-export default PagedeAjuda;
+export default FilterTest;

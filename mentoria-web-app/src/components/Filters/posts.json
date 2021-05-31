@@ -1,0 +1,149 @@
+[
+  {
+    "id": 0,
+    "title": "Make a new android native Make a new android...",
+    "creator": "Rafael Targas",
+    "description": "email I want to make a android native component with new feature in java andthat can accept all props that TouchableOpacity have we can say a new, In React-Native official...",
+    "solution": {
+      "creator": "",
+      "description": ""
+    },
+    "contributions": {
+      "creator": "",
+      "description": ""
+    },
+    "creationDate": "20/05/2021",
+    "endDate": "",
+    "startup": "AIO",
+    "area": "Area2",
+    "technology": "Tech3",
+    "typeCard": "opened",
+    "tag": "react, css"
+  },
+  {
+    "id": 1,
+    "title": "Make a new android native Make a new android...",
+    "creator": "Ana Maria",
+    "description": "whatsapp I want to make a android native component with new feature in java andthat can accept all props that TouchableOpacity have we can say a new, In React-Native official...",
+    "solution": {
+      "creator": "",
+      "description": ""
+    },
+    "contributions": {
+      "creator": "",
+      "description": ""
+    },
+    "creationDate": "15/05/2021",
+    "endDate": "19/05/2021",
+    "startup": "AIO",
+    "area": "Area3",
+    "technology": "Tech3",
+    "typeCard": "closed",
+    "tag": "react, css"
+  },
+  {
+    "id": 2,
+    "title": "Make a new android native Make a new android...",
+    "creator": "Ricardo Santos",
+    "description": "I want to make a android native component with new feature in java andthat can accept all props that TouchableOpacity have we can say a new, In React-Native official...",
+    "solution": {
+      "creator": "",
+      "description": ""
+    },
+    "contributions": {
+      "creator": "",
+      "description": ""
+    },
+    "creationDate": "15/05/2021",
+    "endDate": "19/05/2021",
+    "startup": "Food Rocket",
+    "area": "Area4",
+    "technology": "Tech4",
+    "typeCard": "closed",
+    "tag": "react, css"
+  },
+  {
+    "id": 3,
+    "title": "Make a new android native Make a new android...",
+    "creator": "Fabricio Pereira",
+    "description": "I want to make a android native component with new feature in java andthat can accept all props that TouchableOpacity have we can say a new, In React-Native official...",
+    "solution": {
+      "creator": "",
+      "description": ""
+    },
+    "contributions": {
+      "creator": "",
+      "description": ""
+    },
+    "creationDate": "20/05/2021",
+    "endDate": "",
+    "startup": "Food Rocket",
+    "area": "Area2",
+    "technology": "Tech5",
+    "typeCard": "opened",
+    "tag": "react, css"
+  },
+  {
+    "id": 4,
+    "title": "Make a new android native Make a new android...",
+    "creator": "Matheus Passos",
+    "description": "I want to make a android native component with new feature in java andthat can accept all props that TouchableOpacity have we can say a new, In React-Native official...",
+    "solution": {
+      "creator": "",
+      "description": ""
+    },
+    "contributions": {
+      "creator": "",
+      "description": ""
+    },
+    "creationDate": "15/05/2021",
+    "endDate": "19/05/2021",
+    "startup": "Food Rocket",
+    "area": "Area5",
+    "technology": "Tech3",
+    "typeCard": "closed",
+    "tag": "react, css"
+  },
+  {
+    "id": 5,
+    "title": "Make a new android native Make a new android...",
+    "creator": "Lucas Luca",
+    "description": "I want to make a android native component with new feature in java andthat can accept all props that TouchableOpacity have we can say a new, In React-Native official...",
+    "solution": {
+      "creator": "",
+      "description": ""
+    },
+    "contributions": {
+      "creator": "",
+      "description": ""
+    },
+    "creationDate": "20/05/2021",
+    "endDate": "",
+    "startup": "Food Rocket",
+    "area": "Area5",
+    "technology": "Tech6",
+    "typeCard": "opened",
+    "tag": "react, css"
+  },
+  {
+    "id": 6,
+    "title": "Make a new android native Make a new android...",
+    "creator": "Maia Teresa",
+    "description": "I want to make a android native component with new feature in java andthat can accept all props that TouchableOpacity have we can say a new, In React-Native official...",
+    "solution": {
+      "creator": "",
+      "description": ""
+    },
+    "contributions": {
+      "creator": "",
+      "description": ""
+    },
+    "creationDate": "20/05/2021",
+    "endDate": "",
+    "startup": "Ground",
+    "area": "Area2",
+    "technology": "Tech4",
+    "typeCard": "opened",
+    "tag": "react, css"
+  }
+]

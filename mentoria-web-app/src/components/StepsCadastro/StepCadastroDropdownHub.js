@@ -9,7 +9,7 @@ const StepDropdownHub = ({ name, label }) => {
   const SetarStarUp = async () => {
     try {
       const responseStartUp = await fetch(
-        'https://s3.amazonaws.com/doroteia.api/startups.json',
+        `${process.env.REACT_APP_LINK_DOROTEIA}companies.json`,
       );
       const jsonStartUp = await responseStartUp.json();
       setStartUp(jsonStartUp);

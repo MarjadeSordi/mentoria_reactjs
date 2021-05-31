@@ -71,14 +71,8 @@ export const TextoBody = styled.p`
   font-family: Open Sans;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 22px;
-  display: flex;
-  align-items: center;
-
-  /* Gray 1 */
-
-  color: #333333;
+  font-size: ${props => `${props.fsize}`};
+  color: ${props => `${props.colorText}`};
 `;
 
 export const TextButton = styled.p`

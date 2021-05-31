@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { apiLink } from '../../config';
 import { SelectLabel } from '../../styles/components/Input';
 import { TextoBold } from '../../styles/components/Typograph';
 import StepErro from './StepErro';
@@ -8,9 +9,7 @@ const StepDropdown = ({ name, label }) => {
 
   const SetarAreas = async () => {
     try {
-      const responseArea = await fetch(
-        `${process.env.REACT_APP_LINK_DOROTEIA}work-areas.json`,
-      );
+      const responseArea = await fetch(`${apiLink}work-areas.json?alt=media`);
       const jsonAreas = await responseArea.json();
       setAreas(jsonAreas);
     } catch (error) {

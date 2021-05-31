@@ -16,6 +16,7 @@ import StepDropdownHub from './StepCadastroDropdownHub';
 import { Button } from '../../text/textos';
 import { Label } from '../../text/textos';
 import StepErro from './StepErro';
+import { apiLink } from '../../config';
 
 const StepCadastro = () => {
   const [textos, setTextos] = useState([]);
@@ -28,33 +29,29 @@ const StepCadastro = () => {
 
   const TextosParaCadastro = async () => {
     try {
-      const response = await fetch(
-        `${process.env.REACT_APP_LINK_DOROTEIA}signup-texts.json`,
-      );
+      const response = await fetch(`${apiLink}signup-texts.json?alt=media`);
       const json = await response.json();
       setTextos(json);
     } catch (error) {
       <StepErro />;
+      console.log(error);
     }
   };
 
   const SetarTecnologia = async () => {
     try {
-      const responseTec = await fetch(
-        `${process.env.REACT_APP_LINK_DOROTEIA}skills.json`,
-      );
+      const responseTec = await fetch(`${apiLink}skills.json?alt=media`);
       const jsonTec = await responseTec.json();
       setTec(jsonTec);
     } catch (error) {
       <StepErro />;
+      console.log(error);
     }
   };
 
   const SetarContatos = async () => {
     try {
-      const responseCont = await fetch(
-        `${process.env.REACT_APP_LINK_DOROTEIA}contacts.json`,
-      );
+      const responseCont = await fetch(`${apiLink}contacts.json?alt=media`);
       const jsonContato = await responseCont.json();
       setContatos(jsonContato);
       const chaveContato = jsonContato.reduce(
@@ -64,6 +61,7 @@ const StepCadastro = () => {
       setInputContato(chaveContato);
     } catch (error) {
       <StepErro />;
+      console.log(error);
     }
   };
 

@@ -7,3 +7,5 @@ export const aId = process.env.REACT_APP_appId;
 export const mentId = process.env.REACT_APP_mentId;
 
 export const messaging = process.env.REACT_APP_messaging;
+
+export const apiLink = process.env.REACT_APP_LINK_DOROTEIA;

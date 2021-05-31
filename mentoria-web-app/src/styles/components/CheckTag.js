@@ -25,6 +25,7 @@ export const CheckLabel = styled.label`
   margin: 5%;
   color: #fff;
   display: flex;
+  text-align: center;
   align-itens: center;
   justify-content: center;
   background: #e0e0e0;

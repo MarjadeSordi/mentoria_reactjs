@@ -1,7 +1,9 @@
 import React from 'react';
+import { DivCapsulaCard } from '../../styles/components/CardCompleted';
+import JSONINFO from './posts.json';
 
-const CardCompleted = () => {
-  return <div> PUBLICAÇÃO </div>;
-};
+function CardCompleted(props) {
+  return <div> fuck</div>;
+}
 
 export default CardCompleted;

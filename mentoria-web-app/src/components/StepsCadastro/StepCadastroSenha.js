@@ -31,7 +31,7 @@ const StepCadastroSenha = ({ label, name, nameConfirma, labelConfirma }) => {
     setConfirmValue(e.target.value);
     const validarConfirma = new RegExp(regexSenha).test(e.target.value);
     if (validarConfirma) {
-      setcheckConfirma(Feedback.inputErroConfirmaSenha);
+      setcheckConfirma(Feedback.inputConfirmaSenha);
       setErrorConfirma('');
     }
   };

@@ -16,6 +16,7 @@ import StepDropdownHub from './StepCadastroDropdownHub';
 import { Button } from '../../text/textos';
 import { Label } from '../../text/textos';
 import StepErro from './StepErro';
+
 import { apiLink } from '../../config';
 
 const StepCadastro = () => {
@@ -72,8 +73,6 @@ const StepCadastro = () => {
     setIntervalo(time);
   };
 
-  console.log();
-  console.log(contador);
   useEffect(() => {
     if (contador < 1) {
       clearInterval(intervalo);
@@ -157,8 +156,6 @@ const StepCadastro = () => {
   function checkSenhas(sen) {
     dispachSenha({ type: 'REGISTRA_SENHA', registrarSenha: sen });
   }
-
-  console.log(RegistrarSenha);
 
   return (
     <>

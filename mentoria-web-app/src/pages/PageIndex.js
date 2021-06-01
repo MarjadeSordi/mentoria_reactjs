@@ -13,7 +13,11 @@ import {
   DivsearchText,
   FormatText,
 } from '../styles/components/Search';
-import { TextoBody, TextoBold } from '../styles/components/Typograph';
+import {
+  TextButton,
+  TextoBody,
+  TextoBold,
+} from '../styles/components/Typograph';
 import SideBar from '../components/SideBar/SideBar';
 import { useState } from 'react';
 import { FaDoorClosed } from 'react-icons/fa';
@@ -86,6 +90,7 @@ const PageIndex = () => {
                     )}{' '}
                   </div>
                 </TextoBold>
+                <TextButton>{val.creator} </TextButton>
                 <TextoBody>
                   {' '}
                   <FormatText> {val.description}</FormatText>{' '}

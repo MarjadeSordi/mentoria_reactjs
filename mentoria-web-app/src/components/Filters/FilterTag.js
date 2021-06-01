@@ -9,7 +9,11 @@ import {
   ButtonFilter,
   ButtonOut,
 } from '../../styles/components/Search';
-import { TextoBody, TextoBold } from '../../styles/components/Typograph';
+import {
+  TextButton,
+  TextoBody,
+  TextoBold,
+} from '../../styles/components/Typograph';
 import {
   DivList,
   ListFilter,
@@ -21,6 +25,8 @@ import { FaDoorClosed } from 'react-icons/fa';
 import { FaDoorOpen } from 'react-icons/fa';
 import { FiFilter } from 'react-icons/fi';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { useHistory } from 'react-router';
+import CardCompleted from './CardCompleted';
 
 const FilterTag = props => {
   const [skills, setSkills] = useState([]);
@@ -31,6 +37,8 @@ const FilterTag = props => {
   const [valor, setValor] = useState();
   const [searchTerm, setSearchTerm] = useState('');
   const [search, setSearch] = useState('');
+  const [block, setBlock] = useState(true);
+  const [identidade, setarid] = useState('');
 
   const SetarSkills = async () => {
     try {
@@ -69,7 +77,8 @@ const FilterTag = props => {
     setCheck(checar);
     const validar = e.target.value;
     if (value.includes(validar)) {
-      return '';
+      const validacao = value.filter(val => val !== validar);
+      setValue(validacao);
     } else {
       setValue([...value, validar]);
     }
@@ -84,15 +93,20 @@ const FilterTag = props => {
       list: [...value],
     };
     setValor(valores);
-    if (!check) {
-      setValor('');
-    }
   };
 
   const OnClick = () => {
     const transformar = value.toString();
+    console.log(transformar);
     setSearch(transformar);
-    console.log(search);
+  };
+
+  const redirecionar = useHistory();
+
+  const redirect = () => {
+    setarid();
+    redirecionar.push('/card');
+    setBlock(false);
   };
 
   useEffect(() => {
@@ -224,7 +238,7 @@ const FilterTag = props => {
 
       {JSONINFO.filter(val => {
         if (searchTerm === '') {
-          return '';
+          return;
         } else if (
           val.creator
             .toLocaleLowerCase()
@@ -244,7 +258,7 @@ const FilterTag = props => {
         }
       }).map(val => (
         <SearchList key={val.id}>
-          <DivsearchList>
+          <DivsearchList onClick={redirect}>
             <TextoBold>
               {' '}
               {val.title}
@@ -256,12 +270,13 @@ const FilterTag = props => {
                 )}{' '}
               </div>
             </TextoBold>
+            <TextButton> {val.creator} </TextButton>
             <FormatText>
               <TextoBody> {val.description} </TextoBody>
             </FormatText>
-            <p> {val.creator}</p>
             <p>{val.tag} </p>
           </DivsearchList>
+          <CardCompleted id={val.id} titulo={props.title} />
         </SearchList>
       ))}
 
@@ -275,7 +290,18 @@ const FilterTag = props => {
         }
       }).map(val => (
         <SearchList key={val.id}>
-          <DivsearchList>
+          <DivsearchList onClick={redirect}>
+            <TextoBold>
+              {' '}
+              {val.title}
+              <div>
+                {val.typeCard === 'opened' ? (
+                  <FaDoorOpen size={24} color="#27AE60" />
+                ) : (
+                  <FaDoorClosed size={24} color="#1B5DFF" />
+                )}{' '}
+              </div>
+            </TextoBold>
             <TextoBold> {val.title} </TextoBold>
             <TextoBody> {val.description} </TextoBody>
             <p> {val.creator}</p>

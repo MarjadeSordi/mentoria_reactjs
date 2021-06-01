@@ -43,13 +43,15 @@ export const DivCapsulaSearch = styled.div`
   width: 80%;
   background-color: #ffffff;
   left: 5%;
-  border: 1ps solid #6225cc;
   box-shadow: 0 0 5px #828282;
   padding: 4%;
 `;
 export const ButtonFilter = styled.button`
   background-color: transparent;
-  border: none;
+  border: 2px solid #828282;
+  padding-top: 2%;
+  border-radius: 25px;
+  margin: 5%;
 `;
 
 export const ButtonOut = styled.button`

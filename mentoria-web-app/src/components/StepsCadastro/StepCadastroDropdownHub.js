@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { apiLink } from '../../config';
 import { SelectLabelDrop } from '../../styles/components/Input';
 import { TextoBold } from '../../styles/components/Typograph';
 import StepErro from './StepErro';
@@ -8,9 +9,7 @@ const StepDropdownHub = ({ name, label }) => {
 
   const SetarStarUp = async () => {
     try {
-      const responseStartUp = await fetch(
-        `${process.env.REACT_APP_LINK_DOROTEIA}companies.json`,
-      );
+      const responseStartUp = await fetch(`${apiLink}companies.json?alt=media`);
       const jsonStartUp = await responseStartUp.json();
       setStartUp(jsonStartUp);
     } catch (error) {

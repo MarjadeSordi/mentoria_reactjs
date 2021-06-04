@@ -37,9 +37,7 @@ export const TitleQuatro = styled.h4`
   font-style: normal;
   font-weight: normal;
   font-size: 22px;
-  line-height: 30px;
   letter-spacing: -0.3px;
-  color: #23232e;
 `;
 
 export const TextoBold = styled.span`
@@ -71,14 +69,8 @@ export const TextoBody = styled.p`
   font-family: Open Sans;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 22px;
-  display: flex;
-  align-items: center;
-
-  /* Gray 1 */
-
-  color: #333333;
+  font-size: ${props => `${props.fsize}`};
+  color: ${props => `${props.colorText}`};
 `;
 
 export const TextButton = styled.p`

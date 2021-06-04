@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { apiLink } from '../../config';
+import { CheckTag, CheckLabel } from '../../styles/components/CheckTag';
 import {
-  CheckCapsula,
-  CheckTag,
-  CheckLabel,
-} from '../../styles/components/CheckTag';
-import { SearchList, DivsearchList } from '../../styles/components/Search';
-import { TextoBody, TextoBold, Title } from '../../styles/components/Typograph';
+  SearchList,
+  DivsearchList,
+  DivCapsulaSearch,
+  FormatText,
+  ButtonFilter,
+  ButtonOut,
+} from '../../styles/components/Search';
+import {
+  TextButton,
+  TextoBody,
+  TextoBold,
+} from '../../styles/components/Typograph';
 import {
   DivList,
   ListFilter,
@@ -13,21 +21,52 @@ import {
 } from '../../styles/pages/PageIndex';
 import InputForm from '../Input/Input';
 import JSONINFO from './posts.json';
+import { FaDoorClosed } from 'react-icons/fa';
+import { FaDoorOpen } from 'react-icons/fa';
+import { FiFilter } from 'react-icons/fi';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { useHistory } from 'react-router';
+import CardCompleted from './CardCompleted';
 
-const FilterTag = () => {
-  const [contato, setContato] = useState([]);
+const FilterTag = props => {
+  const [skills, setSkills] = useState([]);
+  const [workareas, setWorkareas] = useState([]);
+  const [companies, setCompanies] = useState([]);
   const [check, setCheck] = useState();
   const [value, setValue] = useState([]);
   const [valor, setValor] = useState();
   const [searchTerm, setSearchTerm] = useState('');
+  const [search, setSearch] = useState('');
+  const [block, setBlock] = useState(true);
+  const [identidade, setarid] = useState('');
 
-  const SetarContato = async () => {
+  const SetarSkills = async () => {
     try {
-      const responseTec = await fetch(
-        `${process.env.REACT_APP_LINK_DOROTEIA}contacts.json`,
-      );
+      const responseTec = await fetch(`${apiLink}skills.json?alt=media`);
       const jsonTec = await responseTec.json();
-      setContato(jsonTec);
+      setSkills(jsonTec);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const SetarAreas = async () => {
+    try {
+      const responseAreas = await fetch(`${apiLink}work-areas.json?alt=media`);
+      const jsonAreas = await responseAreas.json();
+      setWorkareas(jsonAreas);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const SetarCompanies = async () => {
+    try {
+      const responseCompanies = await fetch(
+        `${apiLink}companies.json?alt=media`,
+      );
+      const jsonCompanies = await responseCompanies.json();
+      setCompanies(jsonCompanies);
     } catch (error) {
       console.log(error);
     }
@@ -38,14 +77,12 @@ const FilterTag = () => {
     setCheck(checar);
     const validar = e.target.value;
     if (value.includes(validar)) {
-      return '';
+      const validacao = value.filter(val => val !== validar);
+      setValue(validacao);
     } else {
       setValue([...value, validar]);
     }
   };
-
-  console.log(check);
-  console.log(valor);
 
   const state = {
     list: [],
@@ -56,24 +93,39 @@ const FilterTag = () => {
       list: [...value],
     };
     setValor(valores);
-    if (!check) {
-      setValor('');
-    }
   };
 
   const OnClick = () => {
-    const setarpesquisa = JSON.parse(JSON.stringify(value));
-    const transformar = setarpesquisa.toString();
-    setSearchTerm(transformar);
-    console.log(searchTerm);
+    const transformar = value.toString();
+    console.log(transformar);
+    setSearch(transformar);
+  };
+
+  const redirecionar = useHistory();
+
+  const redirect = () => {
+    setarid();
+    redirecionar.push('/card');
+    setBlock(false);
   };
 
   useEffect(() => {
-    SetarContato();
+    SetarSkills();
+    SetarAreas();
+    SetarCompanies();
   }, []);
 
   return (
-    <>
+    <DivCapsulaSearch show={props.show}>
+      <ButtonOut>
+        {' '}
+        <AiOutlineCloseCircle
+          onClick={props.exit}
+          size={18}
+          color={'#828282'}
+        />{' '}
+      </ButtonOut>
+
       <InputForm
         type="text"
         placeholder={'Pesquisar...'}
@@ -83,23 +135,56 @@ const FilterTag = () => {
       />
       <p>
         {' '}
-        <TextoBold> Contatos </TextoBold>{' '}
+        <TextoBold fsize={'14px'}> Competências: </TextoBold>{' '}
       </p>
-      {contato.map(contato => (
+      {skills.map(skill => (
         <>
-          <ListFilter key={contato.id}>
+          <ListFilter key={skill.id}>
             <CheckTag
               type="checkbox"
               onChange={handleCheck}
-              OnClick={SetList}
-              name={contato.label}
-              id={contato.id}
+              onClick={SetList}
+              name={skill.label}
+              id={skill.id}
               labelB={'#47D163'}
-              value={[contato.label]}
+              value={[skill.label]}
             />
             <CheckLabel
-              htmlFor={contato.name}
-              id={contato.id}
+              htmlFor={skill.name}
+              id={skill.id}
+              labelWidth={'90%'}
+              labelHeight={'20px'}
+              labelRadius={'15px'}
+              labelFsize={'12px'}
+              labelPtop={'10%'}
+              labelTransform={'2.5'}
+              labelMargin={'10px'}
+            >
+              {skill.label}
+            </CheckLabel>{' '}
+          </ListFilter>
+        </>
+      ))}
+
+      <p>
+        {' '}
+        <TextoBold fsize={'14px'}> Áreas: </TextoBold>{' '}
+      </p>
+      {workareas.map(area => (
+        <>
+          <ListFilter key={area.value}>
+            <CheckTag
+              type="checkbox"
+              onChange={handleCheck}
+              onClick={SetList}
+              name={area.label}
+              id={area.id}
+              labelB={'#47D163'}
+              value={[area.label]}
+            />
+            <CheckLabel
+              htmlFor={area.name}
+              id={area.id}
               labelWidth={'80%'}
               labelHeight={'20px'}
               labelRadius={'15px'}
@@ -108,19 +193,52 @@ const FilterTag = () => {
               labelTransform={'2.5'}
               labelMargin={'10px'}
             >
-              {contato.label}
+              {area.label}
             </CheckLabel>{' '}
           </ListFilter>
         </>
       ))}
-      <button type="button" onClick={OnClick}>
+
+      <p>
         {' '}
-        pesquisar{' '}
-      </button>
+        <TextoBold fsize={'14px'}> StartUps: </TextoBold>{' '}
+      </p>
+      {companies.map(companie => (
+        <>
+          <ListFilter key={companie.idvalue}>
+            <CheckTag
+              type="checkbox"
+              onChange={handleCheck}
+              onClick={SetList}
+              name={companie.label}
+              id={companie.id}
+              labelB={'#47D163'}
+              value={[companie.label]}
+            />
+            <CheckLabel
+              htmlFor={companie.name}
+              id={companie.id}
+              labelWidth={'80%'}
+              labelHeight={'20px'}
+              labelRadius={'15px'}
+              labelFsize={'12px'}
+              labelPtop={'10%'}
+              labelTransform={'2.5'}
+              labelMargin={'10px'}
+            >
+              {companie.label}
+            </CheckLabel>{' '}
+          </ListFilter>
+        </>
+      ))}
+
+      <ButtonFilter type="button" onClick={OnClick}>
+        <FiFilter> </FiFilter>
+      </ButtonFilter>
 
       {JSONINFO.filter(val => {
         if (searchTerm === '') {
-          return val;
+          return;
         } else if (
           val.creator
             .toLocaleLowerCase()
@@ -140,14 +258,58 @@ const FilterTag = () => {
         }
       }).map(val => (
         <SearchList key={val.id}>
-          <DivsearchList>
+          <DivsearchList onClick={redirect}>
+            <TextoBold>
+              {' '}
+              {val.title}
+              <div>
+                {val.typeCard === 'opened' ? (
+                  <FaDoorOpen size={24} color="#27AE60" />
+                ) : (
+                  <FaDoorClosed size={24} color="#1B5DFF" />
+                )}{' '}
+              </div>
+            </TextoBold>
+            <TextButton> {val.creator} </TextButton>
+            <FormatText>
+              <TextoBody> {val.description} </TextoBody>
+            </FormatText>
+            <p>{val.tag} </p>
+          </DivsearchList>
+          <CardCompleted id={val.id} titulo={props.title} />
+        </SearchList>
+      ))}
+
+      {JSONINFO.filter(val => {
+        if (search === '') {
+          return '';
+        } else if (
+          val.tag.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+        ) {
+          return val;
+        }
+      }).map(val => (
+        <SearchList key={val.id}>
+          <DivsearchList onClick={redirect}>
+            <TextoBold>
+              {' '}
+              {val.title}
+              <div>
+                {val.typeCard === 'opened' ? (
+                  <FaDoorOpen size={24} color="#27AE60" />
+                ) : (
+                  <FaDoorClosed size={24} color="#1B5DFF" />
+                )}{' '}
+              </div>
+            </TextoBold>
             <TextoBold> {val.title} </TextoBold>
             <TextoBody> {val.description} </TextoBody>
             <p> {val.creator}</p>
+            <p>{val.tag} </p>
           </DivsearchList>
         </SearchList>
       ))}
-    </>
+    </DivCapsulaSearch>
   );
 };
 

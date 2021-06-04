@@ -13,22 +13,7 @@ import { ThemeProvider } from 'styled-components';
 import StepErro from './components/StepsCadastro/StepErro';
 import { auth } from './firebaseConfig';
 import PagedeAjuda from './PagedeAjuda';
-
-console.log('ola');
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker
-    .register('../public/firebase-messaging-sw')
-    .then(function (registration) {
-      console.log('Registration successful, scope is:', registration.scope);
-    })
-    .catch(function (err) {
-      console.log('Service worker registration failed, error:', err);
-    });
-  navigator.serviceWorker.ready.then(registration => {
-    registration.showNotification('Helloo!');
-    console.log('ola');
-  });
-}
+import CardCompleted from './components/Filters/CardCompleted';
 
 const OnboardingRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -71,8 +56,9 @@ function App() {
           <OnboardingRoute exact path="/" component={OnboardingComponent} />
           <Provider store={storeCadastro}>
             <Route exact path="/login" component={PageLogin} />
-            <Route exact path="/teste" component={StepErro} />
+            <Route exact path="/teste" component={PagedeAjuda} />
             <Route exact path="/testando" component={PagedeAjuda} />
+            <Route exact path="/card" component={CardCompleted} />
             <Route exact path="/cadastro" component={PagedeCadastro} />
             {user ? (
               <Route exact path="/home" component={PageIndex} />

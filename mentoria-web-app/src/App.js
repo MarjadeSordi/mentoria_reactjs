@@ -14,6 +14,9 @@ import StepErro from './components/StepsCadastro/StepErro';
 import { auth } from './firebaseConfig';
 import PagedeAjuda from './PagedeAjuda';
 import CardCompleted from './components/Filters/CardCompleted';
+import CardPage from './components/Filters/CardPage';
+import CardTest from './components/Filters/CardTest';
+import PagePergunta from './pages/PagePergunta';
 
 const OnboardingRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -31,7 +34,8 @@ const OnboardingRoute = ({ component: Component, ...rest }) => (
 );
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState('');
+
   useEffect(() => {
     const logar = auth.onAuthStateChanged(userAuth => {
       const user = {
@@ -56,9 +60,9 @@ function App() {
           <OnboardingRoute exact path="/" component={OnboardingComponent} />
           <Provider store={storeCadastro}>
             <Route exact path="/login" component={PageLogin} />
-            <Route exact path="/teste" component={PagedeAjuda} />
+            <Route exact path="/teste" component={CardPage} />
             <Route exact path="/testando" component={PagedeAjuda} />
-            <Route exact path="/card" component={CardCompleted} />
+            <Route exact path="/question" component={PagePergunta} />
             <Route exact path="/cadastro" component={PagedeCadastro} />
             {user ? (
               <Route exact path="/home" component={PageIndex} />

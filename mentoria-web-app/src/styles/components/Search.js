@@ -4,6 +4,7 @@ import coresGlobais from '../style';
 export const SearchList = styled.li`
   list-style: none;
   padding: 1%;
+  position: relative;
 `;
 
 export const DivsearchList = styled.div`
@@ -14,11 +15,12 @@ export const DivsearchList = styled.div`
   justify-content: center;
   width: 80%;
   height: 30%;
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 4%;
   box-shadow: 0 0 0.8em #828282;
   margin: 5%;
   -webkit-line-clamp: 3;
+  border: none;
 `;
 
 export const DivSearchData = styled.div`
@@ -59,4 +61,5 @@ export const ButtonOut = styled.button`
   border: none;
   margin-left: 90%;
   margin-bottom: 5%;
+  position: fixed;
 `;

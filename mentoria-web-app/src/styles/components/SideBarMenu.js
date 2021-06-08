@@ -5,11 +5,12 @@ export const SideBarDiv = styled.div`
   visibility: ${props => (props.visible ? 'visible' : 'hidden')};
   height: 100vh;
   width: 50%;
-  background-color: #f9f9f9;
+  background-color: #333333;
   position: absolute;
-  z-index: 1000;
+  z-index: 11;
   top: 0;
   -webkit-transition: visibility 2s, -webkit-transform 2s;
+  margin: 0;
 `;
 
 export const SideBarUl = styled.ul`
@@ -30,7 +31,6 @@ export const SideBarIcon = styled.div`
   display: flex;
   justify-content: center;
   padding-left: 5px;
-
   & hover: {
     background-color: #ffffff;
   }
@@ -52,28 +52,28 @@ export const SideBarDivInterna = styled.div`
 
 export const SideBarPerfil = styled.div`
   width: 100%;
-  height: 20vh;
+  height: 15vh;
   display: flex;
 `;
 
 export const SideBarPerfilImg = styled.img`
-  padding-top: 20%;
+  padding-top: 10%;
   margin-left: 10%;
   margin-right: 10%;
-  width: 30%;
-  height: 35%;
 `;
 
 export const SideBarPerfilText = styled.p`
+  color: #ffffff;
   margin-top: 25%;
 `;
 
 export const SideBarPerfilScore = styled.img`
+  margin-top: 0;
   margin-left: 25%;
 `;
 
 export const SideBarButtonX = styled.button`
-  padding-top: 10%;
+  padding-top: 5%;
   margin-left: 75%;
   background: none;
   border: none;
@@ -90,4 +90,5 @@ export const SideBarAlignButton = styled.div`
   display: flex;
   justify-content: center;
   align-itens: center;
+  margin: 0;
 `;

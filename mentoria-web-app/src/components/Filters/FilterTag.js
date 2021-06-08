@@ -37,8 +37,15 @@ const FilterTag = props => {
   const [valor, setValor] = useState();
   const [searchTerm, setSearchTerm] = useState('');
   const [search, setSearch] = useState('');
-  const [block, setBlock] = useState(true);
-  const [identidade, setarid] = useState('');
+  const [card, setCard] = useState(false);
+
+  const cardActive = () => {
+    setCard(true);
+  };
+
+  const cardExit = () => {
+    setCard(false);
+  };
 
   const SetarSkills = async () => {
     try {
@@ -102,12 +109,6 @@ const FilterTag = props => {
   };
 
   const redirecionar = useHistory();
-
-  const redirect = () => {
-    setarid();
-    redirecionar.push('/card');
-    setBlock(false);
-  };
 
   useEffect(() => {
     SetarSkills();
@@ -258,15 +259,33 @@ const FilterTag = props => {
         }
       }).map(val => (
         <SearchList key={val.id}>
-          <DivsearchList onClick={redirect}>
+          <DivsearchList onClick={cardActive}>
+            <CardCompleted
+              show={card}
+              name={props.creator}
+              exit={cardExit}
+              key={val.id}
+              title={val.title}
+              type={val.typeCard}
+              creator={val.creator}
+              startuo={val.startup}
+              area={val.area}
+              technology={val.technology}
+              creationDate={val.creationDate}
+              endDate={val.creationDate}
+              description={val.description}
+              solutioncreator={val.solution.creator}
+              solutiondescription={val.solution.description}
+              contributionscreator={val.contributions.creator}
+            />
             <TextoBold>
               {' '}
               {val.title}
               <div>
                 {val.typeCard === 'opened' ? (
-                  <FaDoorOpen size={24} color="#27AE60" />
+                  <FaDoorOpen size={24} color="#1B5DFF" />
                 ) : (
-                  <FaDoorClosed size={24} color="#1B5DFF" />
+                  <FaDoorClosed size={24} color="#47D163" />
                 )}{' '}
               </div>
             </TextoBold>
@@ -290,15 +309,32 @@ const FilterTag = props => {
         }
       }).map(val => (
         <SearchList key={val.id}>
-          <DivsearchList onClick={redirect}>
+          <DivsearchList onClick={cardActive}>
+            <CardCompleted
+              show={card}
+              exit={cardExit}
+              key={val.id}
+              title={val.title}
+              type={val.typeCard}
+              creator={val.creator}
+              startuo={val.startup}
+              area={val.area}
+              technology={val.technology}
+              creationDate={val.creationDate}
+              endDate={val.creationDate}
+              description={val.description}
+              solutioncreator={val.solution.creator}
+              solutiondescription={val.solution.description}
+              contributionscreator={val.contributions.creator}
+            />
             <TextoBold>
               {' '}
               {val.title}
               <div>
                 {val.typeCard === 'opened' ? (
-                  <FaDoorOpen size={24} color="#27AE60" />
+                  <FaDoorOpen size={24} color="#1B5DFF" />
                 ) : (
-                  <FaDoorClosed size={24} color="#1B5DFF" />
+                  <FaDoorClosed size={24} color="#47D163" />
                 )}{' '}
               </div>
             </TextoBold>

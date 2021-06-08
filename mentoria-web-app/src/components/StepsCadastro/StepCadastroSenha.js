@@ -47,6 +47,7 @@ const StepCadastroSenha = ({ label, name, nameConfirma, labelConfirma }) => {
         </label>
         <InputForm
           required
+          autocomplete="on"
           name={name}
           type={passwordType}
           onChange={handleInput}
@@ -74,6 +75,7 @@ const StepCadastroSenha = ({ label, name, nameConfirma, labelConfirma }) => {
           </TextoBold>{' '}
         </label>
         <InputForm
+          autocomplete="on"
           required
           id="confirmasenha"
           name={nameConfirma}

@@ -16,7 +16,8 @@ import StepDropdownHub from './StepCadastroDropdownHub';
 import { Button } from '../../text/textos';
 import { Label } from '../../text/textos';
 import StepErro from './StepErro';
-
+import { auth } from '../../firebaseConfig';
+import firebase from 'firebase';
 import { apiLink } from '../../config';
 
 const StepCadastro = () => {
@@ -120,7 +121,6 @@ const StepCadastro = () => {
 
   const RegistrarSenha = useSelector(state => state.senha);
   const dispachSenha = useDispatch();
-  console.log(RegistrarContatos);
 
   function checkName(text) {
     dispach({ type: 'REGISTRA_NOME', registrarNome: text });
@@ -156,6 +156,38 @@ const StepCadastro = () => {
   function checkSenhas(sen) {
     dispachSenha({ type: 'REGISTRA_SENHA', registrarSenha: sen });
   }
+
+  const Login = () => {
+    auth
+      .createUserWithEmailAndPassword(RegistrarEmail, RegistrarSenha)
+      .then(userCredential => {
+        userCredential.user.sendEmailVerification();
+        auth.signOut();
+        alert('E-mail de confirmação enviado');
+      })
+      .catch(err => {
+        console.log(alert(err));
+      });
+  };
+
+  const [verificado, setVerificado] = useState(false);
+
+  const verificaAutenticacao = () => {
+    if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
+      var email = window.localStorage.getItem('emailForSignIn');
+      setVerificado(true);
+      if (!email) {
+        email = alert('Por favor cadastre um e-mail correto para cadastro');
+      }
+      firebase
+        .auth()
+        .signInWithEmailLink(email, window.location.href)
+        .then(result => {
+          window.localStorage.removeItem('emailForSignIn');
+        })
+        .catch(error => {});
+    }
+  };
 
   return (
     <>
@@ -377,6 +409,8 @@ const StepCadastro = () => {
                 setStep(step + 1);
                 const confirmaSenha = e.target.confirmPassword.value;
                 checkSenhas(confirmaSenha);
+                Login();
+                verificaAutenticacao();
                 setBotao(true);
               }}
               onChange={e => {
@@ -417,9 +451,7 @@ const StepCadastro = () => {
                 setStep(step + 1);
               }}
               onChange={e => {
-                const regex = '123456';
-                const ValidarBotao = new RegExp(regex).test(e.target.value);
-                if (!ValidarBotao) return setBotao(true);
+                if (verificado) return setBotao(true);
                 else return setBotao(false);
               }}
             >
@@ -432,7 +464,9 @@ const StepCadastro = () => {
                 key={texto.id}
                 botao={botao}
                 titulo={texto.title}
-                descricao={texto.description}
+                descricao={
+                  'Um e-mail de valiação deve ter caido na sua caixa de entrada agora mesma. Clique no link e valide seus dados para avançar'
+                }
                 label={
                   <StepVerificacao
                     name={'verificacao'}

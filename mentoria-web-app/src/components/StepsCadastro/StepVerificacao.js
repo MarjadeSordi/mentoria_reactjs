@@ -25,21 +25,6 @@ const StepVerificacao = ({ name, label }) => {
     }
   };
 
-  const Login = e => {
-    auth
-      .createUserWithEmailAndPassword(email, senha)
-      .then(userCredential => {
-        // envia e-mail de confirmação.
-        userCredential.user.sendEmailVerification();
-        auth.signOut();
-        alert('E-mail de confirmação enviado');
-        isLoading(false);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
   const ValidarInput = () => {
     if (value !== '123456') {
       setCheck('');
@@ -66,7 +51,7 @@ const StepVerificacao = ({ name, label }) => {
         imgcheck={check}
         imgerror={error}
       />
-      <ButtonApp type="button" onClick={Login}>
+      <ButtonApp type="button">
         {' '}
         <TextButton>
           Enviar email de confirmação{' '}

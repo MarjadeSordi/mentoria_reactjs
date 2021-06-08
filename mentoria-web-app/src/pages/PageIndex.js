@@ -154,7 +154,7 @@ const PageIndex = () => {
           <ButtonPergunta onClick={perguntar}>
             {' '}
             <TextButton>
-              Faça uma pergunta <FaPen size={14} />
+              Faça uma <br></br> pergunta <FaPen size={12} />
             </TextButton>{' '}
           </ButtonPergunta>
         </DivCapsula>

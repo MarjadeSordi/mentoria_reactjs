@@ -38,11 +38,12 @@ function App() {
 
   useEffect(() => {
     const logar = auth.onAuthStateChanged(userAuth => {
-      const user = {
-        uid: userAuth.uid,
-        email: userAuth.email,
-      };
       if (userAuth) {
+        const user = {
+          uid: userAuth.uid,
+          email: userAuth.email,
+        };
+
         setUser(user);
       } else {
         setUser(null);

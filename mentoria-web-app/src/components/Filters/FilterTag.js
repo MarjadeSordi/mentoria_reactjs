@@ -108,8 +108,6 @@ const FilterTag = props => {
     setSearch(transformar);
   };
 
-  const redirecionar = useHistory();
-
   useEffect(() => {
     SetarSkills();
     SetarAreas();
@@ -118,15 +116,10 @@ const FilterTag = props => {
 
   return (
     <DivCapsulaSearch show={props.show}>
-      <ButtonOut>
+      <ButtonOut onClick={props.exit}>
         {' '}
-        <AiOutlineCloseCircle
-          onClick={props.exit}
-          size={18}
-          color={'#828282'}
-        />{' '}
+        <AiOutlineCloseCircle size={18} color={'#828282'} />{' '}
       </ButtonOut>
-
       <InputForm
         type="text"
         placeholder={'Pesquisar...'}
@@ -166,7 +159,6 @@ const FilterTag = props => {
           </ListFilter>
         </>
       ))}
-
       <p>
         {' '}
         <TextoBold fsize={'14px'}> Áreas: </TextoBold>{' '}
@@ -199,7 +191,6 @@ const FilterTag = props => {
           </ListFilter>
         </>
       ))}
-
       <p>
         {' '}
         <TextoBold fsize={'14px'}> StartUps: </TextoBold>{' '}
@@ -232,11 +223,9 @@ const FilterTag = props => {
           </ListFilter>
         </>
       ))}
-
       <ButtonFilter type="button" onClick={OnClick}>
         <FiFilter> </FiFilter>
       </ButtonFilter>
-
       {JSONINFO.filter(val => {
         if (searchTerm === '') {
           return;
@@ -298,7 +287,6 @@ const FilterTag = props => {
           <CardCompleted id={val.id} titulo={props.title} />
         </SearchList>
       ))}
-
       {JSONINFO.filter(val => {
         if (search === '') {
           return '';

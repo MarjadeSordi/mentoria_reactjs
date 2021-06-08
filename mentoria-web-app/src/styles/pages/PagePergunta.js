@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const InputText = styled.textarea`
   background: #e0e0e0;
   border: 1px solid;
-  border-radius: 8px;
+  border-radius: 10px;
   border: none;
   width: 100%;
 `;

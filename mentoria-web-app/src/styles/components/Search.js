@@ -61,5 +61,4 @@ export const ButtonOut = styled.button`
   border: none;
   margin-left: 90%;
   margin-bottom: 5%;
-  position: fixed;
 `;

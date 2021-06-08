@@ -28,6 +28,7 @@ const StepCadastro = () => {
   const [botao, setBotao] = useState(true);
   const [contador, setContador] = useState(60);
   const [intervalo, setIntervalo] = useState();
+  const [cadastro, setCadastro] = useState(false);
 
   const TextosParaCadastro = async () => {
     try {
@@ -69,6 +70,9 @@ const StepCadastro = () => {
 
   const contadorOnClick = () => {
     const time = setInterval(() => {
+      if (contador % 20 === 0 && !verificado && cadastro) {
+        verificaAutenticacao();
+      }
       setContador(cont => cont - 1);
     }, 1000);
     setIntervalo(time);
@@ -86,14 +90,14 @@ const StepCadastro = () => {
   }, []);
 
   useEffect(() => {
-    SetarContatos();
-  }, []);
-
-  useEffect(() => {
     TextosParaCadastro();
     return () => {
       clearInterval(intervalo);
     };
+  }, []);
+
+  useEffect(() => {
+    SetarTecnologia();
   }, []);
 
   const [step, setStep] = useState(1);
@@ -157,12 +161,15 @@ const StepCadastro = () => {
     dispachSenha({ type: 'REGISTRA_SENHA', registrarSenha: sen });
   }
 
+  const senha = useSelector(state => state.senha);
+
   const Login = () => {
     auth
-      .createUserWithEmailAndPassword(RegistrarEmail, RegistrarSenha)
+      .createUserWithEmailAndPassword(RegistrarEmail, senha)
       .then(userCredential => {
         userCredential.user.sendEmailVerification();
-        auth.signOut();
+
+        setCadastro(true);
         alert('E-mail de confirmação enviado');
       })
       .catch(err => {
@@ -172,22 +179,41 @@ const StepCadastro = () => {
 
   const [verificado, setVerificado] = useState(false);
 
-  const verificaAutenticacao = () => {
-    if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
-      var email = window.localStorage.getItem('emailForSignIn');
-      setVerificado(true);
-      if (!email) {
-        email = alert('Por favor cadastre um e-mail correto para cadastro');
-      }
-      firebase
-        .auth()
-        .signInWithEmailLink(email, window.location.href)
-        .then(result => {
-          window.localStorage.removeItem('emailForSignIn');
-        })
-        .catch(error => {});
-    }
+  const verificaAutenticacao = async () => {
+    const user = await firebase.auth().currentUser;
+    user
+      .reload()
+      .then(() => {
+        setVerificado(user.emailVerified);
+      })
+      .catch(console.log('*'));
   };
+
+  useEffect(() => {
+    if (RegistrarSenha && step === 8 && !cadastro) {
+      Login();
+    }
+  }, [RegistrarSenha, step, cadastro]);
+
+  useEffect(() => {
+    if (step === 8) {
+      contadorOnClick();
+    }
+  }, [step]);
+
+  useEffect(() => {
+    if (!verificado) {
+      setBotao(true);
+    } else {
+      setBotao(false);
+    }
+  }, [verificado]);
+
+  useEffect(() => {
+    return () => {
+      auth.signOut();
+    };
+  }, []);
 
   return (
     <>
@@ -409,8 +435,6 @@ const StepCadastro = () => {
                 setStep(step + 1);
                 const confirmaSenha = e.target.confirmPassword.value;
                 checkSenhas(confirmaSenha);
-                Login();
-                verificaAutenticacao();
                 setBotao(true);
               }}
               onChange={e => {
@@ -450,10 +474,6 @@ const StepCadastro = () => {
                 e.preventDefault();
                 setStep(step + 1);
               }}
-              onChange={e => {
-                if (verificado) return setBotao(true);
-                else return setBotao(false);
-              }}
             >
               <StepCadastroVisual
                 textButton={Button.buttonAvancar}
@@ -482,6 +502,10 @@ const StepCadastro = () => {
                   disabled: contador < 60,
                 }}
               />
+              <button type="button" onClick={verificaAutenticacao}>
+                {' '}
+                ok{' '}
+              </button>
             </FormCadastro>
           );
         } else if (step === 9 && texto.id == '9') {

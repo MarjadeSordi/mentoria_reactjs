@@ -32,39 +32,6 @@ const StepVerificacao = ({ name, label }) => {
     }
   };
 
-  return (
-    <>
-      <label htmlFor={name}>
-        {' '}
-        <TextoBold fsize={'13px'} pbottom={'2'}>
-          {' '}
-          {label}
-        </TextoBold>{' '}
-      </label>
-      <InputForm
-        name={name}
-        placeholder={'__ __ __ . __ __ __'}
-        onChange={handleInput}
-        onBlur={ValidarInput}
-        error={error}
-        check={check}
-        imgcheck={check}
-        imgerror={error}
-      />
-      <ButtonApp type="button">
-        {' '}
-        <TextButton>
-          Enviar email de confirmação{' '}
-          {loading ? (
-            <ImgLoader src={loader} alt="carregando">
-              {' '}
-            </ImgLoader>
-          ) : (
-            ''
-          )}{' '}
-        </TextButton>{' '}
-      </ButtonApp>
-    </>
-  );
+  return <></>;
 };
 export default StepVerificacao;

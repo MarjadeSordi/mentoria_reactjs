@@ -34,8 +34,8 @@ export const ButtonPergunta = styled.button`
   background-color: #1b5dff;
   color: #ffffff;
   padding: 2%;
-  border-radius: 30px;
+  border-radius: 100%;
   position: fixed;
   top: 85%;
-  left: 50%;
+  left: 60%;
 `;

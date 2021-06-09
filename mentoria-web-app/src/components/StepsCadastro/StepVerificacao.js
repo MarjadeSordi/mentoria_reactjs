@@ -25,21 +25,6 @@ const StepVerificacao = ({ name, label }) => {
     }
   };
 
-  const Login = e => {
-    auth
-      .createUserWithEmailAndPassword(email, senha)
-      .then(userCredential => {
-        // envia e-mail de confirmação.
-        userCredential.user.sendEmailVerification();
-        auth.signOut();
-        alert('E-mail de confirmação enviado');
-        isLoading(false);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
   const ValidarInput = () => {
     if (value !== '123456') {
       setCheck('');
@@ -47,39 +32,6 @@ const StepVerificacao = ({ name, label }) => {
     }
   };
 
-  return (
-    <>
-      <label htmlFor={name}>
-        {' '}
-        <TextoBold fsize={'13px'} pbottom={'2'}>
-          {' '}
-          {label}
-        </TextoBold>{' '}
-      </label>
-      <InputForm
-        name={name}
-        placeholder={'__ __ __ . __ __ __'}
-        onChange={handleInput}
-        onBlur={ValidarInput}
-        error={error}
-        check={check}
-        imgcheck={check}
-        imgerror={error}
-      />
-      <ButtonApp type="button" onClick={Login}>
-        {' '}
-        <TextButton>
-          Enviar email de confirmação{' '}
-          {loading ? (
-            <ImgLoader src={loader} alt="carregando">
-              {' '}
-            </ImgLoader>
-          ) : (
-            ''
-          )}{' '}
-        </TextButton>{' '}
-      </ButtonApp>
-    </>
-  );
+  return <></>;
 };
 export default StepVerificacao;

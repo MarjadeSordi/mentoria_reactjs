@@ -16,7 +16,8 @@ import StepDropdownHub from './StepCadastroDropdownHub';
 import { Button } from '../../text/textos';
 import { Label } from '../../text/textos';
 import StepErro from './StepErro';
-
+import { auth } from '../../firebaseConfig';
+import firebase from 'firebase';
 import { apiLink } from '../../config';
 
 const StepCadastro = () => {
@@ -27,6 +28,7 @@ const StepCadastro = () => {
   const [botao, setBotao] = useState(true);
   const [contador, setContador] = useState(60);
   const [intervalo, setIntervalo] = useState();
+  const [cadastro, setCadastro] = useState(false);
 
   const TextosParaCadastro = async () => {
     try {
@@ -68,6 +70,9 @@ const StepCadastro = () => {
 
   const contadorOnClick = () => {
     const time = setInterval(() => {
+      if (contador % 20 === 0 && !verificado && cadastro) {
+        verificaAutenticacao();
+      }
       setContador(cont => cont - 1);
     }, 1000);
     setIntervalo(time);
@@ -85,14 +90,14 @@ const StepCadastro = () => {
   }, []);
 
   useEffect(() => {
-    SetarContatos();
-  }, []);
-
-  useEffect(() => {
     TextosParaCadastro();
     return () => {
       clearInterval(intervalo);
     };
+  }, []);
+
+  useEffect(() => {
+    SetarTecnologia();
   }, []);
 
   const [step, setStep] = useState(1);
@@ -120,7 +125,6 @@ const StepCadastro = () => {
 
   const RegistrarSenha = useSelector(state => state.senha);
   const dispachSenha = useDispatch();
-  console.log(RegistrarContatos);
 
   function checkName(text) {
     dispach({ type: 'REGISTRA_NOME', registrarNome: text });
@@ -156,6 +160,60 @@ const StepCadastro = () => {
   function checkSenhas(sen) {
     dispachSenha({ type: 'REGISTRA_SENHA', registrarSenha: sen });
   }
+
+  const senha = useSelector(state => state.senha);
+
+  const Login = () => {
+    auth
+      .createUserWithEmailAndPassword(RegistrarEmail, senha)
+      .then(userCredential => {
+        userCredential.user.sendEmailVerification();
+
+        setCadastro(true);
+        alert('E-mail de confirmação enviado');
+      })
+      .catch(err => {
+        console.log(alert(err));
+      });
+  };
+
+  const [verificado, setVerificado] = useState(false);
+
+  const verificaAutenticacao = async () => {
+    const user = await firebase.auth().currentUser;
+    user
+      .reload()
+      .then(() => {
+        setVerificado(user.emailVerified);
+      })
+      .catch(console.log('*'));
+  };
+
+  useEffect(() => {
+    if (RegistrarSenha && step === 8 && !cadastro) {
+      Login();
+    }
+  }, [RegistrarSenha, step, cadastro]);
+
+  useEffect(() => {
+    if (step === 8) {
+      contadorOnClick();
+    }
+  }, [step]);
+
+  useEffect(() => {
+    if (!verificado) {
+      setBotao(true);
+    } else {
+      setBotao(false);
+    }
+  }, [verificado]);
+
+  useEffect(() => {
+    return () => {
+      auth.signOut();
+    };
+  }, []);
 
   return (
     <>
@@ -416,12 +474,6 @@ const StepCadastro = () => {
                 e.preventDefault();
                 setStep(step + 1);
               }}
-              onChange={e => {
-                const regex = '123456';
-                const ValidarBotao = new RegExp(regex).test(e.target.value);
-                if (!ValidarBotao) return setBotao(true);
-                else return setBotao(false);
-              }}
             >
               <StepCadastroVisual
                 textButton={Button.buttonAvancar}
@@ -432,7 +484,9 @@ const StepCadastro = () => {
                 key={texto.id}
                 botao={botao}
                 titulo={texto.title}
-                descricao={texto.description}
+                descricao={
+                  'Um e-mail de valiação deve ter caido na sua caixa de entrada agora mesma. Clique no link e valide seus dados para avançar'
+                }
                 label={
                   <StepVerificacao
                     name={'verificacao'}
@@ -448,6 +502,10 @@ const StepCadastro = () => {
                   disabled: contador < 60,
                 }}
               />
+              <button type="button" onClick={verificaAutenticacao}>
+                {' '}
+                ok{' '}
+              </button>
             </FormCadastro>
           );
         } else if (step === 9 && texto.id == '9') {

@@ -34,7 +34,10 @@ function SideBar(props) {
         <SideBarPerfilImg src={menina} alt="foto de perfil feminino" />
         <SideBarPerfilText>
           {' '}
-          <TextoBold fsize={'12px'}> Fulana </TextoBold>
+          <TextoBold fsize={'14px'} colorText={'#ffffff'}>
+            {' '}
+            Fulana{' '}
+          </TextoBold>
         </SideBarPerfilText>
       </SideBarPerfil>{' '}
       <SideBarPerfilScore src={Line} alt="score" />
@@ -66,8 +69,8 @@ function SideBar(props) {
       <SideBarAlignButton>
         <ButtonApp
           colorbgButton={'transparent'}
-          buttonColor={'#1B5DFF'}
-          buttonBorder={'1px solid #1B5DFF'}
+          buttonColor={'#ffffff'}
+          buttonBorder={'1px solid #ffffff'}
           buttonSize={'80%'}
           onClick={() => auth.signOut()}
         >

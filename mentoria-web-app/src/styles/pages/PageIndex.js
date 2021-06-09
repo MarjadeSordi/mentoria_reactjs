@@ -27,3 +27,15 @@ export const DivCapsula = styled.div`
   align-items: center;
   position: relative;
 `;
+
+export const ButtonPergunta = styled.button`
+  display: flex;
+  border: none;
+  background-color: #1b5dff;
+  color: #ffffff;
+  padding: 2%;
+  border-radius: 100%;
+  position: fixed;
+  top: 85%;
+  left: 60%;
+`;
